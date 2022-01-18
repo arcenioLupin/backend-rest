@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>pe.com.divemotor.solicitud-credito</groupId>
+        <artifactId>solicitud-credito-core</artifactId>
+        <version>1.0</version>
+    </parent>
+    <groupId>pe.com.divemotor.solicitud-credito.reporte</groupId>
+    <artifactId>solicitud-credito-reporte</artifactId>
+    <name>solicitud-credito-reporte</name>
+    <packaging>jar</packaging>    
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <itext.version>7.0.0</itext.version>
+        <jdk.version>1.7</jdk.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <divemotor-core.version>1.0</divemotor-core.version>
+        <jasper.version>6.4.0</jasper.version>
+    </properties>   
+    <dependencies>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>${jasper.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>pe.com.divemotor.solicitud-credito.dominio</groupId>
+            <artifactId>solicitud-credito-dominio</artifactId>
+            <version>${divemotor-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+       <!--I AVILCA 23/10/2020-->        
+        <dependency>
+           <groupId>com.vincomobile.fw</groupId>
+           <artifactId>vincofw-jasperfont-arial</artifactId>
+          <version>3.0.0</version>
+        </dependency>
+       <!--F AVILCA 23/10/2020-->   
+    </dependencies>    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <source>${jdk.version}</source>
+                    <target>${jdk.version}</target>
+                    <showDeprecation>true</showDeprecation>
+                </configuration>
+            </plugin>                
+        </plugins>
+    </build>
+	
+    <distributionManagement> 
+        <repository>
+            <id>nexus</id>
+            <name>maven-releases</name>
+            <url>http://172.20.200.32:8081/repository/dev_releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>maven-snapshots</name>
+            <url>http://172.20.200.32:8081/repository/dev_snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

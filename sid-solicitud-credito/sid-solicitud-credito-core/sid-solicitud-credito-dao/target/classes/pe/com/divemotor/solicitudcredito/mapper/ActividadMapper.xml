@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.ActividadMapper">
+
+    <cache />
+
+    <!-- BUSQUEDA DE ACTIVIDADES POR ETAPA -->
+    <resultMap id="actividadPorTipoCreditoMap" type="pe.com.divemotor.solicitudcredito.dominio.ActividadPorTipoCredito">
+        <result property="codActiCred" column="cod_acti_cred"/>
+        <result property="desActiCred" column="actividad"/>
+        <result property="codEtapCred" column="cod_etap_cred" />
+        <result property="desEtapCred" column="etapa" /> 
+        <result property="codTipoCred" column="cod_tipo_cred" />
+        <result property="codEstadoSoli" column="cod_estado_soli" />
+        <result property="desEstadoSoli" column="des_estado_soli" />
+        <result property="nroOrden" column="num_orden" />
+    </resultMap>
+    
+    
+    <resultMap id="actividadMap" type="pe.com.divemotor.solicitudcredito.dominio.Actividad">
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="codCredSoliActi" column="COD_CRED_SOLI_ACTI"/>
+        <result property="codActiCred" column="COD_ACTI_CRED" />
+        <result property="codUsuaEjec" column="COD_USUA_EJEC" /> 
+        <result property="fecUsuaEjec" column="FEC_USUA_EJEC" />
+        <result property="desActiCred" column="DES_ACTI_CRED" />
+        <result property="codCredSoliActiPend" column="COD_CRED_SOLI_ACTI_PEND" />
+        <result property="codEtapCred" column="COD_ETAP_CRED" />
+        <result property="pendGen" column="PEND_GEN" />
+        <result property="cantidadRoles" column="CANT_ROLES" />
+    </resultMap>
+    <!--Req. 87567 E2.3 ID340 EBARBOZA 13/04/2020-->
+    <resultMap id="actividaEtapadMap" type="pe.com.divemotor.solicitudcredito.dominio.ActividadEtapa">
+        <result property="codTipo" column="COD_TIPO"/>
+        <result property="descripcion" column="DESCRIPCION"/>
+        <result property="oblig" column="OBLIG" />
+        <result property="opcional" column="OPCIONAL" /> 
+        <result property="asignar" column="ASIGNAR" />
+        <result property="codActiCred" column="cod_acti_cred" />
+        <result property="codEtapCred" column="cod_etap_cred" />
+        <result property="desActiCred" column="des_acti_cred" />
+        <result property="numOrden" column="num_orden" />
+        <result property="codEstadoSoli"  column="cod_estado_soli"/>
+        <result property="descEstado"  column="desc_estado"/>
+    </resultMap>
+    <!--Req. 87567 E2.3 ID340 EBARBOZA 13/04/2020-->
+    <resultMap id="actividadAllMap" type="pe.com.divemotor.solicitudcredito.dominio.ActividadAll">
+        <result property="codActiCred"   column="COD_ACTI_CRED"/>
+        <result property="codEtapCred"   column="COD_ETAP_CRED"/>
+        <result property="desActiCred"   column="DES_ACTI_CRED"/>
+        <result property="indInactivo"   column="IND_INACTIVO"/>
+        <result property="codEstadoSoli" column="COD_ESTADO_SOLI"/>
+        <result property="numOrden"      column="NUM_ORDEN"/>
+        <result property="descripcion"      column="DESCRIPCION"/>
+        <result property="fecCreaRegi"      column="FEC_CREA_REGI"/>
+        <result property="codUsuaCreaRegi"  column="COD_USUA_CREA_REGI"/>
+        <result property="fecModiRegi"      column="FEC_MODI_REGI"/>
+        <result property="codUsuaModiRegi"  column="COD_USUA_MODI_REGI"/>
+    </resultMap>
+    
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.actividad.ListarActividadesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_ACTIVIDAD.sp_list_acti(
+        #{codSoliCred},
+        #{codUsuario},
+        #{idUsuario},
+        #{actActual, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{actSiguiente, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=actividadMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!--Req. 87567 E2.3 ID340 EBARBOZA 13/04/2020-->
+    <select id="listarActividadesEtapa" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.actividad.ListarActividadesEtapaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_ACTIVIDAD.sp_list_actividad_etapa(
+        #{codActividad},
+        #{codEtapa},
+        #{codUsuario},
+        #{idUsuario},
+        #{actActual, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{actSiguiente, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=actividaEtapadMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!--Req. 87567 E2.3 ID340 EBARBOZA 13/04/2020-->
+    <select id="listarActividadesEtapaAll" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.actividad.ListarActividadAllProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_ACTIVIDAD.sp_list_actividad_all(
+        #{codUsuario},
+        #{idUsuario},
+        #{actActual, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{actSiguiente, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=actividadAllMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    <!--Req. 87567 E2.3 ID340 EBARBOZA 13/04/2020-->
+    <select id="crearActividaEtapa" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ActividadEtapaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_ACTIVIDAD.sp_inser_acti_etapa(
+        #{codActiCred},
+        #{codEtapCred},
+        #{desActiCred},
+        #{indInactivo},
+        #{codEstadoSoli},
+        #{numOrden},
+        #{fecCreaRegi},
+        #{codUsuaCreaRegi},
+        #{fecModiRegi},
+        #{codUsuaModiRegi},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    <!--Req. 87567 E2.3 ID340 EBARBOZA 13/04/2020-->
+    <select id="actualizarActividad" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ActualizarActividadProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_ACTIVIDAD.sp_actu_activ(
+        #{codActiCred},
+        #{codEtapCred},
+        #{desActiCred},
+        #{indInactivo},
+        #{codEstadoSoli},
+        #{numOrden},
+        #{fecCreaRegi},
+        #{codUsuaCreaRegi},
+        #{fecModiRegi},
+        #{codUsuaModiRegi},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    <!--Req. 87567 E2.3 ID340 EBARBOZA 13/04/2020-->
+    <select id="actualizarActividadTipoCred" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ActualizarActividaTipoCredProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_ACTIVIDAD.sp_actu_activ_tipo_cred(
+        #{codActiCred},
+        #{codTipo},
+        #{asignar},
+        #{oblig},
+        #{codUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+   
+    
+    <!-- BUSQUEDA DE ACTIVIDADES POR TIPO DE CREDITO MBARDALES 02/02/2021 -->
+    <select id="listarActividadesPorTipoCredito" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.actividad.ListarActividadesPorTipoCreditoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_ACTIVIDAD.sp_busqueda_act_eta_tip_cred(
+        #{codActividad},
+        #{codEtapa},
+        #{codTipoCredito},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=actividadPorTipoCreditoMap},
+        #{cantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+
+</mapper>

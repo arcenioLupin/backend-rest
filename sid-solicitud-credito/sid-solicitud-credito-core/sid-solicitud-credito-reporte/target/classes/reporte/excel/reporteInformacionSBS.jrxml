@@ -1,0 +1,1197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteResumen" pageWidth="833" pageHeight="942" whenNoDataType="AllSectionsNoDetail" columnWidth="793" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9d4f39e0-9961-4ff1-ad59-c1a82b13c539">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="685"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset ListaSBS12M" uuid="c1ddb431-422d-4d18-8596-0805f207e173">
+		<field name="anio" class="java.lang.Short"/>
+		<field name="mes" class="java.lang.Short"/>
+		<field name="entidad" class="java.lang.String"/>
+		<field name="calificacion" class="java.lang.String"/>
+		<field name="saldo" class="java.lang.String"/>
+		<field name="diasVen" class="java.lang.String"/>
+		<field name="fecha" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Table Dataset ProtestosAcepSinRegu" uuid="508a4880-34a1-4e21-8dff-a60913fc6bc0">
+		<field name="tipoDocumentoAcre" class="java.lang.String"/>
+		<field name="nroDocumentoAcre" class="java.lang.String"/>
+		<field name="razonSocialAcre" class="java.lang.String"/>
+		<field name="nroDocumetos" class="java.lang.String"/>
+		<field name="monedaDocumento" class="java.lang.String"/>
+		<field name="montoDocumento" class="java.lang.Double"/>
+		<field name="montoSoles" class="java.lang.Double"/>
+		<field name="tipoDocumentoProtestado" class="java.lang.String"/>
+		<field name="fechaProtesto" class="java.lang.String"/>
+		<field name="fechaVencimiento" class="java.lang.String"/>
+		<field name="diaVencidos" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Tabla Dataset ProtestosGiradorSinRegu" uuid="e1eea9d7-1c0c-4f68-9ecf-5ca543210ad3">
+		<field name="tipoDocumentoAcre" class="java.lang.String"/>
+		<field name="nroDocumentoAcre" class="java.lang.String"/>
+		<field name="razonSocialAcre" class="java.lang.String"/>
+		<field name="nroDocumetos" class="java.lang.String"/>
+		<field name="monedaDocumento" class="java.lang.String"/>
+		<field name="montoDocumento" class="java.lang.Double"/>
+		<field name="montoSoles" class="java.lang.Double"/>
+		<field name="tipoDocumentoProtestado" class="java.lang.String"/>
+		<field name="fechaProtesto" class="java.lang.String"/>
+		<field name="fechaVencimiento" class="java.lang.String"/>
+		<field name="diaVencidos" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Table Dataset ProtestosAcepRegu" uuid="930e113a-728b-4836-a443-b74a1df982e7">
+		<field name="tipoDocumentoAcre" class="java.lang.String"/>
+		<field name="nroDocumentoAcre" class="java.lang.String"/>
+		<field name="razonSocialAcre" class="java.lang.String"/>
+		<field name="nroDocumetos" class="java.lang.String"/>
+		<field name="monedaDocumento" class="java.lang.String"/>
+		<field name="montoDocumento" class="java.lang.Double"/>
+		<field name="montoSoles" class="java.lang.Double"/>
+		<field name="tipoDocumentoProtestado" class="java.lang.String"/>
+		<field name="fechaProtesto" class="java.lang.String"/>
+		<field name="fechaVencimiento" class="java.lang.String"/>
+		<field name="diaVencidos" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Table Dataset ProtestosGiradorRegu" uuid="abd6f8f6-372a-4c81-96e9-4cb48730e85a">
+		<field name="tipoDocumentoAcre" class="java.lang.String"/>
+		<field name="nroDocumentoAcre" class="java.lang.String"/>
+		<field name="razonSocialAcre" class="java.lang.String"/>
+		<field name="nroDocumetos" class="java.lang.String"/>
+		<field name="monedaDocumento" class="java.lang.String"/>
+		<field name="montoSoles" class="java.lang.Double"/>
+		<field name="montoDocumento" class="java.lang.Double"/>
+		<field name="tipoDocumentoProtestado" class="java.lang.String"/>
+		<field name="fechaProtesto" class="java.lang.String"/>
+		<field name="fechaVencimiento" class="java.lang.String"/>
+		<field name="diaVencidos" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Tabla Dataset DetalleRepVencidos" uuid="9ac3acb7-3282-4e72-93e3-be22cbd79d6e">
+		<field name="docVenNom" class="java.lang.String"/>
+		<field name="docVenDeuTot" class="java.lang.Double"/>
+		<field name="docVenDiaAtr" class="java.lang.String"/>
+		<field name="razSoc" class="java.lang.String"/>
+		<field name="monDeuVen" class="java.lang.Double"/>
+		<field name="numDocRep" class="java.lang.String"/>
+		<field name="numDiaVen" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="nomRazSoc" class="java.lang.String"/>
+	<parameter name="condicionContribuyente" class="java.lang.String"/>
+	<parameter name="calificativo" class="java.lang.String"/>
+	<parameter name="listaDetalleItemSBS12M" class="java.util.List"/>
+	<parameter name="anioSBS12M" class="java.lang.String"/>
+	<parameter name="mesSBS12M" class="java.lang.String"/>
+	<parameter name="listaProtestosAceptantesSinRegu" class="java.util.List"/>
+	<parameter name="listaProtestosGiradorSinRegu" class="java.util.List"/>
+	<parameter name="listaProtestosAceptantesRegu" class="java.util.List"/>
+	<parameter name="listaProtestosGiradorRegu" class="java.util.List"/>
+	<parameter name="listaDetalleRepVencidos" class="java.util.List"/>
+	<parameter name="pathLogo" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="127">
+			<image>
+				<reportElement x="7" y="0" width="365" height="39" uuid="6ad05c57-6340-411f-9637-9dc2df85ce4d"/>
+				<imageExpression><![CDATA[$P{pathLogo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="11" y="75" width="78" height="15" uuid="b298260d-d884-4395-9546-40d6e2bfbc91"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Condición]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="97" width="78" height="15" uuid="bfcfc71d-83ff-4705-8abd-5868401d901e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Calificativo SBS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="54" width="443" height="15" uuid="5638571e-4f7c-455c-8fbd-2db6c564c9bb"/>
+				<textFieldExpression><![CDATA[$P{nomRazSoc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="75" width="274" height="15" uuid="dc8466a7-290e-4442-8442-15a7b1b9dc40"/>
+				<textFieldExpression><![CDATA[$P{condicionContribuyente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="89" y="97" width="273" height="15" uuid="33eca298-161d-4052-a9ee-12d016f3c8e4"/>
+				<textFieldExpression><![CDATA[$P{calificativo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="54" width="78" height="15" uuid="eee9fdc8-dafe-43ee-86b0-5c791a1e3850"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+		</band>
+		<band height="105">
+			<componentElement>
+				<reportElement key="table 3" x="11" y="30" width="775" height="60" uuid="fe572f5a-eda0-419b-9063-2de441d4712a"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset ListaSBS12M" uuid="eee71389-4c62-4725-976d-5b6b981400f3">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listaDetalleItemSBS12M}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="c1bad8da-094d-4c8d-808f-0ac88ee4847d">
+						<jr:tableHeader height="0" rowSpan="1"/>
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="dd7cd6b0-f71d-4c1b-8652-3e2f36b09b08"/>
+								<text><![CDATA[Año]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="867c086d-ac33-459d-bcd1-00ab131a1c3d"/>
+								<textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="b76e7b99-a8e8-476c-ad8b-4d395ba009b1">
+						<jr:tableHeader height="0" rowSpan="1"/>
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="4f5b35e7-f11c-42df-802c-4201a6e79b69"/>
+								<text><![CDATA[Mes]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="6ea54183-0d30-4276-b702-c5f0a78d9717"/>
+								<textFieldExpression><![CDATA[$F{mes}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="200" uuid="33aa6dc1-7e97-42ad-b32d-643f57c42d39">
+						<jr:tableHeader height="0" rowSpan="1"/>
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="200" height="30" uuid="57c4cfd3-be35-4c0c-981d-ab1758895220"/>
+								<text><![CDATA[Entidad]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="20" uuid="a011832a-9c0c-4cca-84f2-4336533eba4b"/>
+								<textFieldExpression><![CDATA[$F{entidad}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="98ee55bd-9d17-4464-9ba3-c9092ee2c9a7">
+						<jr:tableHeader height="0" rowSpan="1"/>
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="f4eab4f9-7b7c-4efc-8f8b-4f047815600f"/>
+								<text><![CDATA[Calificación]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="da9e2208-5747-4706-9328-5849820ed513"/>
+								<textFieldExpression><![CDATA[$F{calificacion}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="9ef87a9b-d29d-4993-a406-de55c2c16dd1">
+						<jr:tableHeader height="0" rowSpan="1"/>
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="ff90c1e9-34e4-40dd-b6d8-e2ac4c9aea4a"/>
+								<text><![CDATA[Saldo	]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="54b981d7-a364-4a5b-9122-435bd7770681"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{saldo}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="b61d470b-cb09-42ad-b66d-039f26854707">
+						<jr:tableHeader height="0" rowSpan="1"/>
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="fbdf24a4-af65-4a2d-8bae-b8ec5d388cbf"/>
+								<text><![CDATA[Días Vencido]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="096d5169-7127-4697-be4d-137a8a45c9d7"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{diasVen}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="6f368280-6cef-48cb-b14d-44133baf517b">
+						<jr:tableHeader height="0" rowSpan="1"/>
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="e62762be-404e-4d1d-9ab8-90a2619b3fef"/>
+								<text><![CDATA[A la Fecha]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="71c8911f-61b1-44d1-9b9a-5af49cad950f"/>
+								<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="11" y="8" width="540" height="15" uuid="aa005f6d-6db6-485f-992a-15cb7869b30e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deuda - Saldos
+]]></text>
+			</staticText>
+		</band>
+		<band height="94">
+			<componentElement>
+				<reportElement key="table 3" x="11" y="30" width="775" height="56" uuid="91c5b3fe-54f4-426e-a946-dd884a87a1bb"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset ProtestosAcepSinRegu" uuid="54b53976-5b8e-44ce-b7f9-e5bbaf7cf3f3">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listaProtestosAceptantesSinRegu}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="70" uuid="f0e34849-e6a8-4512-a7ee-2e4d2e4891f6">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="34fa10bb-75a3-4e62-9941-3b04e7980d46"/>
+								<text><![CDATA[Tipo Doc. Acreedor
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="fb457635-d64f-4931-aec4-9fb23bce96b4"/>
+								<textFieldExpression><![CDATA[$F{tipoDocumentoAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="5103754b-cf14-437d-ad6d-6fded6c8e3b6">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="0965da72-03f6-4df7-a64a-5612a8434878"/>
+								<text><![CDATA[DOI Acreedor
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="0472912a-e5de-4dae-9297-39ee0f93ef21"/>
+								<textFieldExpression><![CDATA[$F{nroDocumentoAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="200" uuid="e1c69629-9f3e-448f-881a-f9d50d02ba54">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="200" height="30" uuid="cdd1fc8e-d563-427e-8de9-4f58c1aeba91"/>
+								<text><![CDATA[Empresa Acreedora
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="20" uuid="edc81fb7-2d3a-403c-96ba-42c683872280"/>
+								<textFieldExpression><![CDATA[$F{razonSocialAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="05181c7d-a967-4579-a4eb-75d92423f894">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="86986f22-f049-4c4f-9b03-d2344ca0efac"/>
+								<text><![CDATA[Nro. documentos
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="97daa75e-2233-47d1-bbb7-d9f923256c18"/>
+								<textFieldExpression><![CDATA[$F{nroDocumetos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="9164094b-1606-40a3-ace9-645012e3bc08">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="fd4c2523-239b-4467-8a74-623b62ce45eb"/>
+								<text><![CDATA[Tipo documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="39bf55ad-290c-4340-8701-f11b029d372f"/>
+								<textFieldExpression><![CDATA[$F{tipoDocumentoProtestado}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="b06d1715-55f9-4467-99c4-0f4fded026f8">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="75c87dde-5456-4f3f-ab43-0db9b0dec660"/>
+								<text><![CDATA[Moneda documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="20" uuid="db39de74-70d1-4fcd-802f-7422ba0b7d0a"/>
+								<textFieldExpression><![CDATA[$F{monedaDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="55f6c77c-17fe-492b-a80c-00ee6c04005e">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="3b13a7c5-7ae5-4261-8c5e-a10e3d380643"/>
+								<text><![CDATA[Monto documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="20" uuid="5521a4db-2977-4a5a-bcb3-f8d2e845b19f"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{montoDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="7b6d0d84-a8e7-41a7-9ca2-3ef9f010076e">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="86aa6035-a304-4bad-b746-4d276c34ff90"/>
+								<text><![CDATA[Monto soles
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="20" uuid="4eb1bbbd-b084-44a4-902a-8a8dc13888eb"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{montoSoles}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="06bad2c8-ad30-4112-a697-617212355a4c">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="d6ce377d-2fe3-428e-a818-68de9daac851"/>
+								<text><![CDATA[Fecha Protesto
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="5edcd6fa-1011-41bb-8900-961fca2fc4cd"/>
+								<textFieldExpression><![CDATA[$F{fechaProtesto}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="29004caa-cb12-4954-9a02-c71f7e607332">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="71b2029c-cb88-4474-ba3d-ba9efb8cfb31"/>
+								<text><![CDATA[Fecha Vencimiento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="2b4cc455-9a00-4cfb-82a6-709e639ecf83"/>
+								<textFieldExpression><![CDATA[$F{fechaVencimiento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="abfbea01-7fca-4911-91d5-12c304805fa1">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="6fb21ba1-f475-4357-abe4-91fc15ff20b1"/>
+								<text><![CDATA[Días Vencidos
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="20" uuid="344166c0-bfba-4905-ae47-7a61e40fa95d"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{diaVencidos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="11" y="9" width="540" height="15" uuid="e6dfc588-4e0f-4eee-8c4e-c2ef47c74c4c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Protestos Aceptantes Sin Regularizar
+]]></text>
+			</staticText>
+		</band>
+		<band height="100">
+			<componentElement>
+				<reportElement key="table 3" x="11" y="30" width="775" height="56" uuid="75eed65e-c055-4747-b7c2-8ad5514736a3"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Tabla Dataset ProtestosGiradorSinRegu" uuid="4425076a-f921-4153-a181-bc356b75d566">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listaProtestosGiradorSinRegu}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="70" uuid="396d105f-5d23-439e-bcab-ddfd013dde8d">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="a199c107-cdb3-44da-a044-5156ff0593f4"/>
+								<text><![CDATA[Tipo Doc. Acreedor
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="73b1dc94-8fdf-4457-ac52-992963b1f651"/>
+								<textFieldExpression><![CDATA[$F{tipoDocumentoAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="5a0470d6-ce5a-43e6-8030-1d39bf29b17d">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="35a1dcf7-fee3-413e-96d1-272badaf285e"/>
+								<text><![CDATA[DOI Acreedor
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="cca8b43e-6d6f-4e88-8e43-14d2b9da52a4"/>
+								<textFieldExpression><![CDATA[$F{nroDocumentoAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="200" uuid="682e1f14-99d1-47f5-acd4-45f5c1229bd5">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="200" height="30" uuid="608e9a72-cdef-4c02-b1a4-b93a40c8cbbd"/>
+								<text><![CDATA[Empresa Acreedora
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="20" uuid="2ff4c76d-1c40-4656-9efb-3f621da26ec4"/>
+								<textFieldExpression><![CDATA[$F{razonSocialAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="e87c119f-f6b4-4a77-95ac-053d86daa1a4">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="8539339c-6d55-43f8-a739-50ee999ae034"/>
+								<text><![CDATA[Nro. documentos
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="a8519c3e-dc1f-4add-860c-5dd78cdb27d5"/>
+								<textFieldExpression><![CDATA[$F{nroDocumetos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="02607593-8a8f-44fc-b77e-87aafa27b10b">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d3e33b11-3673-40a2-a7e3-d120b615ccff"/>
+								<text><![CDATA[Tipo documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="a3b16c09-4ec1-4908-93d2-6f288b96d502"/>
+								<textFieldExpression><![CDATA[$F{tipoDocumentoProtestado}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="6e30e88a-caaa-4ea3-9811-9f25f2cdc769">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="b23c5f0a-1eec-4713-a06a-cdca743dfb3f"/>
+								<text><![CDATA[Moneda documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="20" uuid="d1a8d127-52e9-4f6e-a755-51a10b336796"/>
+								<textFieldExpression><![CDATA[$F{monedaDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="7e594782-1342-4f50-b61e-63b603d84547">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="0895ef88-b742-4448-97be-fbcf8f4bd71e"/>
+								<text><![CDATA[Monto documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="20" uuid="7ff89377-aede-42c5-a877-7982e81fa2ec"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{montoDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="f953239c-b5ad-48a5-ae11-e7c43157aeaf">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="22c6a58e-6372-4f1e-a2ff-04b13115464a"/>
+								<text><![CDATA[Monto soles
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="20" uuid="7c68783b-026e-42e6-a024-43741b020425"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{montoSoles}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="b903faaf-9328-4008-855c-0c15237340f0">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="4d20eef9-32e4-4a1e-ab7f-448454cc4abf"/>
+								<text><![CDATA[Fecha Protesto
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="e94a9b00-9f75-472f-8566-80eb87fa4bb1"/>
+								<textFieldExpression><![CDATA[$F{fechaProtesto}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="f15c7bde-d905-4181-87af-7598b0320304">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="3ed0faed-a6cd-4b4f-8592-93bec80ddba3"/>
+								<text><![CDATA[Fecha Vencimiento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="1c022d5f-4242-4a1a-8cec-1151d3301f18"/>
+								<textFieldExpression><![CDATA[$F{fechaVencimiento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="18545b21-9717-413d-9abc-5ab340d77e2e">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="5857cc5c-50dc-46e2-ba74-336de44f3a12"/>
+								<text><![CDATA[Días Vencidos
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="20" uuid="43d47b48-1785-4718-b039-72c024ada517"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{diaVencidos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="11" y="9" width="540" height="15" uuid="0a5cea96-0d20-4175-a739-7db0227d425e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Protestos Girador Sin Regularizar
+]]></text>
+			</staticText>
+		</band>
+		<band height="102">
+			<componentElement>
+				<reportElement key="table 3" x="11" y="32" width="775" height="56" uuid="315e86e9-243c-46ae-95b3-a5c63ef9d3ea"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset ProtestosAcepRegu" uuid="d9938318-3dcd-406a-92c1-9c8b682f9640">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listaProtestosAceptantesRegu}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="70" uuid="e18e87cf-5f66-48c5-b78c-ecabbf27808f">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="48b7e883-115f-4921-9109-cfead74b9b3f"/>
+								<text><![CDATA[Tipo Doc. Acreedor
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="74414988-5689-45f9-8a9f-57e43b3fde4b"/>
+								<textFieldExpression><![CDATA[$F{tipoDocumentoAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="995e617f-0fea-4f63-abe6-74538dbf4dfc">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="fa0b8109-a3fc-44ac-a924-a459efc7c860"/>
+								<text><![CDATA[DOI Acreedor
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="617519dd-51de-4659-9ef2-558c0a6a588f"/>
+								<textFieldExpression><![CDATA[$F{nroDocumentoAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="200" uuid="fc13863e-aa83-4a9d-8ba0-b09ea3d5ecf5">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="200" height="30" uuid="f1d95d22-1b5d-42dd-8f65-fa802035ed0f"/>
+								<text><![CDATA[Empresa Acreedora
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="20" uuid="793307d2-f6d4-4997-82ca-6545e5a5ec08"/>
+								<textFieldExpression><![CDATA[$F{razonSocialAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="19e7c46a-bcd7-47ef-a8b6-a759c01b7f2a">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="cf4dec53-9294-490f-bb9c-a590e1124832"/>
+								<text><![CDATA[Nro. documentos
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="09d0e20a-6d04-4ed9-a65d-095522efdd64"/>
+								<textFieldExpression><![CDATA[$F{nroDocumetos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="9c383b24-4be6-470d-904a-ee9968bb5675">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="06fe79e4-ed33-447e-a7e5-2d11a6d20293"/>
+								<text><![CDATA[Tipo documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="eb1c4123-a107-433b-b902-4633c5df5b46"/>
+								<textFieldExpression><![CDATA[$F{tipoDocumentoProtestado}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="a7bbbd2f-6ee6-4e69-87b4-1c5802667ebb">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="92f4efff-9879-403f-bb51-dba3f03e1cf3"/>
+								<text><![CDATA[Moneda documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="20" uuid="0b6979cf-749f-4f96-831c-7c72a6b4d144"/>
+								<textFieldExpression><![CDATA[$F{monedaDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="87affaf9-437f-4946-b053-24c5c6397463">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="05352cde-7611-452c-a00a-f18ea74866f9"/>
+								<text><![CDATA[Monto documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="20" uuid="3d828627-c67f-4fe6-82b2-4118f1b8e44c"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{montoDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="3944362d-fc64-487a-ad85-4e8f25ee9b0e">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="7a27561f-31b8-4d55-ac2c-2836a1cc251a"/>
+								<text><![CDATA[Monto soles
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="20" uuid="64c259fa-8c95-40af-a6db-19418792ec76"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{montoSoles}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="825b120d-4106-4efe-ac25-75000c7cff4f">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="de873f61-d6d2-4107-9497-024e0a517a9a"/>
+								<text><![CDATA[Fecha Protesto
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="eadfa1c7-3be5-4efc-81b2-af8225da5af9"/>
+								<textFieldExpression><![CDATA[$F{fechaProtesto}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="e9eaf4d3-f1d6-4e5f-81f7-676b5e75fbc3">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="4e71aa46-ba50-4019-88c2-e59ec0961ae0"/>
+								<text><![CDATA[Fecha Vencimiento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="78f1a8f2-9d43-4164-a06a-f231f254005f"/>
+								<textFieldExpression><![CDATA[$F{fechaVencimiento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="366d4ad5-3429-4ea8-9359-3436d35b2ac5">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="f4f51a38-300c-442d-9799-2defd0c6681b"/>
+								<text><![CDATA[Días Vencidos
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="20" uuid="f842792a-cd03-4aa6-9206-9bcc8617c26e"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{diaVencidos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="11" y="9" width="540" height="15" uuid="19061115-9df3-4b92-a367-5735a5e463c7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Protestos Aceptantes Regularizado
+]]></text>
+			</staticText>
+		</band>
+		<band height="108">
+			<componentElement>
+				<reportElement key="table 3" x="11" y="32" width="775" height="56" uuid="224ea546-091d-475b-b37a-bce1aedc38c3"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset ProtestosGiradorRegu" uuid="2498fe09-b65f-4795-a810-a5430efbc57c">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listaProtestosGiradorRegu}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="70" uuid="2d26f6c1-6a04-4477-8fe3-76da08dfe466">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="09bd0fc8-9775-46b6-8249-24c5edf866d7"/>
+								<text><![CDATA[Tipo Doc. Acreedor
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="337d5975-f9d9-407d-938f-55bc2059d492"/>
+								<textFieldExpression><![CDATA[$F{tipoDocumentoAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="4881429b-e91f-4761-af3f-0219d27f3fa5">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="39de4f6a-df08-4527-9cf5-20889e39c43f"/>
+								<text><![CDATA[DOI Acreedor
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="40948c33-886e-4d24-b36e-99ccfdf8cdeb"/>
+								<textFieldExpression><![CDATA[$F{nroDocumentoAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="200" uuid="b7a6e3a5-7dd5-4236-9110-f5eca0d20369">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="200" height="30" uuid="f4deac14-8ba0-44dc-a704-98dc536f3df2"/>
+								<text><![CDATA[Empresa Acreedora
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="20" uuid="39d8733d-ce9e-4395-9f93-aa427b9948c9"/>
+								<textFieldExpression><![CDATA[$F{razonSocialAcre}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="062e60ea-11b1-49e4-abfb-1667d780d9ba">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="e105a220-a81f-4987-ab11-b76441a14d8c"/>
+								<text><![CDATA[Nro. documentos
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="6f9c9837-58f8-48cc-a16b-90400cc407a4"/>
+								<textFieldExpression><![CDATA[$F{nroDocumetos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="3bdb13f6-e04c-4f0f-8bf8-d9ab5ba4e69f">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d048c813-9cfe-43cf-8f48-82d1253aab35"/>
+								<text><![CDATA[Tipo documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="cee1a032-1bce-479b-8522-8fb7f44e8b97"/>
+								<textFieldExpression><![CDATA[$F{tipoDocumentoProtestado}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="2417e2c5-47f8-4962-935f-5a8b4a0c4e6e">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="2868b07c-68d5-4420-9d96-1ad9f9bbc715"/>
+								<text><![CDATA[Moneda documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="20" uuid="57947e42-57c3-430a-a269-0bf8b2a30856"/>
+								<textFieldExpression><![CDATA[$F{monedaDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="be8d5898-950e-464a-864b-157318910b90">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="f03697f3-513e-4971-81a1-4b940b227a7a"/>
+								<text><![CDATA[Monto documento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="20" uuid="3497b4fd-ecbe-4a8b-bd3c-094fa3d6be77"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{montoDocumento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="a719333d-b578-48bb-960f-6c57e5cdbd8a">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="8ba1bda9-474b-48a5-aeaf-b19c415c8d66"/>
+								<text><![CDATA[Monto soles
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="20" uuid="da10de20-bc08-4d71-b2de-863744082b83"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{montoSoles}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="47e8d25a-ecaa-4c11-9bbc-c8de39f43ce2">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="21ec2182-4a70-42b8-9a86-b35aaacde599"/>
+								<text><![CDATA[Fecha Protesto
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="4d74d5d6-b443-4ead-b6fa-b9965f3ba907"/>
+								<textFieldExpression><![CDATA[$F{fechaProtesto}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="bb69d865-5877-469e-9f7f-bf817efed692">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="83586508-2fdf-4c87-b617-89b831a04935"/>
+								<text><![CDATA[Fecha Vencimiento
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="e5009fbb-48d6-471f-b0c8-f2e54ab484dc"/>
+								<textFieldExpression><![CDATA[$F{fechaVencimiento}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="a3d08feb-70eb-48c4-821b-13721bff525f">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" uuid="9b3a63f1-c7e3-4494-9c6a-791651b7bf63"/>
+								<text><![CDATA[Días Vencidos
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="20" uuid="83794b51-581b-4b21-a1b6-32269d0960e4"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{diaVencidos}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="11" y="9" width="540" height="15" uuid="8318c8e8-4d54-47b7-861f-67853184db5c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Protestos Girador Regularizado
+]]></text>
+			</staticText>
+		</band>
+		<band height="88" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 3" x="11" y="30" width="775" height="50" uuid="3b4f8cbd-ca3b-4ac9-bce4-fb35072d2cd9"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Tabla Dataset DetalleRepVencidos" uuid="a604c7de-8f31-4f09-9c95-011202e3ee53">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{listaDetalleRepVencidos}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="226" uuid="b88b26cc-9000-4cc8-bcab-81546222203d">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="226" height="30" uuid="d168414e-020d-4eb7-89f5-9feb475de475"/>
+								<text><![CDATA[Nombre del Doc. Vencido
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="226" height="20" uuid="ba32849f-7587-4341-ac74-d3b0019398cc"/>
+								<textFieldExpression><![CDATA[$F{docVenNom}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="200" uuid="f32015b1-f99f-4967-a6c3-3c10b8a1c3d6">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="200" height="30" uuid="7aad60f8-dbd4-4812-a34b-b992b8271307"/>
+								<text><![CDATA[Acreedor
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="200" height="20" uuid="c2f1ebc5-0ab0-4573-9c75-95ffc320eabb"/>
+								<textFieldExpression><![CDATA[$F{razSoc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="dec38ac3-14fe-445e-971b-324946cced12">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="98a6016a-e140-41d6-b091-901ec289cd86"/>
+								<text><![CDATA[Monto Deuda Vencida
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="20" uuid="2aab38f2-9107-43bf-b06f-95d13d94e567"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{monDeuVen}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="8bdd8ee0-ffb2-4092-9623-c006d1a99476">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="8dc8477f-c5a0-41eb-a369-807052cf1fd8"/>
+								<text><![CDATA[Nro de Documentos Reportados
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="96fe980c-09eb-4dea-b400-fefff930e9e1"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{numDocRep}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="55" uuid="0eb92186-ab98-4e62-af5c-2ab33d4ea2ac">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="55" height="30" uuid="221d720d-5d95-4f10-be59-8e0bef724398"/>
+								<text><![CDATA[Dias Deuda Vencida
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="55" height="20" uuid="8011b499-2a25-4cbf-b9ab-b3b96811e9a4"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{numDiaVen}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="c94cc613-dde9-4705-b2fd-55e471032eba">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" uuid="c0071f4e-8e47-42ee-88f5-df769ba8487d"/>
+								<text><![CDATA[Monto Total Deuda Vencida por Doc.
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="99" height="20" uuid="8fdd2869-2cbe-4352-a5d1-5da2d0fa85cc"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{docVenDeuTot}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="92" uuid="e33deb4e-a145-4132-b691-15eb5c2dc57f">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="92" height="30" uuid="7917c9ed-6039-4666-9b4f-a3508e41302e"/>
+								<text><![CDATA[Máximo Dias Deuda Vencida por Doc.
+]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="92" height="20" uuid="068983fc-f2b3-42ed-9a0c-d8e6dc57769d"/>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{docVenDiaAtr}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="11" y="8" width="540" height="15" uuid="8b4097a2-d9d5-40d4-815b-3cd40b6dbe35"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Vencidos
+]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

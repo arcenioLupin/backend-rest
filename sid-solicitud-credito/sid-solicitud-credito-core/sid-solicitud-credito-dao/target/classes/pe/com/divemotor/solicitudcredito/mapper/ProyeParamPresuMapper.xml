@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.ProyeParamPresuMapper">
+    <cache />
+    
+    <resultMap id="ProyeccionMap" type="pe.com.divemotor.solicitudcredito.dominio.ProyeParamPresu">
+        <result property="codProye" column="COD_YDT_REAL_PERIODO"/>
+         <result property="codTipoVta" column="COD_TIPO_VTA"/>
+        <result property="desTipoVta" column="DES_TIPO_VTA"/>
+        <result property="codAreaVta" column="COD_AREA_VTA"/>
+        <result property="desAreaVta" column="DES_AREA_VTA"/>
+        <result property="codZona" column="COD_ZONA"/>
+        <result property="desZona" column="DES_ZONA"/>
+        <result property="anio" column="VAL_ANO"/>
+        <result property="mes" column="VAL_MES"/>
+        <result property="valorYTD" column="VAL_YTD_VTA"/>
+        <result property="valorReal" column="VAL_REAL_VTA"/>
+    </resultMap>
+    
+    
+    <select id="listarProyeccion" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.proyeparampresu.ListarProyeParamPresuProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_PROYE.SP_LIST_PROYE_PP(
+        #{codTipoVta},
+        #{codAreaVta},
+        #{codZona},
+        #{periodo},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=ProyeccionMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="actualizarProyeccion" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.proyeparampresu.ActualizarProyeParamPresuProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_PROYE.SP_ACT_PROYE_PP(
+        #{id},
+        #{codTipoVta},
+        #{codAreaVta},
+        #{codZona},
+        #{anio},
+        #{mes},
+        #{valorYTD},
+        #{valorReal},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+</mapper>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteResumen" pageWidth="833" pageHeight="942" whenNoDataType="AllSectionsNoDetail" columnWidth="793" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9d4f39e0-9961-4ff1-ad59-c1a82b13c539">
+	<property name="ireport.zoom" value="1.1269722013523664"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<field name="codAreaVenta" class="java.lang.String"/>
+	<field name="codClie" class="java.lang.String"/>
+	<field name="numFichaVtaVeh" class="java.lang.String"/>
+	<field name="totVenta" class="java.lang.Double"/>
+	<field name="tipSoliCred" class="java.lang.String"/>
+	<field name="valCi" class="java.lang.Double"/>
+	<field name="valMonFin" class="java.lang.Double"/>
+	<field name="canPlazMes" class="java.lang.Integer"/>
+	<field name="fecVenc1raLet" class="java.util.Date"/>
+	<field name="valPorcTeaSigv" class="java.lang.Integer"/>
+	<field name="desZona" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="52">
+			<staticText>
+				<reportElement x="2" y="52" width="735" height="0" uuid="e1db94ac-9ea2-4429-99a4-ec290ea12d46"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<image>
+				<reportElement x="0" y="0" width="365" height="39" uuid="6ad05c57-6340-411f-9637-9dc2df85ce4d"/>
+				<imageExpression><![CDATA["D:\\Proyectos\\sid\\sid-solicitud-credito\\sid-solicitud-credito-core\\sid-solicitud-credito-reporte\\src\\main\\resources\\reporte\\excel\\logo_divemotor.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30">
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="0" width="58" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="42ceb30a-4aa5-42bf-9198-ad84239c9f0c"/>
+				<textElement>
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Area de Venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="180" y="0" width="84" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="4cd6ecbb-882d-477b-bdb0-147c4b849baf"/>
+				<text><![CDATA[N°FV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="264" y="1" width="65" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="501c5b70-47df-4302-aea9-f45bbbf1cdcd"/>
+				<textElement>
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Total Venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="329" y="1" width="94" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="b918cbbb-c146-4ba3-8947-a000e20f4fcc"/>
+				<textElement>
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Tipo Operacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="486" y="1" width="61" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="46850636-8116-4921-9eb6-07c08f547a67"/>
+				<textElement>
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Monto Financiado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="547" y="1" width="62" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="c8cc35fb-73ae-421e-ae9e-93cf47fb9c21"/>
+				<text><![CDATA[N° Meses]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="733" y="0" width="59" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="70b21922-f2a8-468c-a801-045999763570"/>
+				<text><![CDATA[Region]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="423" y="0" width="63" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="52443a67-f51b-4704-abd5-bbb9a842c9c2"/>
+				<textElement>
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Cuota Inicial(Inc.IGV)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="60" y="0" width="120" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="705ab4a5-a80d-4f0d-8855-efc7b1a050d9"/>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="609" y="1" width="69" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="365c2937-f287-4b99-a874-f81605dfb58e"/>
+				<text><![CDATA[Vcto.1eraLetra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="678" y="0" width="55" height="29" forecolor="#000000" backcolor="#CCCCCC" uuid="b0ff7049-fa7a-4bc6-bcce-4c1185c2d9d4"/>
+				<text><![CDATA[TEA(S/igv)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="2" y="0" width="58" height="20" uuid="3784957c-9811-4df7-81da-dffd01cce41b"/>
+				<textFieldExpression><![CDATA[$F{codAreaVenta}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="60" y="0" width="119" height="20" uuid="3f0e7639-b07d-4f36-a252-b69b48d419e1"/>
+				<textFieldExpression><![CDATA[$F{codClie}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="547" y="0" width="62" height="20" uuid="5835c714-55f6-4533-bcb7-38b86d0b809c"/>
+				<textFieldExpression><![CDATA[$F{canPlazMes}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="733" y="0" width="59" height="20" uuid="246ac1e9-b773-44b8-a286-9e5664a992f1"/>
+				<textFieldExpression><![CDATA[$F{desZona}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="486" y="0" width="61" height="20" uuid="b44a9542-c8a7-4f40-859c-b5ad2e21754b"/>
+				<textFieldExpression><![CDATA[$F{valMonFin}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="423" y="0" width="63" height="20" uuid="f79cea48-b7e0-4d7f-a612-1f6b187041f3"/>
+				<textFieldExpression><![CDATA[$F{valCi}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="263" y="0" width="66" height="20" uuid="4706a851-a5f6-4534-b140-6c8aac481503"/>
+				<textFieldExpression><![CDATA[$F{totVenta}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="179" y="0" width="84" height="20" uuid="23eee9f7-78fd-44a6-bb33-30b30ccc8dd8"/>
+				<textFieldExpression><![CDATA[$F{numFichaVtaVeh}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="329" y="0" width="94" height="20" uuid="d0ef9cc0-b722-4884-930d-dec47fd367f8"/>
+				<textFieldExpression><![CDATA[$F{tipSoliCred}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="609" y="0" width="69" height="20" uuid="392f40c9-f840-436e-bea1-b62b22e9dd90"/>
+				<textFieldExpression><![CDATA[$F{fecVenc1raLet}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="678" y="0" width="55" height="20" uuid="111c3813-2a32-4b7a-9b56-5ea1c888e536"/>
+				<textFieldExpression><![CDATA[$F{valPorcTeaSigv}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

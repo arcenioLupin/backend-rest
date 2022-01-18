@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.ReporteCreditoOtorgadoMapper">
+
+    <cache />
+    
+     <resultMap id="creditoOtorgadoMap" type="pe.com.divemotor.solicitudcredito.dominio.ReporteCreditoOtorgado">
+
+        <result property="fecha" column="FECHA" />
+        <result property="areaVenta" column="AREA_VENTA"/>
+        <result property="codCliente" column="COD_CLIENTE"/>
+        <result property="nomCliente" column="NOM_CLIENTE"/>
+        <result property="tipoPersona" column="TIPO_PERSONA"/>
+        <result property="nroFichaVenta" column="NRO_FICHA_VENTA"/>
+        <result property="nroUnidades" column="NRO_UNIDADES"/>
+        <result property="totalVenta" column="TOTAL_VENTA"/>
+        <result property="tipoOperacion" column="TIPO_OPERACION"/>
+        <result property="cuotaInicial" column="CUOTA_INICIAL"/>
+        <result property="montoFinanciado" column="MONTO_FINANCIADO" />
+        <result property="nroMeses" column="NRO_MESES" /> 
+        <result property="region" column="REGION" />
+        <result property="fecha" column="FECHA" />
+        <!--I Req. 87567 E2.1 Nuevos campos en reportes jquintanilla 19/02/2020 -->
+        <result property="segmento" column="SEGMENTO" />
+        <result property="sucursal" column="SUCURSAL" />
+        <result property="opCronograma" column="OP_CRONOGRAMA" />
+        <result property="cuotaInicialPorcentaje" column="CUOTA_INICIAL_PORCENTAJE" />
+        <result property="vencimientoPrimeraLetra" column="VENCIMIENTO_PRIMERA_LETRA" />
+        <result property="vencimientoUltimaLetra" column="VENCIMIENTO_ULTIMA_LETRA" />
+        <result property="teaSinIgv" column="TEA_SIN_IGV" />
+        <result property="garantiasAdicionales" column="GARANTIAS_ADICIONALES" />
+        <result property="ratioCobertura" column="RATIO_COBERTURA" />
+        <result property="gastosAdministrativos" column="GASTOS_ADMINISTRATIVOS" />
+        <result property="seguroDivemotor" column="SEGURO_DIVEMOTOR" />
+        <result property="asesorComercial" column="ASESOR_COMERCIAL" />
+        <result property="nroSolicitud" column="NRO_SOLICITUD" />
+        <result property="estadoSolicitud" column="ESTADO_SOLICITUD" />
+        <result property="estadoOp" column="ESTADO_OP" />
+        <!--I Req. 87567 E2.1 Nuevos campos en reportes jquintanilla 19/02/2020 -->
+        <!--I Req. 87567 E2.1 ID:12 avilca 16/09/2020> -->
+        <result property="fechaOp" column="FECHA_OP" />
+        <result property="fechaAprobOp" column="FECHA_APROB_OP" />
+        <!--F Req. 87567 E2.1 ID:12 avilca 16/09/2020> -->
+        <result property="usuarioReg" column="USUARIO_EST_REG" />
+        <result property="fechaReg" column="FECHA_EST_REG" />
+        <result property="usuarioVig" column="USUARIO_EST_VIG" />
+        <result property="fechaVig" column="FECHA_EST_VIG" />
+        <result property="usuarioEval" column="USUARIO_EST_EVAL" />
+        <result property="fechaEval" column="FECHA_EST_EVAL" />
+        <result property="usuarioAprob" column="USUARIO_EST_APROB" />
+        <result property="fechaAprob" column="FECHA_EST_APROB" />
+        <result property="numRuc" column="NUM_RUC" />
+        <result property="codFamiliaVeh" column="COD_FAMILIA_VEH" />
+        <result property="desFamiliaVeh" column="DES_FAMILIA_VEH" />
+        <result property="codTipoVeh" column="COD_TIPO_VEH" />
+        <result property="desTipoVeh" column="DES_TIPO_VEH" />
+        <result property="codMarca" column="COD_MARCA" />
+        <result property="nomMarca" column="NOM_MARCA" />
+        <result property="sumaValorRealiz" column="SUMA_VAL_REALIZ" />
+        <result property="usuarioAprobNivel1" column="USUARIO_APROB_NIVEL1" />
+        <result property="fechaAprobNivel1" column="FECHA_APROB_NIVEL1" />
+        <result property="usuarioAprobNivel2" column="USUARIO_APROB_NIVEL2" />
+        <result property="fechaAprobNivel2" column="FECHA_APROB_NIVEL2" />
+        <result property="usuarioAprobNivel3" column="USUARIO_APROB_NIVEL3" />
+        <result property="fechaAprobNivel3" column="FECHA_APROB_NIVEL3" />
+        <result property="usuarioAprobNivel4" column="USUARIO_APROB_NIVEL4" />
+        <result property="fechaAprobNivel4" column="FECHA_APROB_NIVEL4" />
+        <result property="usuarioAprobNivel5" column="USUARIO_APROB_NIVEL5" />
+        <result property="fechaAprobNivel5" column="FECHA_APROB_NIVEL5" />
+        <result property="usuarioAprobNivel6" column="USUARIO_APROB_NIVEL6" />
+        <result property="fechaAprobNivel6" column="FECHA_APROB_NIVEL6" /> 
+        <result property="nivelesAprob" column="NIVELES_APROB" />   
+        <result property="valGastAdm" column="VAL_GAST_ADM" />
+        <!--I AVILCA 13/10/2021-->
+        <result property="usuarioAprobNivelMin" column="USUARIO_APROB_NIVEL_MIN" />
+        <result property="fechaAprobNivelMin" column="FECHA_APROB_NIVEL_MIN" /> 
+        <!--F AVILCA 13/10/2021-->                                  
+    </resultMap>
+    
+  
+    <select id="listarCreditoOtorgado" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.creditoOtorgado.ListarReporteCreditoOtorgadoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_REPORTES.SP_LIST_CRED_SOLI_CO(
+        #{codRegion},
+        #{codAreaVenta},
+        #{codTipoOperacion},
+        #{fechaFactuInicio},
+        #{fechaFactuFin},
+        #{opAprobados},
+        <!--I Req. 87567 E2.1 ID:12 avilca 16/09/2020> -->
+        #{cliente},
+        #{rucCliente},
+        #{fechaOpeInicio},
+        #{fechaOpeFin},
+        <!--F Req. 87567 E2.1 ID:12 avilca 16/09/2020> -->
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=creditoOtorgadoMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+</mapper>

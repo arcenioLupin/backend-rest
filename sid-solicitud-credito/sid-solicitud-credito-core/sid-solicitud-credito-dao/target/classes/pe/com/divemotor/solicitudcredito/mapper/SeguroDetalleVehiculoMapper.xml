@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.SeguroDetalleVehiculoMapper">
+
+    <cache />
+    <resultMap id="seguroDetalleVehiculoMap" type="pe.com.divemotor.solicitudcredito.dominio.SeguroDetalleVehiculo">
+        <result property="descripcion" column="descripcion"/>
+        <result property="desTipoActividad" column="des_tipo_actividad"/>
+        <result property="numPlacaVeh" column="num_placa_veh"/>
+        <result property="numMotorVeh" column="num_motor_veh"/>
+        <result property="numChasis" column="num_chasis"/>
+        <result property="canNroAsie" column="can_nro_asie"/>
+        <result property="numPedidoVeh" column="num_pedido_veh"/>
+        <result property="codGarantia" column="cod_garantia"/>
+    </resultMap>
+        
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.seguro.ListarSeguroDetalleVehiculoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SEGURO.SP_LIST_SOLI_CRED_SEGURO_DET(
+        #{codSoliCred},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SeguroDetalleVehiculoMapper.seguroDetalleVehiculoMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+</mapper>

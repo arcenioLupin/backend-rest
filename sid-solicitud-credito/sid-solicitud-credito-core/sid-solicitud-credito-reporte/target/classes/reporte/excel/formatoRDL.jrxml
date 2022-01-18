@@ -1,0 +1,1825 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="formatoRDL" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cf35ae72-9886-4a72-9b1b-0abc87e3deb6">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1152"/>
+	<parameter name="titulo" class="java.lang.String"/>
+	<parameter name="indNuevoUsado" class="java.lang.String"/>
+	<parameter name="nomEmpresa" class="java.lang.String"/>
+	<parameter name="codClie" class="java.lang.String"/>
+	<parameter name="nomPerso" class="java.lang.String"/>
+	<parameter name="numDocu" class="java.lang.String"/>
+	<parameter name="dirDomicilio" class="java.lang.String"/>
+	<parameter name="distrito" class="java.lang.String"/>
+	<parameter name="provincia" class="java.lang.String"/>
+	<parameter name="departamento" class="java.lang.String"/>
+	<parameter name="nomBanco" class="java.lang.String"/>
+	<parameter name="marca" class="java.lang.String"/>
+	<parameter name="valAnoFab" class="java.lang.String"/>
+	<parameter name="modelo" class="java.lang.String"/>
+	<parameter name="chasis" class="java.lang.String"/>
+	<parameter name="motor" class="java.lang.String"/>
+	<parameter name="placa" class="java.lang.String"/>
+	<parameter name="tea" class="java.lang.String"/>
+	<parameter name="periGracia" class="java.lang.String"/>
+	<parameter name="valIntPerGra" class="java.lang.String"/>
+	<parameter name="tipoSeguro" class="java.lang.String"/>
+	<parameter name="canPlazMes" class="java.lang.String"/>
+	<parameter name="nomRespoFina" class="java.lang.String"/>
+	<parameter name="codClasifSbsClie" class="java.lang.String"/>
+	<parameter name="nomPersAval" class="java.lang.String"/>
+	<parameter name="doiAval" class="java.lang.String"/>
+	<parameter name="direccionAval" class="java.lang.String"/>
+	<parameter name="distritoAval" class="java.lang.String"/>
+	<parameter name="provinciaAval" class="java.lang.String"/>
+	<parameter name="departamentoAval" class="java.lang.String"/>
+	<parameter name="valMontoFianzaAval" class="java.lang.String"/>
+	<parameter name="garantiaPropiaMobi" class="java.lang.Boolean"/>
+	<parameter name="garantiaAjenaMobi" class="java.lang.Boolean"/>
+	<parameter name="indTipoBienMobi" class="java.lang.String"/>
+	<parameter name="otorganteMobi" class="java.lang.Boolean"/>
+	<parameter name="nroPlacaMobi" class="java.lang.String"/>
+	<parameter name="garantiaPropiaMobiAdic" class="java.lang.Boolean"/>
+	<parameter name="garantiaAjenaMobiAdic" class="java.lang.Boolean"/>
+	<parameter name="indTipoBienMobiAdic" class="java.lang.String"/>
+	<parameter name="otorganteMobiAdic" class="java.lang.Boolean"/>
+	<parameter name="nroPlacaMobiAdic" class="java.lang.String"/>
+	<parameter name="otorganteHipoAdic" class="java.lang.Boolean"/>
+	<parameter name="direccionHipoAdic" class="java.lang.String"/>
+	<parameter name="distritoHipoAdic" class="java.lang.String"/>
+	<parameter name="provinciaHipoAdic" class="java.lang.String"/>
+	<parameter name="departamentoHipoAdic" class="java.lang.String"/>
+	<parameter name="valMontOtorHipoAdic" class="java.lang.String"/>
+	<parameter name="valRealizGarHipoAdic" class="java.lang.String"/>
+	<parameter name="codRangoGarHipoAdic" class="java.lang.String"/>
+	<parameter name="desTipoActividadHipoAdic" class="java.lang.String"/>
+	<parameter name="indInfo" class="java.lang.String"/>
+	<parameter name="tipoPersona" class="java.lang.String"/>
+	<parameter name="periGracSinInt" class="java.lang.String"/>
+	<parameter name="diasPeriGrac" class="java.lang.String"/>
+	<parameter name="indNroOpe" class="java.lang.String"/>
+	<parameter name="tipoPersAval" class="java.lang.String"/>
+	<parameter name="fecFirmaCont" class="java.lang.String"/>
+	<parameter name="tipoVeh" class="java.lang.String"/>
+	<parameter name="fecEntreLeg" class="java.lang.String"/>
+	<parameter name="tipoPersGarante" class="java.lang.String"/>
+	<parameter name="nomPersGarante" class="java.lang.String"/>
+	<parameter name="doiGarante" class="java.lang.String"/>
+	<parameter name="direccionGarante" class="java.lang.String"/>
+	<parameter name="distritoGarante" class="java.lang.String"/>
+	<parameter name="provinciaGarante" class="java.lang.String"/>
+	<parameter name="departamentoGarante" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="734" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="505" height="61" uuid="3a39109b-8f6a-48c6-9bf6-4ba28de1c3a9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="62" width="505" height="16" backcolor="#999999" uuid="6913c1ca-f92c-4c29-b725-d1eb9d3e6ee4"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="64" width="160" height="13" backcolor="#CCCCCC" uuid="6f88a0ca-5ba0-4081-b3b2-22b872d1fe73"/>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vendedor]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="78" width="251" height="16" uuid="da6b6e5f-057e-4ebc-8223-79fe3a35a783"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="80" width="159" height="12" uuid="90b199f4-092c-4c89-9f9d-80902fa14209"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Nombre de la empresa]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="94" width="505" height="15" backcolor="#999999" uuid="583f237d-214e-4e00-b09e-d039d030b24f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="95" width="110" height="13" uuid="3e580ce8-7dfd-4256-8d9f-c1236b3d2b21"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deudor]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="109" width="505" height="15" uuid="3e8b0fa3-4450-447a-a97b-beea0c0733f3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="124" width="251" height="16" uuid="93d730b0-628c-42ec-888a-e4021b5e5c6d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="140" width="251" height="15" uuid="b7db9384-bd34-445c-95dd-cd32782d39d5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="155" width="251" height="53" uuid="a0b303ce-d42a-4cfd-b394-2986c1ef7071"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="155" width="254" height="15" uuid="cd30844c-3916-418a-b24d-c8b5e18ba715"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="169" width="125" height="13" uuid="adfaadb2-d9f0-4b83-97d0-2ed06ec0fd2e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="182" width="125" height="14" uuid="4ace0132-6aef-46f9-8523-c710a6e4cbac"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="126" width="100" height="12" uuid="fd94fae7-5693-4e03-ac0a-6f9bdecd36a6"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="141" width="100" height="12" uuid="2f4178de-5b24-408e-97da-b2ffe25dc7ca"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[N° de RUC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="157" width="100" height="12" uuid="65358c6a-af4b-4a4d-a2a9-3abb1dd0dabd"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Domicilio]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="251" y="195" width="125" height="13" uuid="e4997964-92a3-4b39-b56a-1e4d1428a745"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="169" width="129" height="13" uuid="5fcfffdf-558b-499d-a547-50f96451dfee"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="182" width="129" height="14" uuid="ff94798b-9d9a-4fa7-a7ad-1715ccf1e485"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="195" width="129" height="13" uuid="70c67508-ff67-46ab-9824-71797707e30a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="254" y="170" width="100" height="11" uuid="3cd86c17-1b74-4025-88b5-079d683076cb"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Distrito]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="183" width="100" height="11" uuid="fda3d745-bd06-43f6-a4dc-511227def41b"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Provincia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="196" width="100" height="11" uuid="d5e00ae0-91a5-493d-8ac9-dfbaee5bebc9"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="251" y="78" width="254" height="16" uuid="3c2e2606-26d1-4f48-90c2-c70a76d252c4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="124" width="254" height="16" uuid="5dbee302-370f-4f44-b37a-d53fde483bd0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="140" width="254" height="15" uuid="fc6a81f2-6bc9-4768-80c7-19abacfc4cfb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="208" width="505" height="15" backcolor="#999999" uuid="220733b5-9ca8-4974-9d36-2333e898f0b3"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="209" width="100" height="13" uuid="c49127ea-921c-4bda-bc1c-5345575cf37e"/>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Aval y Fianza]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="253" width="251" height="13" uuid="1ba4fbf4-9767-4342-8f20-c60913a81645"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="253" width="254" height="13" uuid="04b7eca3-3d95-4d80-b069-af34de0d76b5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="238" width="251" height="15" uuid="45a1a92c-f26d-4542-875f-7afe2a15326c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="238" width="254" height="15" uuid="f45d35a8-4c9f-4962-ab76-dfc1fc72cb5c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="240" width="100" height="12" uuid="8d7b4d10-26b7-46eb-bdcb-7213eda0af04"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Nombres y Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="254" width="100" height="11" uuid="3e96064f-7a3c-4e68-a972-34f76eb5c783"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Doi]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="320" width="251" height="13" uuid="02d1f1c1-106b-46a6-b8f8-c736b4973226"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="320" width="125" height="13" uuid="4f30c86f-0d87-4c69-a6c9-c8e61897a237"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="320" width="129" height="13" uuid="03b07b9f-a803-460b-8d98-6f0e2d31ac3d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="254" y="321" width="100" height="14" uuid="060843d4-b7c8-4635-8bc1-c25e051e0afd"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[USD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="321" width="100" height="11" uuid="abd1e235-c252-4201-83c4-97608783c3ef"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Monto de Fianza]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="446" width="505" height="15" backcolor="#999999" uuid="f210d2e0-83db-4dda-8e36-1684a5308f7a"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="448" width="203" height="12" uuid="8233b5b9-c043-42f8-bba4-b1359cdc9aaf"/>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Información del Financiamiento]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="461" width="251" height="14" uuid="793e660f-1bc2-4a84-ad23-a7c91a019b0b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="463" width="176" height="11" uuid="dd19cc3a-6475-4c30-984a-feaa60b4a819"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Origen de reconocimiento]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="251" y="461" width="254" height="14" uuid="10778c62-9035-43c1-abcf-f63f5b9dd972"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="475" width="251" height="65" uuid="7d569b2f-323d-45d9-8034-e66af9949477"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="475" width="80" height="13" uuid="ccc26f80-16d8-4838-a235-1cae71fb7d5c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="488" width="80" height="13" uuid="4fdddbee-9d65-4bd2-9bdc-fedec61b6a6f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="501" width="80" height="12" uuid="0f79701b-4300-45d9-a2f2-e8e4b5076afd"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="513" width="80" height="13" uuid="412ae339-2e83-40a8-8075-52c21dc3abf0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="526" width="80" height="14" uuid="7f7d14c8-c8c2-4ad5-a5a4-fc51835ba36b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="503" width="215" height="14" uuid="dac54dea-e0bd-48ff-92c6-aa9b687940d1"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Información de Factura]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="331" y="475" width="174" height="13" uuid="e943f8d8-7241-4ca2-a16a-892467e67ba5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="488" width="62" height="13" uuid="d55bc7ae-d733-4236-8267-3b1c9ac6fe30"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="501" width="174" height="12" uuid="34de0982-0943-4e1e-8f78-b7a7b01d17e5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="513" width="174" height="13" uuid="a8fac398-31a6-46fe-8345-c26ca8d84e1d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="526" width="62" height="14" uuid="0ba209fb-3004-447c-adcd-833287803882"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="254" y="476" width="69" height="12" uuid="6b90223f-17c1-405c-bfcf-a1e17f7bac6e"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="489" width="69" height="12" uuid="75558a04-e708-41ad-a5f4-cc1d604fe379"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Año]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="502" width="69" height="12" uuid="8d9733f9-8bce-4c9b-ab9d-9cecff3822cb"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Chasis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="514" width="69" height="12" uuid="586ae4af-50f1-4754-8b13-b9a065d8b07a"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Motor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="526" width="69" height="14" uuid="62f108c7-c716-4fd3-9544-97f2d87af1b9"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="393" y="488" width="45" height="13" uuid="c072356c-2c2e-4509-b7a8-7dcc1789b788"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="397" y="489" width="35" height="12" uuid="6b0f320d-10ad-4144-92c7-5ad6f1dd319d"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="438" y="488" width="67" height="13" uuid="9b8d5c8b-1a9b-4741-9d22-d6dd5c72407c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="393" y="526" width="45" height="14" uuid="c513a48d-f761-4892-8834-7d6914b4294d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="438" y="526" width="67" height="14" uuid="e03b587d-7722-4cd7-8f41-1d29ba882ee9"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="398" y="526" width="35" height="14" uuid="78c280e5-8cbd-465e-a3e6-0ea9ceaf5320"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="223" width="505" height="15" uuid="0cfdb7bb-5e7a-4de0-8626-516e105e279f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="266" width="251" height="54" uuid="5f867d06-c358-417a-b151-e455fd20f305"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="266" width="254" height="15" uuid="710aedcc-2f3e-4e69-8bee-9377ef76dffa"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="281" width="129" height="13" uuid="cbd4f683-9fb9-4f91-917b-8608968a3c4d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="307" width="125" height="13" uuid="4dff5e7d-64d6-47d6-ae32-001bf53df19b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="294" width="125" height="14" uuid="f88ec5c3-6c30-457a-b123-7482c8ab575c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="307" width="129" height="13" uuid="84acacd5-162b-4eb8-8904-e9a89dddd979"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="281" width="125" height="13" uuid="c0943c53-f0aa-4e98-b8b2-2e30b7460040"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="254" y="282" width="100" height="13" uuid="5f12c527-15c8-42b2-9318-077cdf709e00"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Distrito]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="296" width="100" height="13" uuid="a2ab74c4-7acc-48b2-8f8a-7ba6efdf44ee"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Provincia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="309" width="100" height="12" uuid="77886179-dda2-43e0-9d64-16348e9d3cb1"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="539" width="251" height="12" uuid="29a5b5ad-b964-4042-9846-62b95ff54f68"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="574" width="251" height="12" uuid="89c51420-7c81-499a-939c-88d70e64a9bd"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="551" width="251" height="12" uuid="35e19b80-63ab-40b6-8429-1645671b9c01"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="563" width="251" height="12" uuid="d0f223cf-fc6b-4fd1-8161-c710109b666a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="539" width="254" height="12" uuid="7cedf24f-5dc9-4474-9d12-82ca0de710b1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="574" width="254" height="12" uuid="0eaf793f-2eda-41ef-b503-9bf898a9806a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="551" width="254" height="12" uuid="7014a417-168a-4dcb-8a2e-c51b0f9d97e2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="551" width="254" height="12" uuid="fb5353a8-8c1c-49f6-87cd-582140d4d9be"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="563" width="142" height="12" uuid="355d4f9f-158b-4fe3-8c50-af630e48559b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="541" width="110" height="12" uuid="5ea131bb-ce98-4208-a5c2-1e09a79a95a6"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[TEA sin IGV (sin interés)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="552" width="110" height="12" uuid="24367a07-c603-4ca0-9dd7-de41dd73f53e"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Prima de seguros]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="564" width="110" height="11" uuid="20a824d0-8328-4c14-8aa4-2b8dff4571ce"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Plazo de seguro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="575" width="110" height="12" uuid="e16b43c4-8935-4f86-9030-de2f7465179a"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Periodo de Gracia (SI/NO)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="393" y="563" width="112" height="12" uuid="0406ab97-95cd-4a3d-82a6-d1828cee78b6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="394" y="564" width="35" height="12" uuid="5c9872d8-52da-4496-89ac-3dea7c5031ab"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[MESES]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="610" width="505" height="14" backcolor="#999999" uuid="3e0ae3cd-4a0e-419b-949c-0a5b97245a50"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="611" width="153" height="12" uuid="f98b25bc-2bef-4551-96fb-76b87a0c2f4d"/>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Garantía(s) Mobiliaria(s)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="624" width="251" height="12" uuid="b106279a-7835-40e0-8098-6506c894bc0c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="636" width="251" height="12" uuid="8a98413a-bf59-4c3b-957f-5f3b3faf9851"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="648" width="251" height="12" uuid="7df19a00-29bb-49d1-a298-177a8bb4068d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="660" width="114" height="12" uuid="af382381-02de-4220-8805-683bfe775b7e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="624" width="80" height="12" uuid="569a5d5f-0d51-4d10-a3a4-edffb9cdcabb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="114" y="660" width="391" height="12" uuid="dc07a986-1fa0-4e68-a9a6-1f3f75baf6ce"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="624" width="62" height="12" uuid="6020afde-a060-4712-bd19-f637f021723a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="393" y="624" width="45" height="12" uuid="efd31393-52c5-4795-9285-2ce352a3fa2b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="438" y="624" width="67" height="12" uuid="daa27d15-333e-441f-bd91-5dea68aad3f8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="636" width="80" height="12" uuid="eb54d636-4dd5-48b5-92c3-3a87b4d6dd1b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="648" width="80" height="12" uuid="b007dacf-0451-400f-937f-445ad2466784"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="636" width="62" height="12" uuid="f6e08bb0-e05f-4b68-9f2b-07bd2e809f5a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="648" width="62" height="12" uuid="da3c6ffd-9a9c-45b7-b054-45f7ec363ebb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="393" y="636" width="45" height="12" uuid="03f8e922-6299-4a3a-9b9c-d5afb0f2207c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="393" y="648" width="45" height="12" uuid="1773f474-e663-4d16-b0ce-bf6427a658df"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="438" y="636" width="67" height="12" uuid="3551968e-0570-4b52-994f-ca82a4a24526"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="438" y="648" width="67" height="12" uuid="a23af0fb-c260-40f2-b680-e5090e6d0130"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="625" width="234" height="12" uuid="25c5a405-9808-4731-a255-374df3e4db01"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Constitución de Garantía Mobiliaria (bien propio)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="637" width="234" height="12" uuid="670e4399-1d87-4499-b262-80fe52651284"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Pre Constitución de Garantía Mobiliaria (ajeno, futuro)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="649" width="234" height="12" uuid="fb0beb6f-ebf5-406b-8b3a-091f6a92ac15"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Otorgante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="661" width="99" height="12" uuid="d1a08208-4f55-4290-8da1-6d6450696e18"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[N° de Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="625" width="68" height="12" uuid="03fd3705-4ff5-4130-a7c0-66de02230ff5"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="637" width="68" height="12" uuid="eb62bc64-aa15-4c85-a9a8-f823663fedce"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="255" y="649" width="68" height="11" uuid="03f48529-049f-478a-9e96-a197399130ce"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Deudor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="625" width="40" height="12" uuid="f2df7995-6f24-4842-9ff8-f338d8d8ce41"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="637" width="39" height="11" uuid="6c7d45c4-fd1c-42c9-b581-8c63b4854855"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="649" width="41" height="12" uuid="037062ca-35f1-402f-af05-5c8b81f780cf"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Fiador]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="672" width="505" height="14" backcolor="#999999" uuid="0024fa80-b904-444b-841d-388ee8348a31"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="698" width="251" height="12" uuid="3f3dfcea-33a4-48f3-91f2-fc0fb59afb09"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="710" width="251" height="12" uuid="63d4687b-3531-43f9-81cc-8fd41e182ded"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="686" width="251" height="12" uuid="658bfe5d-18d4-4ec9-bc85-c56446f6d6fd"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="438" y="686" width="67" height="12" uuid="de434396-ef1d-4714-9132-9aecdbd83fdf"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="686" width="62" height="12" uuid="fd2e4b9c-77e8-4584-b620-875e22d21659"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="686" width="80" height="12" uuid="6d7c2176-4a97-45f7-aca6-e38f8aabae88"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="393" y="686" width="45" height="12" uuid="7aea7226-5333-40a1-ad25-6924d3b435e5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="698" width="80" height="12" uuid="557072d2-68cb-4ba8-8c7c-595097d59f8f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="710" width="80" height="12" uuid="9d30bb49-b614-4875-9012-2fb5cae2cfa7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="698" width="62" height="12" uuid="dce74cdf-bdff-490d-b4b5-046b17280d64"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="710" width="62" height="12" uuid="0f1aedbb-c2dd-4dc6-b5d3-5b42e1244d9b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="393" y="698" width="45" height="12" uuid="d0d34a3e-87a3-4e12-9e12-836bd98995f5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="393" y="710" width="45" height="12" uuid="0d85712d-22ef-421e-ac27-b71546a74ae9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="438" y="698" width="67" height="12" uuid="588e2561-80da-43c3-ab14-425db23f798d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="438" y="710" width="67" height="12" uuid="3be7642f-a2a0-434f-89ab-c7f432f912f2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="722" width="114" height="12" uuid="09d31866-2641-4cea-b3f4-1d358bea5592"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="114" y="722" width="391" height="12" uuid="2e9c28ba-6f3c-4b74-a046-dc2ce1cf5918"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="687" width="234" height="11" uuid="7b6f1a3a-3cb5-4754-b2bf-846a1ccc2081"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Constitución de Garantía Mobiliaria (bien propio)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="699" width="234" height="11" uuid="9d12759d-057d-4c55-9cc8-282813611a56"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Pre Constitución de Garantía Mobiliaria (ajeno, futuro)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="711" width="234" height="12" uuid="9c171179-a92e-4f38-af8d-584ad9ebb7ad"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Otorgante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="723" width="99" height="11" uuid="250b16cf-1258-472d-865e-41f096ef6d0d"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[N° de Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="687" width="68" height="12" uuid="ba8c08d4-f234-47ad-88b7-3da2c23afdaa"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="699" width="68" height="11" uuid="62c04dc1-fb61-41e5-abe7-ba7de2f15ee9"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[SI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="711" width="68" height="12" uuid="654847ff-16c8-4f9c-83fe-b9411514d10d"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Deudor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="687" width="40" height="12" uuid="6ca2cf3e-e92f-4ac5-8b02-e7f5d56f6eaa"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="698" width="35" height="12" uuid="01519e4e-47a1-4022-bad2-d1df29ca2475"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="711" width="41" height="11" uuid="23f4bcbc-f209-4d7a-8a54-4fe3ec12048d"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Fiador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="673" width="234" height="13" uuid="6966f403-8fe4-43fa-83e0-fabef2ef2aff"/>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Garantía(s) Mobiliaria(s) Adicionales]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="376" y="294" width="129" height="13" uuid="f8d08f6c-4e7c-4a68-8da9-c659b0c5145c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="268" width="101" height="14" uuid="4baf5445-6b25-465e-b5eb-e173d88aafda"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Domicilio]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="64" y="2" width="374" height="13" uuid="8a26cc28-f542-4146-8e70-077125b1a4bf"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="200" y="29" width="100" height="15" uuid="c04cae8f-ca4b-49d3-9a87-93bd0c777033"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{indNuevoUsado}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="254" y="79" width="238" height="14" uuid="4ff09c1e-1002-4685-ba00-8dc1838c2361"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="254" y="126" width="238" height="12" uuid="2707c2d4-b48f-4bf9-b6a1-4c67ed456d44"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomPerso}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="255" y="141" width="237" height="12" uuid="55f059b1-08e2-4cd3-9f1a-cef17a6bc8ac"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numDocu}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="254" y="156" width="238" height="12" uuid="50110c24-3839-4b8b-ad0f-8ffde0241559"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{dirDomicilio}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="170" width="112" height="10" uuid="8420400e-8927-4838-8572-c696690797f2"/>
+				<textElement>
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{distrito}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="183" width="112" height="12" uuid="ceb65156-16e6-4277-b289-ff5394fb7d9e"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{provincia}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="196" width="112" height="12" uuid="7e40cf69-98ed-4874-a33b-bcc9802eb1bb"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{departamento}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="255" y="239" width="237" height="11" uuid="bdfb9350-97be-4739-b8fb-a03cb29e3fb0"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomPersAval}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="255" y="254" width="237" height="11" uuid="9768e998-2077-4086-9e4e-c24c1d23b7f9"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{doiAval}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="255" y="266" width="237" height="15" uuid="466f8fb9-d6de-4e49-87de-72383a610080"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{direccionAval}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="282" width="112" height="14" uuid="61dcdb09-0467-4727-a4b6-0026170c5403"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{distritoAval}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="295" width="112" height="14" uuid="08f0def9-6567-40c1-974c-1eac1a45596a"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{provinciaAval}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="308" width="112" height="11" uuid="2e2576e6-9942-4ee9-a185-2108c30b465f"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{departamentoAval}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="321" width="112" height="11" uuid="2ee1cd8a-e242-4d3f-bba2-1369e573bcdc"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{valMontoFianzaAval}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="335" y="476" width="162" height="12" uuid="84fd9314-2db3-4706-9211-54da99ba4d4d"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{marca}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="335" y="489" width="55" height="12" uuid="d040beb3-0777-4b76-ae64-8231a658a492"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{valAnoFab}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="441" y="489" width="56" height="13" uuid="1bde66bb-d969-41d4-aafb-f1953a5e1584"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{modelo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="335" y="502" width="162" height="12" uuid="89428dec-ad60-4040-8e93-30381f6e0457"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{chasis}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="335" y="514" width="162" height="12" uuid="63080510-23e5-4f6b-bb07-e3d3e9966131"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{motor}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="441" y="526" width="56" height="14" uuid="7cce9b22-0116-4bba-845f-929eebf5cbe2"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{placa}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="255" y="539" width="237" height="13" uuid="8dbd75df-04a2-4a74-9ce7-8b4d7875b398"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tea}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="256" y="574" width="236" height="11" uuid="27ad6632-b64c-4b36-99e8-75a91481f436"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{periGracia}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="256" y="552" width="236" height="11" uuid="bfbf3230-3f7d-4c5b-bb99-b4a321647a0c"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipoSeguro}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="256" y="564" width="124" height="11" uuid="8f9cc0a3-022d-4f75-93c2-96befc88d7d6"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{canPlazMes}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="341" y="625" width="8" height="12" uuid="5a9532dd-7687-4c4b-8852-692903e311ce"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="341" y="636" width="8" height="11" uuid="8579aea9-d98c-4724-8202-4db865e7c63b"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="341" y="648" width="8" height="11" uuid="549739e0-ce9c-4844-adef-c239eb9ea548"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="625" width="8" height="12" uuid="ecbd26d8-931e-420b-aea0-f1918ca7e1f1"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="637" width="8" height="12" uuid="81c514a6-eb56-4063-9628-9ed1228566eb"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="649" width="8" height="11" uuid="709255f9-5d29-4542-84b9-8b17aacbb7f9"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="687" width="8" height="11" uuid="3bdbd9d3-fae1-4798-8cd3-cd16827f34db"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="699" width="8" height="12" uuid="cee66258-b2a6-4753-811f-9368986790ba"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="711" width="8" height="11" uuid="44598320-9fc1-45ac-9c68-668801598914"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="687" width="8" height="12" uuid="0658ebc0-c0d6-4c04-90c0-23e1e2497740"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="699" width="8" height="12" uuid="92669d2e-31c3-4302-8c56-b98b94b24c3c"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="711" width="8" height="12" uuid="149b222e-775c-42e2-aef8-e5cb72c6508e"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="625" width="8" height="12" uuid="08cb1aeb-dadd-42d4-8098-a83296f2fca8"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="637" width="8" height="11" uuid="8b687271-0055-4925-b865-a3e78a837be4"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="649" width="8" height="11" uuid="febdac57-a04e-46e9-a8b0-a7c77a02af04"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="687" width="8" height="12" uuid="9c7a3d3b-8fea-46d9-9a3c-fb762e9ff02b"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="699" width="8" height="12" uuid="9e4ce2ca-6035-4fdb-87e6-f77986041ad3"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="362" y="711" width="8" height="12" uuid="7ba87af8-4ac0-4da5-965b-4c722fab2c12"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="625" width="8" height="12" uuid="aa1986de-734a-4199-9985-70d0fd3c5b49"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="637" width="8" height="12" uuid="1e467944-15a9-4268-baff-436de15b1f77"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="649" width="8" height="12" uuid="0eb1d77c-b3ba-417d-bd2c-80175be8c2b9"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="687" width="8" height="12" uuid="ec749c34-e45e-46db-b135-043c30577aa4"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="699" width="8" height="12" uuid="2ff7277c-ba2e-4a71-8048-b1595cc769ea"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="711" width="8" height="11" uuid="cfbf040f-04c7-4cfd-96ef-956dec69abd5"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="625" width="12" height="11" uuid="a6673ba8-16ac-4632-93aa-d144a41a2301">
+					<printWhenExpression><![CDATA[$P{garantiaPropiaMobi}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="637" width="12" height="11" uuid="5c59fbd7-5a22-4ad0-bb22-e618da411be5">
+					<printWhenExpression><![CDATA[$P{garantiaAjenaMobi}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="649" width="12" height="12" uuid="7166701c-6335-4b27-99c2-46b431b76760">
+					<printWhenExpression><![CDATA[$P{otorganteMobi}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="625" width="14" height="12" uuid="384fcf91-8eea-47df-aca7-49f1188bf64c">
+					<printWhenExpression><![CDATA[!$P{garantiaPropiaMobi}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="699" width="11" height="11" uuid="82a50fcf-f886-4c55-88aa-f846c17e33d1">
+					<printWhenExpression><![CDATA[$P{garantiaAjenaMobiAdic}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="637" width="14" height="12" uuid="69266a2f-7c3a-435a-91f9-ecbbd29a530c">
+					<printWhenExpression><![CDATA[!$P{garantiaAjenaMobi}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="649" width="14" height="12" uuid="d94c2d56-e36f-4a68-95d3-03b115ea8c87">
+					<printWhenExpression><![CDATA[!$P{otorganteMobi}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="687" width="14" height="11" uuid="31e9a0c4-a2ff-4708-a08e-800aac158e62">
+					<printWhenExpression><![CDATA[!$P{garantiaPropiaMobiAdic}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="699" width="14" height="11" uuid="d177f118-867e-4c0a-a74c-1c742de571ad">
+					<printWhenExpression><![CDATA[!$P{garantiaAjenaMobiAdic}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="711" width="14" height="12" uuid="ba801055-3629-4e76-99f7-fa4269b4f966">
+					<printWhenExpression><![CDATA[!$P{otorganteMobiAdic}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="687" width="11" height="11" uuid="72d31543-9b71-4bd4-83c3-a676be01d122">
+					<printWhenExpression><![CDATA[$P{garantiaPropiaMobiAdic}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="711" width="12" height="12" uuid="54144787-45a8-49b0-91b5-7bc172a0c93b">
+					<printWhenExpression><![CDATA[$P{otorganteMobiAdic}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="723" width="119" height="10" uuid="f0ae2c1f-c2ce-4d24-a496-74bd60a43573"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nroPlacaMobiAdic}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="661" width="119" height="10" uuid="846bd9f6-7273-4a76-80ab-98dd9043e7f5"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nroPlacaMobi}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="64" y="15" width="374" height="14" uuid="e7e52e27-0f6e-42e4-9273-de3a99f9518d"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{indInfo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="109" width="245" height="15" uuid="0081d21b-0208-4a6a-9a82-8bb888f2b044"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipoPersona}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="586" width="251" height="12" uuid="1ba6b9c0-782c-4e62-92b6-b8b0ea7ba624"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="586" width="254" height="12" uuid="5930cf0c-b491-4eab-ba51-be114ff1acc8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="585" width="159" height="12" uuid="8439fdab-84d0-4953-8628-90b1cfd97673"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Periodo de Gracia con intereses (SI/NO)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="598" width="251" height="12" uuid="0f0cdede-e235-4750-b635-13bc051a71ed"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="598" width="254" height="12" uuid="df3f9e94-ebbd-4098-9923-554442f0dae2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="597" width="159" height="12" uuid="40870e9a-328f-4b59-80bb-a7e7ee026007"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Días de Periodo de Gracia]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="256" y="599" width="147" height="11" uuid="7e35db3b-316e-44d7-987d-af9dc7d3585e"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{diasPeriGrac}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="200" y="43" width="100" height="14" uuid="a894c8f5-f9d9-43d7-9f62-2b8737e15501"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{indNroOpe}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="4" y="223" width="247" height="15" uuid="44f890a2-44dd-40eb-90aa-1fea7e3c5d34"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipoPersAval}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="335" y="526" width="58" height="14" uuid="cde2a5bb-e9b8-43d4-95cd-3f15c3469503"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipoVeh}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="256" y="586" width="147" height="11" uuid="05c5deee-45fa-46cf-a48f-ef8fbcd77c9a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{periGracSinInt}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="333" width="505" height="15" backcolor="#999999" uuid="a682601b-73c2-4008-88e9-919433143cec"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="333" width="235" height="13" uuid="a149773a-a605-47fb-8dc5-071729ae0f15"/>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Garante Mobiliario / Garante Hipotecario]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="348" width="505" height="15" uuid="d85bec1a-1b40-4464-a342-f586d951be57"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="363" width="251" height="15" uuid="5b2de87e-1697-4b3f-b123-be6698ad6ba2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="378" width="251" height="15" uuid="b4e6acaf-3445-43bb-9537-335e96a926d1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="393" width="251" height="54" uuid="d46328ce-bfea-4cfd-8105-d03d2f70819a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="363" width="254" height="15" uuid="0f72c181-c4d8-4317-8f9d-64732346b4e2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="378" width="254" height="15" uuid="693bb7c0-b2c7-4580-bc90-1c8d8bbddb6f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="393" width="254" height="15" uuid="478119de-109c-4713-941c-9d535fddda70"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="408" width="125" height="13" uuid="bbb4016c-5df6-4c31-a3c8-a32036235bff"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="421" width="125" height="13" uuid="d2e4777f-a3d7-4fc8-a47b-2e798ccd0666"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="434" width="125" height="13" uuid="2c60d2c1-2216-4f7e-a635-2cd4ffbd61c0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="377" y="408" width="128" height="13" uuid="b5f512e5-2897-406e-9010-0d2331e341f1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="377" y="421" width="128" height="13" uuid="43fd3fd4-630c-4265-90a4-29850081be98"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="377" y="434" width="128" height="13" uuid="e8c0c709-3caa-4784-8611-1d14ecf74112"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="254" y="408" width="100" height="13" uuid="488bbfa2-c9dd-4bd7-97d1-0f4a0a24914a"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Distrito]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="421" width="100" height="13" uuid="049dcd3e-00ba-4b21-b74c-68977a6c0514"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Provincia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="434" width="100" height="12" uuid="7bbc3960-d3db-4a93-9b19-1c1415d4b507"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="365" width="100" height="12" uuid="4ff74a00-56ea-4b63-b4d5-ce428b0368f3"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Nombres y Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="379" width="100" height="11" uuid="8ad551df-d173-439a-9f6b-360e0c28f54b"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Doi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="394" width="101" height="14" uuid="3fda8c88-f6be-47ad-9a3b-c90cb48825cf"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Domicilio]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="434" width="112" height="12" uuid="97f2c0ab-d706-414e-b655-bac63b069232"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{departamentoGarante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="421" width="112" height="13" uuid="f78f0163-2a9d-45a5-8a02-2207fb479d8c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{provinciaGarante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="408" width="112" height="13" uuid="ceb4d29c-7088-490a-be1e-6ffd0977da66"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{distritoGarante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="254" y="394" width="238" height="14" uuid="0a683711-7adc-4a5b-b250-1bce55c553e4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{direccionGarante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="255" y="377" width="237" height="13" uuid="b08dd32e-5f0f-43a5-97d3-93bb52c62c2f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{doiGarante}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="255" y="363" width="237" height="14" uuid="ea19e744-9433-42ac-8c7d-720c0f580b3f"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomPersGarante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="350" width="410" height="13" uuid="c5d523df-6295-4fd7-9540-2a8181cb6258"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tipoPersGarante}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="310">
+			<rectangle>
+				<reportElement x="0" y="143" width="126" height="38" backcolor="#999999" uuid="0d86468b-6e54-4911-b57c-9d72a6c63e3b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="125" y="143" width="126" height="38" backcolor="#99FF00" uuid="2819d399-2f54-4238-8a5f-5063c415c215"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="143" width="126" height="38" backcolor="#999999" uuid="dd80c4f6-0736-464c-9a90-c889a4e21e3a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="143" width="129" height="38" backcolor="#FFFFFF" uuid="b923d3ed-482f-4a2e-ae1d-8c8d05681b22"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="256" y="155" width="110" height="12" uuid="06123fae-b2f6-417a-be07-5018c31504d9"/>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[V° B° Dpto de Créditos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="155" width="102" height="12" uuid="4b91039f-9942-4c1e-a7ce-e614bfe4b885"/>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Contrato]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="181" width="125" height="13" uuid="81444e4c-2d7e-47c9-a089-ea71a3937b6e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="194" width="125" height="13" uuid="baa7b048-6b79-45b4-ad68-b31a45370226"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="182" width="99" height="11" uuid="7bc2f740-62e6-4e8d-a1bf-d14ac8aa9c24"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Responsable]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="196" width="109" height="12" uuid="1f2759b3-67a9-4503-ba7d-efb98a03f556"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Fecha de Entrega Legal]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="125" y="181" width="380" height="13" uuid="09258422-8e84-4561-95d1-78e6e181d26a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="207" width="505" height="13" uuid="1b389a28-7b45-41ce-927b-14c60e627098"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="125" y="194" width="380" height="13" uuid="4159a4c2-02fe-43ba-99a0-6c7c806bfc2e"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="208" width="109" height="11" uuid="65ab9f1b-cbe9-4406-8390-dc7918b3751f"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Observación]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="220" width="505" height="13" uuid="7913f9ec-5a25-48b0-963d-a7b7641060ac"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="221" width="150" height="12" uuid="1e35a092-c800-4b1f-a309-360cfe0126cd"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[1.- CLIENTE CON CLASIFICACION]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="164" y="221" width="333" height="12" uuid="e6aa1319-acd6-4166-9fcc-7acad68162bc"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{codClasifSbsClie}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="126" y="182" width="371" height="11" uuid="c7da783a-0446-4ec9-a2e5-4065facf926f"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomRespoFina}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="139" y="155" width="100" height="12" uuid="4fd48b79-926d-42d5-b68c-f88c3a450e35"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecFirmaCont}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="126" y="194" width="289" height="13" uuid="b1d65811-7ac2-4df8-90f1-a75a47df8ebc"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{fecEntreLeg}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="251" y="66" width="125" height="13" uuid="4f87507b-cbed-4372-8d59-c40ac3625e63"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="53" width="129" height="14" uuid="a9ed3b9c-f749-4d8e-8498-7588fb09bdc2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="53" width="125" height="14" uuid="899e4f39-36f4-47b0-99eb-8f22370f97f5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="67" width="129" height="12" uuid="007439fd-719c-45df-8d0d-9b31163519ce"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="256" y="55" width="100" height="12" uuid="c8d62236-15a9-47f1-acad-bd761061baaa"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Provincia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="68" width="100" height="11" uuid="92c2bdc9-db01-41f1-9b99-6fce1848f874"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Departamento]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="79" width="251" height="13" uuid="ccbc9215-1c20-4ca8-8ea4-e20ad5ab3e7c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="92" width="251" height="13" uuid="7e5d2fe2-0934-414a-9bf3-d61267e58d05"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="105" width="251" height="13" uuid="8e9aa0b2-072d-4bda-b00a-a8d97b94de42"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="118" width="251" height="13" uuid="a46071e0-caf1-4a89-a7ba-921a56699fb4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="79" width="80" height="13" uuid="ae124262-2d10-4e47-bcfb-96426b021608"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="92" width="80" height="13" uuid="7fe87357-2653-4c1a-810b-043db00108b4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="105" width="125" height="13" uuid="aaab0922-66bc-4f82-b278-a657842844e8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="105" width="129" height="13" uuid="1b5662ed-421b-4220-a0f6-2f5a336fb965"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="380" y="107" width="117" height="11" uuid="9a89eed7-8f9f-4986-aa3d-1e702b71fc0e"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[RANGO]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="251" y="118" width="254" height="13" uuid="849360f5-82f0-4fe9-b518-2c5ba358dd53"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="79" width="174" height="13" uuid="93dd0783-293f-4d39-950e-ae9f1ad8032a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="92" width="174" height="13" uuid="e8c737c6-21d4-4d29-accb-8120c2e12214"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="256" y="80" width="68" height="12" uuid="3af6e263-30da-4a9c-98ec-28a0d2524b4a"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[US$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="93" width="68" height="12" uuid="63e9ade2-696a-4838-ac78-62a2859bf618"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[US$]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="80" width="234" height="11" uuid="296a83c0-01cc-47a7-a1e5-2075666b319d"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Monto por el que se otorga la hipoteca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="93" width="234" height="11" uuid="c197e222-0e9b-41e7-bd7d-b75de8249ecc"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Valorización de la garantía hipotecaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="106" width="234" height="11" uuid="fe2a2302-02aa-45fc-9e45-b271dbd08254"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Rango de la Hipoteca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="119" width="234" height="11" uuid="2d89e3f4-eba8-4300-a4e3-eacc4b01036f"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Actividad a la que dedican el inmueble]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="55" width="117" height="11" uuid="7869dcbf-bf84-4bbf-8c71-f5ce45a0c6d5"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{distritoHipoAdic}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="68" width="117" height="10" uuid="0c67fc5e-9e12-4b48-9b0a-d9e2f23d208b"/>
+				<textElement>
+					<font fontName="SansSerif" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{departamentoHipoAdic}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="336" y="80" width="161" height="12" uuid="a78a4906-a88e-4b2f-b3fa-7ec1b86f90b3"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{valMontOtorHipoAdic}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="336" y="93" width="161" height="12" uuid="ff705b86-5c1d-41c1-87dc-b31aa692ca96"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{valRealizGarHipoAdic}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="256" y="106" width="100" height="11" uuid="8e89b650-9ef6-48c0-a542-329163d19fd0"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{codRangoGarHipoAdic}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="256" y="119" width="241" height="11" uuid="cfb043d9-87bd-46d6-827a-e195b9ed1ed5"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{desTipoActividadHipoAdic}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="3" width="505" height="14" backcolor="#999999" uuid="fc3da954-dbe3-414b-90ae-75974a1ce4eb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="4" width="234" height="12" uuid="2f6739e5-ae85-4324-ace8-48a2d82a134d"/>
+				<textElement>
+					<font fontName="SansSerif" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Garantía(s) Hipotecaria(as) Adicionales]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="17" width="251" height="12" uuid="fce1aae4-febd-4286-808f-0023acbfc105"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="29" width="251" height="50" uuid="203e5deb-c33f-43e1-900b-90c1d237e06c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="17" width="80" height="12" uuid="ead584c1-ca87-4089-9ead-b6595cff4b66"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="331" y="17" width="62" height="12" uuid="84d03653-5deb-4ef1-97ca-514713ff9afb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="438" y="17" width="67" height="12" uuid="ef422d42-fec5-4537-9482-a541737fd271"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="393" y="17" width="45" height="12" uuid="99a0aee8-eee4-40f0-a8ce-6291d9279deb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="256" y="18" width="68" height="12" uuid="0ea01abf-f848-4815-ae2f-cee1b7cac473"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Deudor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="18" width="41" height="12" uuid="0e435ae0-e5fc-425e-ac76-9e970a20600f"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Fiador]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="251" y="29" width="254" height="12" uuid="99f3a64d-0e58-4493-bd0c-affa5e3b6321"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="376" y="40" width="129" height="13" uuid="a3ab7344-4957-4436-88d2-4a6c9b84f7d6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="40" width="125" height="13" uuid="122a460b-c2bf-4ac1-bcf2-60eb3d9a2c2b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="256" y="41" width="100" height="11" uuid="8b5594ac-8e29-4c71-bce5-fdeb3cd1d1b4"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Distrito]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="30" width="101" height="14" uuid="ecb133f4-adb9-440c-b024-105463bcb5c9"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Domicilio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="18" width="101" height="12" uuid="3ba0ac5c-ac40-41bf-94dd-41fe3a5abf4b"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Otorgante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="341" y="18" width="8" height="12" uuid="cb1beb8e-6d62-4114-9c20-5b8a9c3af2cd"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="453" y="18" width="8" height="11" uuid="27cfbaa8-ec84-4f3e-8b5c-41e2eed528ff"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[(]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="361" y="18" width="8" height="12" uuid="4a4632b6-bf98-43e6-a243-a0002313b1d9"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="18" width="8" height="12" uuid="774d7d2c-0211-4a25-8988-a235e7aa74e5"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="461" y="18" width="14" height="12" uuid="0cd21954-5c4b-471d-bdb3-d0ce9c2364bf">
+					<printWhenExpression><![CDATA[!$P{otorganteHipoAdic}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="18" width="12" height="11" uuid="e6029127-dbe0-48c7-bf0e-11ec4d8eee55">
+					<printWhenExpression><![CDATA[$P{otorganteHipoAdic}]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="41" width="117" height="11" uuid="a2c48941-f786-4036-a053-2ce598fe0eb1"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{direccionHipoAdic}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

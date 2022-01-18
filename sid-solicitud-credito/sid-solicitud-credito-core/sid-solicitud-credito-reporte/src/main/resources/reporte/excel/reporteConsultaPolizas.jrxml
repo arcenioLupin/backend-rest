@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteConsultaPolizas" pageWidth="842" pageHeight="842" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9083afb4-67f0-4b37-9d48-a5ef70cff56a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="Table Dataset Consulta Polizas" uuid="7dcb4373-e7c9-4e33-b7ff-a92dade19986">
+		<field name="desTipoSeguro" class="java.lang.String"/>
+		<field name="nroPoliza" class="java.lang.String"/>
+		<field name="desCiaSeg" class="java.lang.String"/>
+		<field name="fecInicVigePoli" class="java.lang.String"/>
+		<field name="fecFinVigePoli" class="java.lang.String"/>
+		<field name="codSoliCred" class="java.lang.String"/>
+		<field name="desAreaVta" class="java.lang.String"/>
+		<field name="desEstaPoli" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="polizas" class="java.util.List"/>
+	<parameter name="pathLogo" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="75" width="769" height="20" uuid="2948f4b7-4bb3-4432-8ec9-525c0950bf88"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Consulta de Polizas]]></text>
+			</staticText>
+			<image>
+				<reportElement x="14" y="14" width="769" height="50" uuid="a16009b6-6ecd-4e2b-8b69-92441d7b8082"/>
+				<imageExpression><![CDATA[$P{pathLogo}]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<componentElement>
+				<reportElement x="0" y="0" width="783" height="125" uuid="be6bab0b-89a3-4751-b6ec-7429af863157"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset Consulta Polizas" uuid="67bd69e7-68d7-41a7-849f-00334f35ab74">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{polizas}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="37640d83-6fc7-488a-a6cf-aa934e6daaa0">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="19c7a6c1-6e88-4bcb-a891-21aba9eeee9a"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="1.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[TIPO SEGURO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="46" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="90" height="45" uuid="43ce900b-14b0-4e1d-95cd-fa11f93e486e"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{desTipoSeguro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="9ee9b7b3-230d-4963-a638-a080511a97c9">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="ac963698-2e2e-4285-afc9-70b7c88f4c64"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="1.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[NRO POLIZA]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="46" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="90" height="45" uuid="e3cf830d-f099-4d3f-9609-9ac7480fe685"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{nroPoliza}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="146" uuid="458707a5-db25-4fd9-97a6-c8e0b4aa7d59">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="146" height="30" uuid="04a6696d-1cb6-48a3-84d0-9eb2e6699828"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="1.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[ASEGURADORA]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="46" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="146" height="45" uuid="3d9056cf-d2a1-495d-b4f6-6de770163655"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{desCiaSeg}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="2989db97-f812-4dbe-8d96-e767494cd304">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="42c2fbef-1436-46d4-b8dd-471a3f77559f"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="1.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[F. INICIO VIGENCIA]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="46" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="110" height="45" uuid="3bc0fb3a-6966-4cea-b22c-ef4e64ca3bd8"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{fecInicVigePoli}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="1c63811f-1a37-40d1-bf7d-11d0fcb9afba">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="d909f316-be51-4811-b714-c2a23357905d"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="1.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[F. FIN VIGENCIA]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="46" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="90" height="45" uuid="d8e7dd0f-47b3-473e-9c3f-5249265b00ce"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{fecFinVigePoli}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d474dbd0-d8a0-413c-9e68-4b952bbd2449">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="a51970ec-aedd-487f-9a00-7d2b5c2d1094"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="1.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[NRO SOLICITUD]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="46" rowSpan="1">
+							<textField pattern="###0" isBlankWhenNull="true">
+								<reportElement x="0" y="0" width="90" height="45" uuid="f82b53b0-d82c-4fae-9613-9e07b86ee68e"/>
+								<box>
+									<pen lineWidth="1.0"/>
+									<topPen lineWidth="0.0"/>
+									<leftPen lineWidth="1.0"/>
+									<bottomPen lineWidth="1.0"/>
+									<rightPen lineWidth="1.0"/>
+								</box>
+								<textFieldExpression><![CDATA[$F{codSoliCred}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:columnGroup width="90" uuid="68b247f5-9227-414e-9989-59f05a701234">
+						<jr:column width="90" uuid="04bc2ec9-deb0-4948-b663-51c207c68841">
+							<jr:tableHeader height="30" rowSpan="1">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="253f2363-5796-4c48-910e-9cc6f710de4f"/>
+									<box>
+										<pen lineWidth="1.0"/>
+										<topPen lineWidth="1.0"/>
+										<leftPen lineWidth="1.0"/>
+										<bottomPen lineWidth="1.0"/>
+										<rightPen lineWidth="1.0"/>
+									</box>
+									<textElement textAlignment="Center" verticalAlignment="Middle">
+										<font isBold="true"/>
+									</textElement>
+									<text><![CDATA[AREA VENTA]]></text>
+								</staticText>
+							</jr:tableHeader>
+							<jr:detailCell height="46" rowSpan="1">
+								<textField isBlankWhenNull="true">
+									<reportElement x="0" y="0" width="90" height="45" uuid="fe502c07-ed8c-4101-9545-994a85cf75db"/>
+									<box>
+										<pen lineWidth="1.0"/>
+										<topPen lineWidth="0.0"/>
+										<leftPen lineWidth="1.0"/>
+										<bottomPen lineWidth="1.0"/>
+										<rightPen lineWidth="1.0"/>
+									</box>
+									<textFieldExpression><![CDATA[$F{desAreaVta}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:columnGroup>
+					<jr:column width="0" uuid="4cb43778-8efe-4d0b-8f7a-e0b1c18956d8">
+						<jr:tableHeader height="30" rowSpan="1"/>
+						<jr:detailCell height="46" rowSpan="1"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

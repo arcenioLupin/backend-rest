@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.TipoMovimientoMapper">
+<!--/*Req. 87567 E2.1 ID## EBARBOZA 21/01/2020*/-->
+    <cache />
+    
+    <resultMap  id="tipoMovimientoMap" type="pe.com.divemotor.solicitudcredito.dominio.TipoMovimiento">
+        <result property="codTipoMov" column="COD_TIPO_MOV"/>
+        <result property="txtDescTipoMovi" column="TXT_DESC_TIPO_MOVI"/>
+        <result property="indNatuTipoMovi" column="IND_NATU_TIPO_MOVI"/>
+        <result property="indInactivo" column="IND_INACTIVO"/>
+        <result property="fecCreaRegi" column="FEC_CREA_REGI"/>
+        <result property="codUsuaRegi" column="COD_USUA_REGI"/>
+        <result property="fecModiRegi" column="FEC_MODI_REGI"/>
+        <result property="codUsuaModi" column="COD_USUA_MODI"/>
+    </resultMap>
+    
+    <resultMap  id="IsTipoMovimientoOperacionExisteMap" type="pe.com.divemotor.solicitudcredito.dominio.IsTipoMovimientoOperacionExiste">
+        <result property="isTipoMovOper" column="IS_TIPO_MOV_OPER"/>
+    </resultMap>
+
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarTipoMovimientoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_TM.SP_LISTAR_TIPO_MOVIMIENTO( 
+        #{codTipoMov},
+        #{codDesTipoMov},
+        #{codTipoNat},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.TipoMovimientoMapper.tipoMovimientoMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+        
+    </select> 
+    
+    <select id="listarTodos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarTipoMovimientoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_TM.SP_LISTAR_TM_TODOS( 
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.TipoMovimientoMapper.tipoMovimientoMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+        
+    </select>
+    
+    <select id="IsTipoMovimientoOperacionExiste" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.IsTipoMovimientoOperacionExisteProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_TM.SP_IS_TIPO_MOV_OPER( 
+        #{codSoliCred},
+        #{txtNroDocumento},
+        #{codTipoMov},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.TipoMovimientoMapper.IsTipoMovimientoOperacionExisteMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+        
+    </select>
+    
+    
+    <select id="actualizarTipoMovimiento" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ActualizarTipoMovimientoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_TM.SP_ACT_TIPO_MOVI(
+        #{codTipoMov},
+        #{txtDescTipoMovi},
+        #{indNatuTipoMovi},
+        #{indInactivo},
+        #{fecCreaRegi},
+        #{codUsuaRegi},
+        #{fecModiRegi},
+        #{codUsuaModi},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+
+</mapper>

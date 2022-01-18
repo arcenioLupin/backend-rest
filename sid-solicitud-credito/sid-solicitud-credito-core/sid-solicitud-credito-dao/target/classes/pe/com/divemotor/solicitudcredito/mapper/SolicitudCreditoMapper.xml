@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper">
+
+    <cache />
+    
+    <resultMap id="solicitudCreditoMap" type="pe.com.divemotor.solicitudcredito.dominio.SolicitudCredito">
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="txtObseCrea" column="TXT_OBSE_CREA"/>
+        <result property="canPlazMes" column="CAN_PLAZ_MES"/>
+        <result property="codAreaVta" column="COD_AREA_VTA"/>
+        <result property="desAreaVta" column="DES_AREA_VTA"/>
+        <result property="fecSoliCred" column="FEC_SOLI_CRED"/>
+        <result property="region" column="REGION"/>
+        <result property="codClie" column="COD_CLIE"/>
+        <result property="nomPerso" column="NOM_PERSO"/>
+        <result property="codEstadoCivil" column="COD_ESTADO_CIVIL"/>
+        <result property="codTipoPerso" column="COD_TIPO_PERSO"/>
+        <result property="tipoPerso" column="TIPO_PERSO"/>
+        <result property="indMancomunado" column="IND_MANCOMUNADO"/>
+        <result property="numDocuIden" column="NUM_DOCU_IDEN"/>
+        <result property="numRuc" column="NUM_RUC"/>
+        <result property="dirCorreo" column="DIR_CORREO"/>
+        <result property="numTelfMovil" column="NUM_TELF_MOVIL"/>
+        <result property="telefono" column="NUM_TELF1"/>
+        <result property="tipSoliCred" column="TIP_SOLI_CRED"/>
+        <result property="desTipoSoliCred" column="DES_TIPO_SOLI_CRED"/>
+        <result property="codEstado" column="COD_ESTADO"/>
+        <result property="desEstado" column="DES_ESTADO"/>
+        <result property="fecAproClie" column="FEC_APRO_CLIE"/>
+        <result property="actActual" column="ACT_ACTUAL"/>
+        <result property="codPersSoli" column="COD_PERS_SOLI"/>
+        <result property="desPersSoli" column="DES_PERS_SOLI"/>
+        <result property="codRespFina" column="COD_RESP_FINA"/>
+        <result property="desRespFina" column="DES_RESP_FINA"/>
+        <result property="codEmpr" column="COD_EMPR"/>
+        <result property="desNomEmpr" column="DES_NOM_EMPR"/>
+        <result property="numProfVeh" column="NUM_PROF_VEH"/>
+        <result property="valVtaTotFin" column="VAL_VTA_TOT_FIN"/>
+        <result property="codMonedaProf" column="COD_MONEDA_PROF"/>
+        <result property="vendedor" column="VENDEDOR"/>
+        <result property="numFichaVenta" column="NUM_FICHA_VTA_VEH"/>
+        <result property="codBanco" column="COD_BANCO"/>
+        <result property="montoSolCred" column="MONTO_SOL_CRED"/>
+        <result property="valMontSolGestBanc" column="VAL_MONT_SOL_GEST_BANC"/>
+        <result property="valPorcGestBanc" column="VAL_PORC_GEST_BANC"/>
+        <result property="fecIngrGestBanc" column="FEC_INGR_GEST_BANC"/>
+        <result property="fecIngrRiesGestBanc" column="FEC_INGR_RIES_GEST_BANC"/>
+        <result property="fecAprobCartBan" column="FEC_APROB_CART_BAN"/>
+        <result property="fecResuGestBanc" column="FEC_RESU_GEST_BANC"/>
+        <result property="codEstaGestBanc" column="COD_ESTA_GEST_BANC"/>
+        <result property="txtObseGestBanc" column="TXT_OBSE_GEST_BANC"/>
+        <result property="indPagoContado" column="IND_PAGO_CONTADO"/>
+        <result property="indCredAprobado" column="IND_CRED_APROBADO"/>
+        <result property="indBloqueoPestanias" column="IND_BLOQUEO_PESTANIAS"/>
+        <result property="indCredVehi" column="IND_CRED_VEHI"/>
+        <result property="indGestBanc" column="IND_GEST_BANC"/>
+        <result property="estaGestBanc" column="ESTA_GEST_BANC"/>        
+        <result property="canVehFin" column="CAN_VEH_FIN"/>
+        <result property="valPreVeh" column="VAL_PRE_VEH"/>
+        <result property="igv" column="IGV"/>
+        <result property="ir" column="IR"/>
+        <result property="valParaNum" column="VAL_PARA_NUM"/>
+        <result property="codOperRel" column="COD_OPER_REL"/>
+        <result property="codOperOrig" column="COD_OPER_ORIG"/>
+        <result property="canTotaLetr" column="CAN_TOTA_LETR"/>
+        <result property="valPorcTea" column="VAL_PORC_TEA_SIGV"/>
+        <result property="valPorcCI" column="VAL_PORC_CI"/>
+        <result property="valCI" column="VAL_CI"/>
+        <result property="valPagoContCI" column="VAL_PAGO_CONT_CI"/>
+        <result property="fecVenc1raLet" column="FEC_VENC_1RA_LET"/>
+        <result property="canDiasVenc1raLetr" column="CAN_DIAS_VENC_1RA_LETR"/>
+        <result property="codPeriCredSoli" column="COD_PERI_CRED_SOLI"/>
+        <result property="indTipoPeriGrac" column="IND_TIPO_PERI_GRAC"/>
+        <result property="valDiasPeriGrac" column="VAL_DIAS_PERI_GRAC"/>
+        <result property="canLetrPeriGrac" column="CAN_LETR_PERI_GRAC"/>
+        <result property="valIntPerGra" column="VAL_INT_PER_GRA"/>
+        <result property="valPorcTEASIGV" column="VAL_PORC_TEA_SIGV"/>
+        <result property="valPorcTEPSIGV" column="VAL_PORC_TEP_SIGV"/>
+        <result property="indGPS" column="IND_GPS"/>
+        <result property="valPorcCuotBall" column="VAL_PORC_CUOT_BALL"/>
+        <result property="valCuotBall" column="VAL_CUOT_BALL"/>
+        <result property="indTipoSegu" column="IND_TIPO_SEGU"/>
+        <result property="codCiaSeg" column="COD_CIA_SEG"/>
+        <result property="codTipUsoVeh" column="COD_TIP_USO_VEH"/>
+        <result property="valTasaSegu" column="VAL_TASA_SEGU"/>
+        <result property="valPrimSeg" column="VAL_PRIM_SEG"/>
+        <result property="codTipoUnid" column="COD_TIPO_UNID"/>
+        <result property="valPorcGastAdmi" column="VAL_PORC_GAST_ADMI"/>
+        <result property="valGastoAdmi" column="VAL_GASTO_ADMI"/>
+        <result property="codClieSap" column="COD_CLIE_SAP"/>
+        <result property="tipoCambio" column="TIPO_CAMBIO"/>
+        <result property="indCredRecha" column="IND_CRED_RECHA"/>
+        <result property="fecUltiFecCrono" column="FEC_ULTI_VENC"/>
+        <result property="txtOtrCond" column="TXT_OTR_COND"/>
+        <!--I Req. 87567 E2.1 ID:20 AVILCA 22/07/2020--> 
+        <result property="valTipoCambio" column="VAL_TC"/> 
+        <result property="codSucursal" column="cod_sucursal"/>
+        <result property="nombreSucursal" column="nombre_sucursal"/>
+        <result property="codFilial" column="cod_filial"/>
+        <result property="nombreFilial" column="nombre_filial"/>
+        <result property="codZona" column="cod_zona"/>
+        <result property="nombreZona" column="nombre_zona"/>
+        <result property="codVendedor" column="cod_vendedor"/>
+        <result property="nombreVendedor" column="nombre_vendedor"/>
+        <result property="venFactura" column="can_dias_fact_cred"/>
+        <result property="obseJv" column="txt_obse_jv"/>
+        <!--F Req. 87567 E2.1 ID:20 AVILCA 15/05/2020--> 
+        <!--I Req. 87567 E2.1 ID:112 AVILCA 27/07/2020--> 
+        <result property="canGaraSoli" column="can_gara_soli"/> 
+        <!--F Req. 87567 E2.1 ID:112 AVILCA 27/07/2020--> 
+        <result property="indRespAproTseg" column="IND_RESP_APRO_TSEG"/>
+        <result property="indSinInt" column="ind_sint"/> 
+    </resultMap>
+    
+    <resultMap id="datosResolucionRCMap" type="pe.com.divemotor.solicitudcredito.dominio.DatosResolucionCreditos">        
+        <result property="valMonFin" column="VAL_MON_FIN"/>
+        <result property="codPeriCredSoli" column="COD_PERI_CRED_SOLI"/>
+        <result property="valPrimSeg" column="VAL_PRIM_SEG"/>
+        <result property="indTipoPeriGrac" column="IND_TIPO_PERI_GRAC"/>
+        <result property="canLetrPeriGrac" column="CAN_LETR_PERI_GRAC"/>
+        <result property="fecVencPrimlet" column="FEC_VENC_PRIM_LET"/>
+        <result property="canTotaLetr" column="CAN_TOTA_LETR"/>
+        <result property="letrasCamort" column="LETRAS_CAMORT"/>
+        <result property="valMonConc" column="VAL_MON_CONC"/>
+        <result property="canDiasFactCred" column="CAN_DIAS_FACT_CRED"/>
+        <result property="fecAproClie" column="FEC_APRO_CLIE"/>
+        <result property="txtInfoAdic" column="TXT_INFO_ADIC"/>
+        <result property="txtInfoOper" column="TXT_INFO_OPER"/>
+        <result property="fechaContrato" column="FEC_FIRM_CONT"/>
+    </resultMap>    
+
+    <resultMap id="solicitudCreditoCBMap" type="pe.com.divemotor.solicitudcredito.dominio.SolicitudCreditoCB">
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="codBanco" column="COD_BANCO"/>
+        <result property="txtOficBanc" column="TXT_OFIC_BANC"/>
+        <result property="numFax" column="NUM_FAX"/>
+        <result property="fecAprobCartBan" column="FEC_APROB_CART_BAN"/>
+        <result property="codMoneCartBan" column="COD_MONE_CART_BANC"/>
+        <result property="valMoneAprobBanc" column="VAL_MONE_APROB_BANC"/>
+        <result property="txtNombEjecBanc" column="TXT_NOMB_EJEC_BANC"/>
+        <result property="txtRutaCartBan" column="TXT_RUTA_CART_BANC"/>
+        <result property="numTeleFijoEjec" column="NUM_TELE_FIJO_EJEC"/>
+        <!-- I Req. 87567 E2.1 Carta Banco avilca 18/05/2020  -->
+        <result property="direccionBanco" column="DIRECCION_BANCO"/>
+        <result property="telefonoBanco" column="TELEFONO_BANCO"/>
+        <result property="valMontoAprobado" column="MONTO_APROBADO"/>
+        <result property="numCeluEjec" column="NUM_CELU_EJEC"/>
+        <!-- F Req. 87567 E2.1 Carta Banco avilca 18/05/2020  -->
+    </resultMap>
+    
+    <resultMap id="solicitudCreditoSNMap" type="pe.com.divemotor.solicitudcredito.dominio.SolicitudCreditoSN">
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="txt_nro_contrato" column="TXT_NRO_CONTRATO"/>
+        <result property="fec_susc_anex" column="FEC_SUSC_CONT"/>
+        <result property="fec_susc_cont" column="FEC_SUSC_ANEX"/>
+        <result property="fec_susc_letr" column="FEC_SUSC_LETR"/>
+        <result property="fec_sus_gara" column="FEC_SUS_GARA"/>
+        <result property="fec_sus_aval" column="FEC_SUS_AVAL"/>
+    </resultMap>
+    
+    <resultMap id="datosSolicitudHOMap" type="pe.com.divemotor.solicitudcredito.dominio.DatosSolicitudHistoricoOpe">   
+        
+        <result property="compania" column="compania"/>
+        <result property="codOperacion" column="cod_oper"/>
+        <result property="moneda" column="moneda"/>
+        <result property="saldo" column="saldo"/>
+        <result property="fecUltVencimiento" column="fec_ult_venc"/>
+        <result property="estado" column="estado"/>
+        <result property="diasVencidos" column="dias_vencidos"/>
+        <result property="maxDiasVencidos" column="max_dias_vencidos"/> 
+        <result property="ratioGara" column="ratio_gara"/>   
+        <result property="valGara" column="VALO_GARA_TOT"/>
+        <result property="canTotaLetr" column="CAN_TOTA_LETR"/>
+        <result property="valPorcTeaSigv" column="VAL_PORC_TEA_SIGV"/>
+        <result property="valPorcCi" column="VAL_PORC_CI"/>
+        <result property="valMonFin" column="VAL_MON_FIN"/>   
+        <result property="descripcion" column="DESCRIPCION"/>  
+        <result property="codTipoCred" column="COD_TIPO"/> 
+        <result property="fechaEmision" column="FEC_EMI"/>    
+        <result property="rutaCartaBanco" column="TXT_CARTA_BANCO"/>
+        <result property="rutaContrato" column="TXT_CONTRATO"/>   
+    </resultMap>
+    
+    <resultMap id="datosResumenEjecutivo" type="pe.com.divemotor.solicitudcredito.dominio.ResumenEjecutivo">        
+        <result property="valPorCi" column="VAL_PORC_CI"/>
+        <result property="valCi" column="VAL_CI"/>
+        <result property="montoCred" column="MONT_CRED"/>
+        <result property="canPlazMes" column="CAN_PLAZ_MES"/>
+        <result property="valPorcTeaSigv" column="VAL_PORC_TEA_SIGV"/>   
+        <result property="canDiasVencPrimLetr" column="CAN_DIAS_VENC_PRIM_LETR"/>   
+        <result property="canVehFin" column="CAN_VEH_FIN"/>    
+        <result property="desAreaVta" column="DES_AREA_VTA"/>   
+        <result property="desMarca" column="NOM_MARCA"/> 
+        <result property="precTotal" column="PREC_TOTAL"/>   
+        <result property="descripcion" column="DESCRIPCION"/> 
+        <result property="nroLetras" column="NRO_LETRAS"/>   
+        <result property="codSociedad" column="COD_SOCIEDAD"/> 
+        <result property="nomSociedad" column="NOM_SOCIEDAD"/>   
+        <result property="valAnoFab" column="VAL_ANO_FAB"/>
+        <result property="gps" column="GPS"/>   
+        <result property="gpsDetalle" column="GPS_DETA"/>   
+        <result property="seguro" column="SEGURO"/>   
+        <result property="seguroDetalle" column="SEGURO_DETA"/>      
+        <result property="nomCliente" column="NOM_PERSO"/>  
+        <result property="codClasifSbsClie" column="COD_CLASIF_SBS_CLIE"/> 
+        <result property="valDeudActuClie" column="VAL_DEUDA_ACTU_CLIE"/> 
+        <result property="valDeudaDeta" column="VAL_DEUDA_DETA"/>
+        <result property="txtInfoAdic" column="TXT_INFO_ADIC"/>
+        <result property="txtInfoOper" column="TXT_INFO_OPER"/>      
+        <result property="valMutuo" column="SALDO_MUTUO"/> 
+        <result property="valDirecto" column="SALDO_DIRECTO"/>  
+        <result property="valMutuoDirecto" column="SALDO_MUT_DIRE"/>
+        <result property="valGastAdmi" column="VAL_GAST_ADMI"/>
+        <result property="codRespFina" column="COD_RESP_FINA"/>
+         <!--I Req. 87567 E2.1 ID:20 AVILCA 15/05/2020--> 
+        <result property="canDiasFactCred" column="CAN_DIAS_FACT_CRED"/>
+        <!--F Req. 87567 E2.1 ID:20 AVILCA 15/05/2020-->  
+        <!--I Req. 87567 E2.1 ID:20 AVILCA 19/02/2021--> 
+        <result property="valLineaCredito" column="V_LC_ACTUAL"/>
+        <!--F Req. 87567 E2.1 ID:20 AVILCA 19/02/2021-->  
+    </resultMap>
+    
+    <resultMap id="permisoMap" type="pe.com.divemotor.solicitudcredito.dominio.Permiso">
+        <result property="tag" column="PERMISO" />
+        <result property="valor" column="VALOR" />                
+        <result property="mensaje" column="MENSAJE" />                
+    </resultMap>     
+    
+    <resultMap id="rolesMap" type="pe.com.divemotor.solicitudcredito.dominio.Roles">
+        <result property="idUsuario" column="IDUSUARIO" />
+        <result property="apellidos" column="APELLIDOS" />                
+        <result property="nombre" column="NOMBRE" />                
+    </resultMap>  
+  <!-- I Req. 87567 E2.1 ID:9 AVILCA 12/05/2020 -->
+    <resultMap id="parametrosRegSolcreMap" type="pe.com.divemotor.solicitudcredito.dominio.ParametroRegistroSolcre">
+        <result property="codCredSoliPara" column="cod_cred_soli_para" />
+        <result property="desCredSoliPara" column="des_cred_soli_para" />                
+        <result property="valParaNum" column="val_para_num" />  
+        <result property="valParaCar" column="val_para_car" />               
+    </resultMap>     
+  <!-- F Req. 87567 E2.1 ID:9 AVILCA 12/05/2020 -->   
+  
+  <!-- I Req. 87567 E2.1 ID:9 AVILCA 10/01/2021 -->
+    <resultMap id="listarClienteCreditosMap" type="pe.com.divemotor.solicitudcredito.dominio.ListarClienteCreditosSolcre">
+        <result property="codCredSoliHist" column="cod_cred_soli_hist" />
+        <result property="codSoliCred" column="cod_soli_cred" />                
+        <result property="valLcActual" column="val_lc_actual" />  
+        <result property="fecPlazo" column="fec_plazo" />  
+        <result property="valLcUtil" column="val_lc_util" /> 
+        <result property="valMontDVenDc" column="val_mont_dven_dc" /> 
+        <result property="valMontDVenDi" column="val_mont_dven_di" /> 
+        <result property="valPorcDVenDc" column="val_porc_dven_dc" />    
+        <result property="valPorcDVenDi" column="val_porc_dven_di" />          
+    </resultMap>  
+    
+    <resultMap id="listarClienteMovimientosMap" type="pe.com.divemotor.solicitudcredito.dominio.ListarClienteMovimientosSolcre">
+        <result property="codCredSoliHist" column="cod_cred_soli_hist" />
+        <result property="codHistOpe" column="cod_hist_ope" />                
+        <result property="codSoliCred" column="cod_soli_cred" />  
+        <result property="codCia" column="cod_cia" />  
+        <result property="codTipCred" column="cod_tip_cred" /> 
+         <result property="descripcion" column="descripcion" /> 
+        <result property="codOper" column="cod_oper" /> 
+        <result property="codMoneda" column="cod_moneda" /> 
+        <result property="valMontoCred" column="val_monto_cred" />    
+        <result property="canLetras" column="can_letras" /> 
+        <result property="valTea" column="val_tea" /> 
+        <result property="valSaldo" column="val_saldo" /> 
+        <result property="fecUltVenc" column="fec_ult_venc" /> 
+        <result property="codEstadoOp" column="cod_estado_op" /> 
+        <result property="fecEmiOp" column="fec_emi_op" /> 
+        <result property="valPorcCi" column="val_porc_ci" /> 
+        <result property="valValGar" column="val_val_gar" /> 
+        <result property="valPorcRatGar" column="val_porc_rat_gar" /> 
+        <result property="codClie" column="cod_clie" /> 
+        <result property="diasMaxVenc" column="dias_max_venc" /> 
+        <result property="diasVencProm" column="dias_venc_prom" />         
+    </resultMap>     
+  <!-- F Req. 87567 E2.1 ID:9 AVILCA 10/01/2021 --> 
+  
+ <select id="registrar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.RegistrarProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_INSE_CRED_SOLI(
+        #{codClie},
+        #{tipSoliCred},
+        #{codMoneda},
+        #{codBanco},
+        #{estado},
+        #{valMonFin},
+        #{canPlazMes},
+        #{txtObseCrea},
+        #{codResFina},
+        #{numTelfMovil},
+        #{numTeleFijoEjec},
+        #{codSucursal},
+        #{codFilial},
+        #{codAreaVenta},
+        #{codVendedor},
+        #{codZona},
+        #{dirCorreo},
+        #{numProfVeh},
+        #{valVtaProf},
+        #{flagRegistro},
+        #{compania},
+        #{venFactura},
+        #{codUsuario},
+        #{idUsuario},
+        #{codigo, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>    
+    <select id="actualizar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ActualizarSolicitudCreditoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_UPDATE_CRED_SOLI(
+        #{codZona},    <!-- I Req. 87567 E2.29 ID:29 AVILCA 21/05/2020 -->
+        #{codAreaVenta},
+        #{codVendedor},
+        #{codFilial},
+        #{codSucursal},<!-- F Req. 87567 E2.29 ID:29 AVILCA 21/05/2020 -->
+        #{codSoliCred},
+        #{codEstado},
+        #{codPerso},
+        #{numProfVeh},
+        #{numTelfMovil},
+        #{dirCorreo},
+        #{obseCrea},
+        #{tipoSoliCred},
+        #{codRespFina},
+        #{canPlazMes},
+        #{codMonedaProf},
+        #{valVtaTotFin},
+        #{txtObserGestBanc},
+        #{codEstadoAprob},
+        #{flagActualiza},
+        #{venFactura},<!-- F Req. 87567 E2.29 ID:29 AVILCA 16/06/2020 -->
+        #{codBanco},<!--Req. 87567 E1 ID 27 AVILCA 01/07/2020 -->
+        #{tFijo},<!--Req. 87567 E1 ID 27 AVILCA 01/07/2020 -->
+        #{codUsuaSid},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>  
+    
+    <select id="actualizarGestionBancaria" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ActualizarGestionBancaria" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_ACTU_GEST_BANC(
+        #{codSoliCred},
+        #{codBanco},
+        #{valMontFin},
+        #{codMoneSoli},
+        #{valMontSolGestBanc},
+        #{porcGestBanc},
+        #{fecIngrGestBanc},
+        #{fecIngrRiesGestBanc},
+        #{fecAprobCartBan},
+        #{fecResuGestBanc},
+        #{codEstaGestBanc},
+        #{txtObseGestBanc},
+        #{codUsuario},<!--//<Req. 87567 E2.1 ID## avilca 03/12/2020>   -->
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>  
+        
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarSolicitudCreditoProcedure" useCache="false">
+        <!--{CALL PKG_SWEB_CRED_SOLI.SP_LIST_CRED_SOLI(
+        #{codSoliCred},
+        #{nroProforma},
+        #{fecIni},
+        #{fecFin},
+        #{codAreaVta},
+        #{tipSoliCred},
+        #{codClie},
+        #{codPersSoli},
+        #{codRespFina},
+        #{codEstado},
+        #{codEmpr},
+        #{codZona},
+        #{rucCliente},
+        #{codUsuario},
+        #{idUsuario},
+        #{indPaginado},
+        #{liminf},
+        #{limsup},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.solicitudCreditoMap},
+        #{cantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )} -->  
+        <!--I Req. 87567 E2.1 ID## avilca 25/02/2021-->
+       {CALL PKG_SWEB_CRED_SOLI_BANDEJA.SP_LIST_CRED_SOLI(
+        #{codSoliCred},
+        #{nroProforma},
+        #{fecIni},
+        #{fecFin},
+        #{codAreaVta},
+        #{tipSoliCred},
+        #{codClie},
+        #{codPersSoli},
+        #{codRespFina},
+        #{codEstado},
+        #{codEmpr},
+        #{codZona},
+        #{rucCliente},
+        #{codUsuario},
+        #{idUsuario},
+        #{indPaginado},
+        #{liminf},
+        #{limsup},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.solicitudCreditoMap},
+        #{cantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}            
+    </select> 
+      <!--F Req. 87567 E2.1 ID## avilca 25/02/2021-->
+    <select id="listarSoliCartaBanco" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarSolicitudCreditoCBProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_CART_BANC.SP_LIST_CRED_SOLI_CB(
+        #{codSoliCred},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.solicitudCreditoCBMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}        
+    </select>    
+    
+    <select id="listarDatosSolicitudRC" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarDatosResolucionCreditosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_LIST_CRED_SOLI_RESO_CRED(
+        #{codSoliCred},
+        #{fecVencPrimLet},
+        #{fecAproClie},
+        #{txtInfoAdic},
+        #{txtInfoOper},
+        #{codUsuario},
+        #{fechaContrato},
+        #{plazoFacCredito},
+        #{montoFinanciar}, <!--Req. 87567 E2.1 ID## avilca 14/04/2021-->
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.datosResolucionRCMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    
+    <select id="actualizarCartaBanco" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ActualizarSolicitudCreditoCBProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_CART_BANC.SP_ACTU_CRED_SOLI_CB(
+        #{codSoliCred},
+        #{codBanco},
+        #{txtOficBanc},
+        #{numFax},
+        #{fecAprobCartBan},
+        #{codMoneCartBanc},
+        #{valMoneAprobBanc},
+        #{txtNombEjecBanc},
+        #{txtRutaCartBanc},
+        #{numTeleFijoEjec},
+        #{numCeluEjec},
+        #{codUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    
+    <select id="listarSoliSuscripNotaria" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarSolicitudCreditoSNProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SUSC_NOTA.SP_LIST_CRED_SOLI_SN(
+        #{codSoliCred},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.solicitudCreditoSNMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}        
+    </select> 
+    
+    <select id="actualizarSoliSuscripNotaria" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ActualizarSolicitudCreditoSNProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SUSC_NOTA.SP_ACTU_CRED_SOLI_SN(
+        #{codSoliCred},
+        #{txt_nro_contrato},
+        #{fec_susc_cont},
+        #{fec_susc_anex},
+        #{fec_susc_letr},
+        #{fec_sus_gara},
+        #{fec_sus_aval},
+        #{codUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+
+    <select id="listarDatosSolicitudHO" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarDatosSolicitudHOProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_DATOS_HIST_OPER(
+        #{codOpera},
+        #{codClie},
+        #{noCia},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.datosSolicitudHOMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    
+    <select id="listarResumenEjecutivo" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarResumenEjecutivoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_LIST_RESU_RESO_CRED(
+        #{codSoliCred},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.datosResumenEjecutivo},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarPermisos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarPermisosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_LIST_PERM_USUA_SOLCRE(
+        #{codSoliCred},
+        #{codUsuario},   
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet,resultMap=permisoMap},    
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>    
+    
+    
+    <select id="listarRoles" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarRolesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_LIST_ROLES(
+        #{codRol},
+        #{codRolJefFi},
+        #{nroProforma},
+        #{codClie},
+        #{codZona},
+        #{codFilial},
+        #{codAreaVta},
+        #{flag},
+        #{flagEdit},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.rolesMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}       
+    </select>  
+    
+    
+    <select id="registrarSolicitudHistorico" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.RegistrarSolicitudHistoricoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_INSE_CRED_SOLI_HIST(
+        #{codSoliCred},
+        #{valLcActu},
+        #{fecPlazo},
+        #{valLcUtil},
+        #{valDvencidaDc},
+        #{valDvencidaDi},
+        #{valPorcDc},
+        #{valPorcDi},
+        #{codUsuario},
+        #{idUsuario},
+        #{codigo, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>  
+    
+    
+    <select id="registrarHistoricoOperaciones" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.RegistrarHistoricoOperacionesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_INSE_CRED_HIST_OPE(
+        #{codCredSoliHist},
+        #{codCredSoli},
+        #{codCia},
+        #{codTipoCred},
+        #{codOper},
+        #{codMoneda},
+        #{valMontoCred},
+        #{canLetras},
+        #{valTea},
+        #{valSaldo},
+        #{fecUltVenc},
+        #{codEstadoOp},
+        #{fecEmiOp},
+        #{valPorcCi},
+        #{valValGar},
+        #{valPorcRatGar},
+        #{codClie},
+        #{valDiasMaxVenc},
+        #{valDiasVencProm},
+        #{codUsuario},
+        #{idUsuario},
+        #{codigo, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+   
+    <!--I-89783-->
+    <select id="obtenerResponsablesSolcre" statementType="CALLABLE"  parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ObtenerResponsableSolcreProcedure"  useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_OBTEN_RESPONSABLE_SOLCRE(
+        #{codSoliCred},
+        #{vendedor,    mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{responsable, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}        
+    </select> 
+    <!--F-89783-->
+    <!-- I Req. 87567 E2.1 ID:9 AVILCA 12/05/2020 -->
+    <select id="listarParametrosRegistroSolcre" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarParamRegSolcreProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_LIST_PARAM_SOLCRE(
+        #{codCredSoliPara},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.parametrosRegSolcreMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}       
+    </select>  
+  <!-- F Req. 87567 E2.1 ID:9 AVILCA 12/05/2020 -->   
+  
+  <!-- I Req. 87567 E2.1 ID:9 AVILCA 10/01/2021 -->
+    <select id="listarClienteCreditos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarClienteCreditoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_LIST_CLIE_CREDITOS(
+        #{codSoliCred},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.listarClienteCreditosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}       
+    </select>
+    
+    <select id="listarClienteMovimientos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarClienteMovimientoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_LIST_CLIE_MOVIMIENTOS(
+        #{codSoliCred},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoMapper.listarClienteMovimientosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}       
+    </select>    
+  <!-- F Req. 87567 E2.1 ID:9 AVILCA 12/05/2020 -->   
+</mapper>

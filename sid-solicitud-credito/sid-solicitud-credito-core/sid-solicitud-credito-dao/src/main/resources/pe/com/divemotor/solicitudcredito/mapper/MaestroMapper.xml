@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.MaestroMapper">
+    
+    <cache />
+    
+    <select id="crearPlantillaEvento" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_EVENTO.sp_gen_plantilla_correo_even(
+        #{codSoliCred},
+        #{codColaborador},
+        #{idUsuario},
+        #{asunto},
+        #{cuerpo},
+        #{correlativoCorreo, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>
+    
+    <select id="crearPlantillaAprobacion" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_EVENTO.sp_gen_plantilla_correo_aprob(
+        #{codSoliCred},
+        #{codColaborador},
+        #{idUsuario},
+        #{asunto},
+        #{cuerpo},
+        #{correlativoCorreo, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>
+    
+    <select id="crearPlantillaSegAprobacion" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SEGURO.sp_gen_plantilla_correo_segu(
+        #{codSoliCred},
+        #{idUsuario},
+        #{asunto},
+        #{cuerpo},
+        #{correlativoCorreo, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>
+    
+    <!-- I Req. 87567 E2.1 ID## avilca 06/10/2020>-->
+    <select id="crearPlantillaSegRechazo" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SEGURO.sp_gen_plantilla_rech_tasa(
+        #{codSoliCred},
+        #{idUsuario},
+        #{asunto},
+        #{observacionRechazo},
+        #{correlativoCorreo, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>
+    
+    <select id="crearPlantillaSegAprob" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SEGURO.sp_gen_plantilla_aprob_tasa(
+        #{codSoliCred},
+        #{idUsuario},
+        #{asunto},
+        #{cuerpo},
+        #{correlativoCorreo, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>    
+    <!-- F Req. 87567 E2.1 ID## avilca 06/10/2020>-->
+    
+    <select id="crearPlantillaSoliAprobacionCredito" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_EVENTO.sp_gen_plant_correo_soli_apro(
+        #{codSoliCred},
+        #{codCliente},
+        #{idUsuario},
+        #{correlativoCorreo, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>
+    
+    <select id="crearPlantillaSoliAprobacionCreditoUsu" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_EVENTO.sp_gen_plant_correo_apro_usu(
+        #{codSoliCred},
+        #{codCliente},
+        #{estado},
+        #{observacion},
+        #{idUsuario},
+        #{correlativoCorreo, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>
+    
+    <select id="crearPlantillaOperacionLxC" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_EVENTO.sp_gen_plant_correo_ope_lxc(
+        #{codSoliCred},
+        #{codCliente},
+        #{idUsuario},
+        #{correlativoCorreo, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>    
+    
+    <resultMap id="correoEventoMap" type="pe.com.divemotor.solicitudcredito.dominio.Correo">
+        <result property="codCorreo" column="COD_CORREO_PROF" />
+        <result property="destinatarios" column="DESTINATARIOS" />
+        <result property="copia" column="COPIA" />
+        <result property="asunto" column="ASUNTO" />
+        <result property="cuerpo" column="CUERPO" />
+        <result property="correoOrigen" column="CORREOORIGEN" />
+    </resultMap>
+    
+    <select id="obtenerPlantillaCorreo" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_EVENTO.sp_obtener_plantilla(
+        #{codCorreoProf},
+        #{idUsuario},
+        #{listaCorreo, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet,resultMap=correoEventoMap},   
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}      
+    </select>
+    
+    
+    
+    <select id="actualizarEstadoEnvio" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_EVENTO.sp_actualizar_envio(
+        #{codCorreoProf},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>
+    
+    <resultMap id="maestroComboMap" type="pe.com.divemotor.solicitudcredito.dominio.Maestro">
+        <result property="codTipo" column="COD_TIPO"/>
+        <result property="descripcion" column="DESCRIPCION"/>
+        <result property="valorAdicional" column="VALOR_ADICIONAL"/>
+    </resultMap>
+    
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.maestro.ListarMaestroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_MAESTRO.sp_list_maestro(
+        #{tipo},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=maestroComboMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+     <select id="listarFilialZona" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.maestro.ListarMaestroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_MAESTRO.sp_list_filial_zona(
+        #{tipo},
+        #{codDepa},
+        #{codProv},
+        #{codDist},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=maestroComboMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="crearPlantillaVencimientoPoliza" statementType="CALLABLE" parameterType="map" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_EVENTO.sp_gen_plant_vcto_seguro(
+        #{diasConsulta},
+        #{idUsuario},
+        #{correlativoCorreo, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>
+
+</mapper>

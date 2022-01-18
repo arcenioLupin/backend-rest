@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.ReporteCreditosMapper">
+
+    <cache />
+
+    <resultMap id="reporteCreditosMap" type="pe.com.divemotor.solicitudcredito.dominio.ReporteCredito">
+        <result property="codAreaVenta" column="COD_AREA_VTA"/>
+        <result property="codClie" column="COD_CLIE"/>
+        <result property="numFichaVtaVeh" column="NUM_FICHA_VTA_VEH" />
+        <result property="totVenta" column="TOT_VENTA" /> 
+        <result property="tipSoliCred" column="TIP_SOLI_CRED" />
+        <result property="valCi" column="VAL_CI" />
+        <result property="valMonFin" column="VAL_MON_FIN" />
+        <result property="canPlazMes" column="CAN_PLAZ_MES" />
+        <result property="fecVenc1raLet" column="FEC_VENC_1RA_LET" />
+        <result property="valPorcTeaSigv" column="VAL_PORC_TEA_SIGV" />
+        <result property="desZona" column="DES_ZONA" />   
+    </resultMap>
+    
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.reporteCreditos.ListarReporteCreditosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_REPO_CREDITOS.sp_list_cred_otorgados(
+        #{tipCred},
+        #{areaVta},
+        #{zona},
+        #{fechIni},
+        #{fechFin},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=reporteCreditosMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+   
+
+</mapper>

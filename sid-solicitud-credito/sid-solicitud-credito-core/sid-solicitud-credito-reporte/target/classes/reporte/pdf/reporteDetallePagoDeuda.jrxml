@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteDetallePagoDeuda" pageWidth="551" pageHeight="902" whenNoDataType="AllSectionsNoDetail" columnWidth="551" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9d4f39e0-9961-4ff1-ad59-c1a82b13c539">
+	<property name="ireport.zoom" value="1.1269722013523664"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<field name="numCuota" class="java.lang.String"/>
+	<field name="numLetra" class="java.lang.String"/>
+	<field name="deudaFinanciar" class="java.lang.String"/>
+	<field name="capital" class="java.lang.String"/>
+	<field name="interes" class="java.lang.String"/>
+	<field name="igv" class="java.lang.String"/>
+	<field name="cuota" class="java.lang.String"/>
+	<field name="seguro" class="java.lang.String"/>
+	<field name="cuotaLetra" class="java.lang.String"/>
+	<field name="fechaVencimiento" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement mode="Opaque" x="34" y="0" width="52" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="705ab4a5-a80d-4f0d-8855-efc7b1a050d9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N° de Letra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="35" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="42ceb30a-4aa5-42bf-9198-ad84239c9f0c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Cuota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="86" y="0" width="83" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="4cd6ecbb-882d-477b-bdb0-147c4b849baf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Deuda a Financiar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="169" y="0" width="49" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="501c5b70-47df-4302-aea9-f45bbbf1cdcd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Capital]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="218" y="0" width="49" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="f272a312-bc87-42cc-a627-188d37c21170"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Intereses]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="267" y="0" width="44" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="6c0e392b-dbc8-408e-89ae-c5cf51024937"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[IGV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="311" y="0" width="44" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="87c449a2-d535-4322-a2ce-8025e23721e6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Cuota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="355" y="0" width="44" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="69f76c32-293c-499c-b38c-672bffb73e2d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Seguro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="399" y="0" width="51" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="23893c94-a5b1-4597-a829-d9d8388ee72d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Cuota letra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="450" y="0" width="101" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="025f2fcc-d641-4fec-8cb7-bf37213cbdad"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Fecha de Vencimiento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="33" height="20" uuid="83155e51-a69a-46a1-a5a3-05c78dbedcb9"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numCuota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="34" y="0" width="52" height="20" uuid="1b64bb3f-dc28-466a-af4f-d462de7f4b1c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numLetra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="86" y="0" width="83" height="20" uuid="4defa8fa-08aa-416c-bd3e-31e6438d7e5c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deudaFinanciar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="0" width="49" height="20" uuid="3dd03a89-e9c8-4106-b7e2-27efa42546dd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{capital}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="0" width="49" height="20" uuid="bb045e35-c2bb-4ea9-8625-f176c57ddedb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{interes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="0" width="44" height="20" uuid="40a94284-e92e-4e72-af36-406cb6063248"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{igv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="0" width="44" height="20" uuid="c631e542-f089-479e-951c-bd64b2af8018"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cuota}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="0" width="44" height="20" uuid="0b58b493-e871-414a-bf4b-9c39edc0f88d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seguro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="0" width="51" height="20" uuid="857d8f91-98bd-4cd2-8951-185ed3603e6a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cuotaLetra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="101" height="20" uuid="a35a82e2-7c2b-40c2-a1bc-16a797db6f29"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaVencimiento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="20"/>
+	</summary>
+</jasperReport>

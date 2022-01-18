@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.InformacionSBSMapper">
+
+    <cache />
+    
+    <resultMap id="informacionSBSMap" type="pe.com.divemotor.solicitudcredito.dominio.InformacionSBS">
+        <result property="codClasifSbsClie" column="COD_CLASIF_SBS_CLIE"/>
+        <result property="codClasifSbsRepr" column="COD_CLASIF_SBS_REPR"/>
+        <result property="codPersonaClie" column="COD_PERSONA_CLIE"/>
+        <result property="codPersonaRepr" column="COD_PERSONA_REPR"/>
+        <result property="codRiesDiveClie" column="COD_RIES_DIVE_CLIE"/>
+        <result property="codRiesDiveRepr" column="COD_RIES_DIVE_REPR"/>
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="indCondRucClie" column="IND_COND_RUC_CLIE"/>
+        <result property="indCondRucRepr" column="IND_COND_RUC_REPR"/>
+        <result property="txtLinkSbsClie" column="TXT_LINK_SBS_CLIE"/>
+        <result property="txtLinkSbsRepr" column="TXT_LINK_SBS_REPR"/>
+        <result property="valDeudActuClie" column="VAL_DEUD_ACTU_CLIE"/>
+        <result property="valDeudActuRepr" column="VAL_DEUD_ACTU_REPR"/>
+        <result property="valDeudCierAnoActuClie" column="VAL_DEUD_CIER_ANO_ACTU_CLIE"/>
+        <result property="valDeudCierAnoActuRepr" column="VAL_DEUD_CIER_ANO_ACTU_REPR"/>
+        <result property="valDeudCierAnoAnteClie" column="VAL_DEUD_CIER_ANO_ANTE_CLIE"/>
+        <result property="valDeudCierAnoAnteRepr" column="VAL_DEUD_CIER_ANO_ANTE_REPR"/>
+        <result property="valDeudVenciClie" column="VAL_DEUD_VENCI_CLIE"/>
+        <result property="valDeudVenciRepr" column="VAL_DEUD_VENCI_REPR"/>
+        <result property="valImpaClie" column="VAL_IMPA_CLIE"/>
+        <result property="valImpaRepr" column="VAL_IMPA_REPR"/>
+        <result property="valProtSinReguClie" column="VAL_PROT_SIN_REGU_CLIE"/>
+        <result property="valProtSinReguRepr" column="VAL_PROT_SIN_REGU_REPR"/>
+        <result property="valProtReguClie" column="VAL_PROT_REGU_CLIE"/>
+        <result property="valProtReguRepr" column="VAL_PROT_REGU_REPR"/>
+
+        
+
+    </resultMap>
+
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarInformacionSBSProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_LIST_INFO_SBS( 
+        #{codSoliCred},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.InformacionSBSMapper.informacionSBSMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+        
+    </select> 
+    
+    <select id="registrar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.RegistrarInformacionSBSProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_INSE_INFO_SBS(  
+        #{codClasifSbsClie},
+        #{codClasifSbsRepr},
+        #{codPersonaClie},
+        #{codPersonaRepr},
+        #{codRiesDiveClie},
+        #{codRiesDiveRepr},
+        #{codSoliCred},
+        #{indCondRucClie},
+        #{indCondRucRepr},
+        #{txtLinkSbsClie},
+        #{txtLinkSbsRepr},
+        #{valDeudActuClie},
+        #{valDeudActuRepr},
+        #{valDeudCierAnoActuClie},
+        #{valDeudCierAnoActuRepr},
+        #{valDeudCierAnoAnteClie},
+        #{valDeudCierAnoAnteRepr},
+        #{valDeudVenciClie},
+        #{valDeudVenciRepr},
+        #{valImpaClie},
+        #{valImpaRepr},
+        #{valProtSinReguClie},
+        #{valProtSinReguRepr},
+        #{valProtReguClie},
+        #{valProtReguRepr},
+        #{codUsuario},
+        #{codigo, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+       
+    </select>
+
+</mapper>

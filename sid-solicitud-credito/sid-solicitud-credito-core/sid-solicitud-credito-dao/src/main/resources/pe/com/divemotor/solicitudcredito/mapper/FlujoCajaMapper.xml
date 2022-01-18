@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper">
+    
+    <cache />
+    
+    <resultMap id="coberturaFlujoCajaMap" type="pe.com.divemotor.solicitudcredito.dominio.CoberturaFlujoCaja">        
+        <result property="nroAnio" column="NUM_ANO"/>
+    </resultMap> 
+    
+    <resultMap id="coberturaFlujoCajaValAnioMap" type="pe.com.divemotor.solicitudcredito.dominio.CoberturaFlujoCajaValAnios">        
+        <result property="valAnio1" column="ANIO_1"/>
+        <result property="valAnio2" column="ANIO_2"/>
+        <result property="valAnio3" column="ANIO_3"/>
+        <result property="valAnio4" column="ANIO_4"/>
+        <result property="valAnio5" column="ANIO_5"/>
+        <result property="valAnio6" column="ANIO_6"/>
+        <result property="valAnio7" column="ANIO_7"/>
+        <result property="valAnio8" column="ANIO_8"/>
+        <result property="valAnio9" column="ANIO_9"/>
+        <result property="valAnio10" column="ANIO_10"/>
+    </resultMap> 
+    
+    <resultMap id="flujoCajaInfoMap" type="pe.com.divemotor.solicitudcredito.dominio.FlujoCajaInfo">        
+        <result property="indTipoFC" column="IND_TIPO_FC"/> 
+    </resultMap>     
+    
+    <resultMap id="parametrosFlujoCajaCabeceraUrbanoMap" type="pe.com.divemotor.solicitudcredito.dominio.ParametrosFlujoCajaCabeceraUrbano">        
+        <result property="codRuta" column="COD_RUTA"/> 
+        <result property="valDiasTrabRuta" column="VAL_DIAS_TRAB_RUTA"/>
+        <result property="valNroVehRuta" column="VAL_NRO_VEH_RUTA"/>
+        <result property="ValTotIngrUrbMes" column="VAL_TOT_INGR_URB_MES"/>
+        <result property="ValTotEgreUrbMes" column="VAL_TOT_EGRE_URB_MES"/>
+    </resultMap> 
+    
+    <resultMap id="parametrosFlujoCajaMap" type="pe.com.divemotor.solicitudcredito.dominio.ParametrosFlujoCajaCamiInteUrba">        
+        <result property="codCredParaFc" column="COD_CRED_PARA_FC"/> 
+        <result property="valPara" column="VAL_PARA"/>
+        <result property="valNroRuta" column="VAL_NRO_RUTA"/>
+        <result property="valTxt" column="VAL_TXT"/>
+    </resultMap>
+    
+    <resultMap id="factorConstanteFlujoCajaMap" type="pe.com.divemotor.solicitudcredito.dominio.FactorConstanteFlujoCaja">        
+        <result property="valMes" column="VAL_MES"/> 
+        <result property="valAnio" column="VAL_ANIO"/>
+        <result property="codParaFact" column="COD_CRED_PARA_FACT"/> 
+        <result property="valPara" column="VAL_PARA"/>
+        <result property="valFactAjust" column="VAL_FACT_AJUST"/>
+    </resultMap>       
+    
+    <resultMap id="factorPorMesFlujoCajaMap" type="pe.com.divemotor.solicitudcredito.dominio.FactorPorMesFlujoCaja">        
+        <result property="fecMesIniRang" column="FEC_INI"/> 
+        <result property="fecMesFinRang" column="FEC_FIN"/>
+        <result property="valFact" column="VAL_FACT_AJUST"/> 
+        <result property="indIngrEgre" column="IND_INGR_EGRE"/>
+    </resultMap> 
+    
+    <resultMap id="parametrosFlujoCajaDetalleMap" type="pe.com.divemotor.solicitudcredito.dominio.ParametrosFlujoCajaxAnio">        
+        <result property="anio1Mes1" column="ANIO_1_MES_1"/> 
+        <result property="anio1Mes2" column="ANIO_1_MES_2"/> 
+        <result property="anio1Mes3" column="ANIO_1_MES_3"/> 
+        <result property="anio1Mes4" column="ANIO_1_MES_4"/> 
+        <result property="anio1Mes5" column="ANIO_1_MES_5"/> 
+        <result property="anio1Mes6" column="ANIO_1_MES_6"/> 
+        <result property="anio1Mes7" column="ANIO_1_MES_7"/> 
+        <result property="anio1Mes8" column="ANIO_1_MES_8"/> 
+        <result property="anio1Mes9" column="ANIO_1_MES_9"/> 
+        <result property="anio1Mes10" column="ANIO_1_MES_10"/> 
+        <result property="anio1Mes11" column="ANIO_1_MES_11"/> 
+        <result property="anio1Mes12" column="ANIO_1_MES_12"/> 
+        <result property="anio2Mes1" column="ANIO_2_MES_1"/> 
+        <result property="anio2Mes2" column="ANIO_2_MES_2"/> 
+        <result property="anio2Mes3" column="ANIO_2_MES_3"/> 
+        <result property="anio2Mes4" column="ANIO_2_MES_4"/> 
+        <result property="anio2Mes5" column="ANIO_2_MES_5"/> 
+        <result property="anio2Mes6" column="ANIO_2_MES_6"/> 
+        <result property="anio2Mes7" column="ANIO_2_MES_7"/> 
+        <result property="anio2Mes8" column="ANIO_2_MES_8"/> 
+        <result property="anio2Mes9" column="ANIO_2_MES_9"/> 
+        <result property="anio2Mes10" column="ANIO_2_MES_10"/> 
+        <result property="anio2Mes11" column="ANIO_2_MES_11"/> 
+        <result property="anio2Mes12" column="ANIO_2_MES_12"/> 
+        <result property="anio3Mes1" column="ANIO_3_MES_1"/> 
+        <result property="anio3Mes2" column="ANIO_3_MES_2"/> 
+        <result property="anio3Mes3" column="ANIO_3_MES_3"/> 
+        <result property="anio3Mes4" column="ANIO_3_MES_4"/> 
+        <result property="anio3Mes5" column="ANIO_3_MES_5"/> 
+        <result property="anio3Mes6" column="ANIO_3_MES_6"/> 
+        <result property="anio3Mes7" column="ANIO_3_MES_7"/> 
+        <result property="anio3Mes8" column="ANIO_3_MES_8"/> 
+        <result property="anio3Mes9" column="ANIO_3_MES_9"/> 
+        <result property="anio3Mes10" column="ANIO_3_MES_10"/> 
+        <result property="anio3Mes11" column="ANIO_3_MES_11"/> 
+        <result property="anio3Mes12" column="ANIO_3_MES_12"/> 
+        <result property="anio4Mes1" column="ANIO_4_MES_1"/> 
+        <result property="anio4Mes2" column="ANIO_4_MES_2"/> 
+        <result property="anio4Mes3" column="ANIO_4_MES_3"/> 
+        <result property="anio4Mes4" column="ANIO_4_MES_4"/> 
+        <result property="anio4Mes5" column="ANIO_4_MES_5"/> 
+        <result property="anio4Mes6" column="ANIO_4_MES_6"/> 
+        <result property="anio4Mes7" column="ANIO_4_MES_7"/> 
+        <result property="anio4Mes8" column="ANIO_4_MES_8"/> 
+        <result property="anio4Mes9" column="ANIO_4_MES_9"/> 
+        <result property="anio4Mes10" column="ANIO_4_MES_10"/> 
+        <result property="anio4Mes11" column="ANIO_4_MES_11"/> 
+        <result property="anio4Mes12" column="ANIO_4_MES_12"/> 
+        <result property="anio5Mes1" column="ANIO_5_MES_1"/> 
+        <result property="anio5Mes2" column="ANIO_5_MES_2"/> 
+        <result property="anio5Mes3" column="ANIO_5_MES_3"/> 
+        <result property="anio5Mes4" column="ANIO_5_MES_4"/> 
+        <result property="anio5Mes5" column="ANIO_5_MES_5"/> 
+        <result property="anio5Mes6" column="ANIO_5_MES_6"/> 
+        <result property="anio5Mes7" column="ANIO_5_MES_7"/> 
+        <result property="anio5Mes8" column="ANIO_5_MES_8"/> 
+        <result property="anio5Mes9" column="ANIO_5_MES_9"/> 
+        <result property="anio5Mes10" column="ANIO_5_MES_10"/> 
+        <result property="anio5Mes11" column="ANIO_5_MES_11"/> 
+        <result property="anio5Mes12" column="ANIO_5_MES_12"/> 
+        <result property="anio6Mes1" column="ANIO_6_MES_1"/> 
+        <result property="anio6Mes2" column="ANIO_6_MES_2"/> 
+        <result property="anio6Mes3" column="ANIO_6_MES_3"/> 
+        <result property="anio6Mes4" column="ANIO_6_MES_4"/> 
+        <result property="anio6Mes5" column="ANIO_6_MES_5"/> 
+        <result property="anio6Mes6" column="ANIO_6_MES_6"/> 
+        <result property="anio6Mes7" column="ANIO_6_MES_7"/> 
+        <result property="anio6Mes8" column="ANIO_6_MES_8"/> 
+        <result property="anio6Mes9" column="ANIO_6_MES_9"/> 
+        <result property="anio6Mes10" column="ANIO_6_MES_10"/> 
+        <result property="anio6Mes11" column="ANIO_6_MES_11"/> 
+        <result property="anio6Mes12" column="ANIO_6_MES_12"/> 
+        <result property="anio7Mes1" column="ANIO_7_MES_1"/> 
+        <result property="anio7Mes2" column="ANIO_7_MES_2"/> 
+        <result property="anio7Mes3" column="ANIO_7_MES_3"/> 
+        <result property="anio7Mes4" column="ANIO_7_MES_4"/> 
+        <result property="anio7Mes5" column="ANIO_7_MES_5"/> 
+        <result property="anio7Mes6" column="ANIO_7_MES_6"/> 
+        <result property="anio7Mes7" column="ANIO_7_MES_7"/> 
+        <result property="anio7Mes8" column="ANIO_7_MES_8"/> 
+        <result property="anio7Mes9" column="ANIO_7_MES_9"/> 
+        <result property="anio7Mes10" column="ANIO_7_MES_10"/> 
+        <result property="anio7Mes11" column="ANIO_7_MES_11"/> 
+        <result property="anio7Mes12" column="ANIO_7_MES_12"/> 
+        <result property="anio8Mes1" column="ANIO_8_MES_1"/> 
+        <result property="anio8Mes2" column="ANIO_8_MES_2"/> 
+        <result property="anio8Mes3" column="ANIO_8_MES_3"/> 
+        <result property="anio8Mes4" column="ANIO_8_MES_4"/> 
+        <result property="anio8Mes5" column="ANIO_8_MES_5"/> 
+        <result property="anio8Mes6" column="ANIO_8_MES_6"/> 
+        <result property="anio8Mes7" column="ANIO_8_MES_7"/> 
+        <result property="anio8Mes8" column="ANIO_8_MES_8"/> 
+        <result property="anio8Mes9" column="ANIO_8_MES_9"/> 
+        <result property="anio8Mes10" column="ANIO_8_MES_10"/> 
+        <result property="anio8Mes11" column="ANIO_8_MES_11"/> 
+        <result property="anio8Mes12" column="ANIO_8_MES_12"/> 
+        <result property="anio9Mes1" column="ANIO_9_MES_1"/> 
+        <result property="anio9Mes2" column="ANIO_9_MES_2"/> 
+        <result property="anio9Mes3" column="ANIO_9_MES_3"/> 
+        <result property="anio9Mes4" column="ANIO_9_MES_4"/> 
+        <result property="anio9Mes5" column="ANIO_9_MES_5"/> 
+        <result property="anio9Mes6" column="ANIO_9_MES_6"/> 
+        <result property="anio9Mes7" column="ANIO_9_MES_7"/> 
+        <result property="anio9Mes8" column="ANIO_9_MES_8"/> 
+        <result property="anio9Mes9" column="ANIO_9_MES_9"/> 
+        <result property="anio9Mes10" column="ANIO_9_MES_10"/> 
+        <result property="anio9Mes11" column="ANIO_9_MES_11"/> 
+        <result property="anio9Mes12" column="ANIO_9_MES_12"/> 
+        <result property="anio10Mes1" column="ANIO_10_MES_1"/> 
+        <result property="anio10Mes2" column="ANIO_10_MES_2"/> 
+        <result property="anio10Mes3" column="ANIO_10_MES_3"/> 
+        <result property="anio10Mes4" column="ANIO_10_MES_4"/> 
+        <result property="anio10Mes5" column="ANIO_10_MES_5"/> 
+        <result property="anio10Mes6" column="ANIO_10_MES_6"/> 
+        <result property="anio10Mes7" column="ANIO_10_MES_7"/> 
+        <result property="anio10Mes8" column="ANIO_10_MES_8"/> 
+        <result property="anio10Mes9" column="ANIO_10_MES_9"/> 
+        <result property="anio10Mes10" column="ANIO_10_MES_10"/> 
+        <result property="anio10Mes11" column="ANIO_10_MES_11"/> 
+        <result property="anio10Mes12" column="ANIO_10_MES_12"/> 
+        <result property="rubro" column="RUBRO"/>
+    </resultMap> 
+    
+    <select id="registrarParametrosFC" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.fc.RegistrarParametrosFlujoCajaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_FLUJO_CAJA.SP_INSE_PARAM_CAMIONES(  
+        #{codSoliCred},
+        #{noCia},
+        #{parametrosFlujoCaja, javaType=Object, jdbcType=ARRAY,
+        jdbcTypeName=VENTA.VVE_TYTA_LIST_INGR_EGRE, mode=IN,
+        typeHandler=pe.com.divemotor.solicitudcredito.typehandler.ParametrosFlujoCajaTypeHandler},
+        #{indiFlujCaja},
+        #{codUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="registrarFactorPorMes" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.fc.RegistrarFactorPorMesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_FLUJO_CAJA.SP_INSE_FACT_MES(  
+        #{codSoliCred},
+        #{noCia},
+        #{factorConstanteFijoIngreso},
+        #{indFacFijoVariableIngresos},
+        #{factorConstanteFijoEgreso},
+        #{indFacFijoVariableEgresos},
+        #{fecIniFactIngr},
+        #{fecFinFactIngr},
+        #{fecIniFactEgre},
+        #{fecFinFactEgre},
+        #{factoresPorMes, javaType=Object, jdbcType=ARRAY,
+        jdbcTypeName=VENTA.VVE_TYTA_LIST_FACT_MES, mode=IN,
+        typeHandler=pe.com.divemotor.solicitudcredito.typehandler.FactorPorMesTypeHandler},
+        #{indiFlujCaja},
+        #{cantRutas},
+        #{codUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="registrarProyeccionFlujoCaja" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.fc.RegistrarProyeccionFlujoCajaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_FLUJO_CAJA.SP_CALC_PROY_CAMI(  
+        #{codSoliCred},
+        #{indTipoFc},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.coberturaFlujoCajaValAnioMap},
+        #{listaNroAnios, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.coberturaFlujoCajaMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarParametrosFlujoCaja" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.fc.ListarParametrosFlujoCajaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_FLUJO_CAJA.SP_LIST_PARA_FC( 
+        #{codSoliCred},
+        #{indTipoFc},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.parametrosFlujoCajaMap},
+        #{cabecerasUrbano, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.parametrosFlujoCajaCabeceraUrbanoMap},
+        #{factoresConstantesFlujoCajaIF, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.factorConstanteFlujoCajaMap},
+        #{factoresConstantesFlujoCajaEF, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.factorConstanteFlujoCajaMap},
+        #{factoresPorMesFlujoCajaIF, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.factorPorMesFlujoCajaMap},
+        #{factoresPorMesFlujoCajaEF, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.factorPorMesFlujoCajaMap},
+        #{listaAnios, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.coberturaFlujoCajaMap},
+        #{listaValProyPorAnios, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.coberturaFlujoCajaValAnioMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    
+    <select id="listarParametrosFlujoCajaDetalle" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.fc.ListarParametrosFlujoCajaDetalleProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_FLUJO_CAJA.SP_REPO_FLUJ_CAJA( 
+        #{codSoliCred},
+        #{indTipoFc},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.parametrosFlujoCajaDetalleMap},
+        #{listaEgresos, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.parametrosFlujoCajaDetalleMap},
+        #{listaDetalleFlujoCaja, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.parametrosFlujoCajaDetalleMap},
+        #{listaProyectado, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.coberturaFlujoCajaValAnioMap},
+        #{comentarios, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    
+    <select id="listarFlujoCajaInfo" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.fc.ListarFlujoCajaInfoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_FLUJO_CAJA.SP_OBTE_INFO_FC( 
+        #{codSoliCred},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.FlujoCajaMapper.flujoCajaInfoMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>     
+
+</mapper>

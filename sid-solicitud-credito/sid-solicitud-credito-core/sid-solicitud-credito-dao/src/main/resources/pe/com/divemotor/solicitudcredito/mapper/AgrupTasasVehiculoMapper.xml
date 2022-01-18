@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.AgrupTasasVehiculoMapper">
+
+    <cache />
+
+    <resultMap id="agrupacionMap" type="pe.com.divemotor.solicitudcredito.dominio.AgrupTasasVehiculo">
+        <result property="codAgruVeh" column="COD_AGRU"/>
+        <result property="desAgruVeh" column="DES_AGRU"/>
+        <result property="valTasaBru" column="TASA_BRUTA" />
+        <result property="valGrossUp" column="VAL_GROSSUP" /> 
+        <result property="valTasaFina" column="TASA_FINAL" />
+        <result property="codCia" column="COD_CIA" />
+        <result property="desCia" column="DES_CIA" />
+    </resultMap>
+    
+    <resultMap id="agrupacionDetailMap" type="pe.com.divemotor.solicitudcredito.dominio.AgrupTasasVehiculoDetail">
+        <result property="codDetail" column="COD_DETAIL"/>
+        <result property="codAgruVeh" column="COD_AGRU"/>
+        <result property="codTipoVeh" column="COD_TIPO_VEH" />
+        <result property="desTipoVeh" column="DES_TIPO_VEH" /> 
+        <result property="codTipoUso" column="COD_TIPO_USO" />
+        <result property="desTipoUso" column="DES_TIPO_USO" />
+    </resultMap>
+    
+    <select id="listarAgrupaciones" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.agrupTasasVehiculo.ListarAgrupTasasVehiculoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_AGRUP.SP_LIST_AGRUP_TASAS_VEHI(
+        #{codCia},
+        #{codUsuario},
+        #{idUsuario},
+        #{indPaginado},
+        #{liminf},
+        #{limsup},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=agrupacionMap},
+        #{cantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarAgrupacionesDetail" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.agrupTasasVehiculo.ListarAgrupTasasVehiculoDetProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_AGRUP.SP_LIST_DETAIL_BY_AGRUP(
+        #{codAgruVeh},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=agrupacionDetailMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    
+    <select id="actualizarAgrupaciones" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.agrupTasasVehiculo.ActualizarAgrupTasasVehiculoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_AGRUP.SP_ACT_AGRUP(
+        #{codAgruVeh},
+        #{desAgruVeh},
+        #{valTasaBru},
+        #{valGrossUp},
+        #{valTasaFina},
+        #{codCia},
+        #{indInactivo},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="actualizarAgrupacionesDetalle" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.agrupTasasVehiculo.ActualizarAgrupTasasVehiculoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_AGRUP.SP_ACT_DETALLE(
+        #{codTipoVehAgru},
+        #{codTipoVeh},
+        #{codAgruVehSeg},
+        #{codTipoUso},
+        #{indInactivo},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+   
+
+</mapper>

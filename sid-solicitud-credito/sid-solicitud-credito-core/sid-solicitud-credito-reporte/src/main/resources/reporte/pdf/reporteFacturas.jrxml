@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteFacturas" pageWidth="450" pageHeight="902" whenNoDataType="AllSectionsNoDetail" columnWidth="450" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="9d4f39e0-9961-4ff1-ad59-c1a82b13c539">
+	<property name="ireport.zoom" value="1.1269722013523664"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<field name="numFactura" class="java.lang.String"/>
+	<field name="fechaFactura" class="java.lang.String"/>
+	<field name="monedaFactura" class="java.lang.String"/>
+	<field name="importeFactura" class="java.lang.Integer"/>
+	<variable name="sumaMonto" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{importeFactura}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement mode="Opaque" x="110" y="0" width="120" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="705ab4a5-a80d-4f0d-8855-efc7b1a050d9"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="109" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="42ceb30a-4aa5-42bf-9198-ad84239c9f0c"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[N° Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="230" y="0" width="113" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="4cd6ecbb-882d-477b-bdb0-147c4b849baf"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Moneda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="343" y="0" width="107" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="501c5b70-47df-4302-aea9-f45bbbf1cdcd"/>
+				<textElement textAlignment="Center">
+					<font isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Importe]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="110" y="1" width="120" height="19" uuid="4823367f-ceaa-45b1-a97d-d795d505d0e0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fechaFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="1" width="113" height="19" uuid="0919586f-0820-4a1b-9d88-3f354652b01b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{monedaFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="1" width="107" height="19" uuid="b4f98efa-1654-4391-a14f-44cfe0e4583b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{importeFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="2" y="1" width="108" height="19" uuid="5cb3c063-a08d-4b46-80f2-40c2803cee1d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{numFactura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="20">
+			<textField>
+				<reportElement x="343" y="0" width="107" height="20" uuid="14d8f55e-d505-4b1f-8461-c6e2ffa04631"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{sumaMonto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="110" y="0" width="120" height="20" backcolor="#CCCCCC" uuid="fe564146-b964-4e2f-85d6-caf17400c037"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="230" y="0" width="113" height="20" uuid="45d49543-7af0-40fb-ac34-286ce2dc4981"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{monedaFactura}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

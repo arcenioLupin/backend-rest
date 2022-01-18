@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="_reporteRDLInformacionRefinanciamiento" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cd231615-7b10-467e-ab4f-9392d3c13753">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<field name="infoDetaOrigen" class="java.lang.String"/>
+	<field name="nroFactura" class="java.lang.String"/>
+	<field name="fechaFactura" class="java.lang.String"/>
+	<field name="empresaBanco" class="java.lang.String"/>
+	<field name="marcaVeh" class="java.lang.String"/>
+	<field name="anioVeh" class="java.lang.String"/>
+	<field name="modeloVeh" class="java.lang.String"/>
+	<field name="chasisVeh" class="java.lang.String"/>
+	<field name="motorVeh" class="java.lang.String"/>
+	<field name="tipoVeh" class="java.lang.String"/>
+	<field name="placaVeh" class="java.lang.String"/>
+	<detail>
+		<band height="181">
+			<rectangle>
+				<reportElement x="0" y="14" width="251" height="12" uuid="fce1aae4-febd-4286-808f-0023acbfc105"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="1" width="234" height="12" uuid="2f6739e5-ae85-4324-ace8-48a2d82a134d"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Garantía(s) Hipotecaria(as) Adicionales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="15" width="234" height="12" uuid="3ba0ac5c-ac40-41bf-94dd-41fe3a5abf4b"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Origen de Reconocimiento]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="251" y="14" width="254" height="12" uuid="ead584c1-ca87-4089-9ead-b6595cff4b66"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="314" y="26" width="191" height="13" uuid="a3ab7344-4957-4436-88d2-4a6c9b84f7d6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="26" width="63" height="13" uuid="122a460b-c2bf-4ac1-bcf2-60eb3d9a2c2b"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="39" width="63" height="14" uuid="899e4f39-36f4-47b0-99eb-8f22370f97f5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="26" width="251" height="111" uuid="203e5deb-c33f-43e1-900b-90c1d237e06c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="505" height="14" backcolor="#999999" uuid="fc3da954-dbe3-414b-90ae-75974a1ce4eb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="1" width="234" height="11" uuid="9a77970b-7df7-4e2f-ab96-8ae1dfe0f2f7"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Información del Financiamiento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="-384" width="100" height="10" uuid="f5790c6f-d124-43ca-9f71-d5c4c8583e19"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Provincia]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="261" y="-386" width="125" height="14" uuid="a4dc55be-4668-473c-9f01-9a4f1187eef2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="266" y="-384" width="100" height="12" uuid="4dc7d5fc-22cc-4250-ac4d-0ea10deb5500"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Provincia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="266" y="-398" width="100" height="11" uuid="f08fb187-55d3-40fb-b500-272c33d3a572"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Distrito]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="386" y="-399" width="129" height="13" uuid="e19b55c1-a042-4a03-814a-205d5464c161"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="266" y="-397" width="100" height="13" uuid="8c73690b-a535-40be-8f0c-9ddad11d5d4e"/>
+				<textElement>
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<text><![CDATA[Distrito]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="386" y="-386" width="129" height="14" uuid="ae5642b6-8f97-44bc-b70a-ab8697006721"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="314" y="53" width="191" height="14" uuid="98081829-282c-4a27-8d09-8af82c96d5e3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="314" y="39" width="191" height="14" uuid="2089ef00-0a12-4e90-beba-f1cfe9b640a7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="314" y="67" width="191" height="14" uuid="a9ed3b9c-f749-4d8e-8498-7588fb09bdc2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="53" width="63" height="14" uuid="1293672f-5d3e-4217-a8e1-b77db08d8bb1"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="67" width="63" height="14" uuid="bfbb9909-efa1-454e-9249-280c41a9a458"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="253" y="26" width="48" height="12" uuid="8b473a2d-5d8b-45d3-b390-41505a515d4a"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[N° Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="40" width="48" height="12" uuid="5324b178-ba63-47c8-bc84-d7dad26750de"/>
+				<textElement>
+					<font fontName="SansSerif" size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="52" width="48" height="15" uuid="22f0ca85-1d45-4735-909d-ed5cdffcd548"/>
+				<textElement>
+					<font size="8" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="67" width="48" height="14" uuid="9cea694a-6b0a-4289-babe-ce1929eda5e6"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="251" y="81" width="63" height="14" uuid="fd7a9914-c0b7-4af5-b164-443878caf8f4"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="314" y="81" width="63" height="14" uuid="635f7f0d-4346-4e38-8be2-d6da29f96287"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="377" y="81" width="40" height="14" uuid="62a5dbc3-e1d0-4c61-ae57-72316e0452fa"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="417" y="81" width="88" height="14" uuid="2227992a-5117-4f92-8840-56356c27a0ee"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="95" width="63" height="14" uuid="f664ecfd-2a00-4d9a-86a3-2ddd80cceda0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="314" y="95" width="191" height="14" uuid="17babc67-18a3-48a1-81b3-e62343ed0aa9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="109" width="63" height="14" uuid="0bd2c9a1-a618-4d7f-bd52-1d847d5d31a3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="314" y="109" width="191" height="14" uuid="7325d9a6-ec4f-4ba3-89b7-5d240df93456"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="251" y="123" width="63" height="14" uuid="1d973f5d-474d-4f5e-9a08-e462642ee351"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="314" y="123" width="63" height="14" uuid="fa4b63eb-678a-4fff-bd40-9747024fbe06"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="377" y="123" width="40" height="14" uuid="e833536a-9429-4b7b-a08c-80a92b56394d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="417" y="123" width="88" height="14" uuid="bff6b7e9-097b-48d9-b9f4-daa29f0e6680"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="253" y="81" width="48" height="14" uuid="7f633aff-580c-48a4-8e47-9724b11b1760"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Año]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="81" width="38" height="14" uuid="45b533ed-9a79-4d53-bdbf-b08c03fdd68a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="95" width="48" height="14" uuid="891df088-ff1f-4056-8859-5b53d9de36a1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Chasis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="379" y="123" width="38" height="14" uuid="abe6641b-cd64-4845-a774-560238d8d037"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="123" width="48" height="14" uuid="31c9cc78-6ae7-4b7b-a3a7-f250c17bf916"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="109" width="48" height="14" uuid="81671ac8-db8d-4501-b703-51d6ec6fb54c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Motor]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="417" y="123" width="88" height="14" uuid="8615640d-845d-4fa4-afe1-fa1fe70be6e4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{placaVeh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="123" width="63" height="14" uuid="6c8cf8e0-8125-43a6-8a59-0eebb7a7666a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipoVeh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="109" width="126" height="14" uuid="699872a4-978b-4bfc-9d65-d4574c2e8260"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{motorVeh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="95" width="126" height="14" uuid="f2420e22-9004-4ba8-93f1-3ca0eae37432"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chasisVeh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="81" width="63" height="14" uuid="5d7cda13-a541-4a38-97a1-7d7b21246251"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{anioVeh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="417" y="81" width="88" height="14" uuid="59292ec7-490d-4851-ac97-46c50960123d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{modeloVeh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="67" width="126" height="14" uuid="1c0b2e8d-e8e5-4d29-a8bc-0ccfc6ee9194"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{marcaVeh}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="53" width="191" height="14" uuid="ddc36752-48c4-4080-9365-70a8a36c5553"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{empresaBanco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="39" width="126" height="13" uuid="6f76eab3-96cf-4c41-8ca5-1b7373053a01"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="26" width="126" height="14" uuid="679c6172-a6cd-4373-ae00-2059bf631e8c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nroFactura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="14" width="254" height="12" uuid="079d6f40-4713-4bc1-9cb2-35ea65ecd565"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{infoDetaOrigen}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="67" width="239" height="20" uuid="61aacea3-4797-47e7-abfe-bde7b2617b98"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Información de Factura]]></text>
+			</staticText>
+		</band>
+		<band height="49"/>
+	</detail>
+</jasperReport>

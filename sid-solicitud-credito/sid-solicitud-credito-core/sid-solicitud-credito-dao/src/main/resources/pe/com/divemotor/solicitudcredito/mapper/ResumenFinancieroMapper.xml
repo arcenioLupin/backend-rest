@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.ResumenFinancieroMapper">
+
+    <cache />
+
+    <select id="insertar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.resumenFinanciero.InsertarResumenFinancieroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_FINANCIERO.sp_ins_resumen(
+        #{codSoliCred},
+        #{codcliente},
+        #{valanoeeff},
+        #{codmoneeeff},
+        #{valegypvtastota},
+        #{valegypcostvtasserv},
+        #{valegyputilbrut},
+        #{valegypgastvtas},
+        #{valegypgastadmi},
+        #{valegypotroingrgast},
+        #{valegyputiloper},
+        #{valegypgastfina},
+        #{valegypingrfina},
+        #{valegyppartrela},
+        #{valegyputilordi},
+        #{valegypingrextrccja},
+        #{valegypegreextrccaja},
+        #{valegypingrextrscja},
+        #{valegypegreextrscja},
+        #{valegypotroingr},
+        #{valegypotroegre},
+        #{valegyputilanteimp},
+        #{valegypimppart},
+        #{valegyputilperdneta},
+        #{valegypvarvtastota},
+        #{valegypvarcostvtasserv},
+        #{valegypvarutilbrut},
+        #{valegypvargastvtas},
+        #{valegypvargastadmi},
+        #{valegypvarotroingrgast},
+        #{valegypvarutiloper},
+        #{valegypvargastfina},
+        #{valegypvaringrfina},
+        #{valegypvarpartrela},
+        #{valegypvarutilordi},
+        #{valegypvaringrextrccja},
+        #{valegypvaregreextrccaja},
+        #{valegypvaringrextrscja},
+        #{valegypvaregreextrscja},
+        #{valegypvarotroingr},
+        #{valegypvarotroegre},
+        #{valegypvarutilanteimp},
+        #{valegypvarimppart},
+        #{valegypvarutilperdneta},
+        #{valraticapitrab},
+        #{valratidiasexist},
+        #{valraticobrclie},
+        #{valratipagoprov},
+        #{valraticicloper},
+        #{valratipasitotapatr},
+        #{valratideudfinabrut},
+        #{valratideudfinaestr},
+        #{valratiporcvarvtas},
+        #{valratiebitdaanual},
+        #{valratiporcebitdavtas},
+        #{valratiporcroe},
+        #{valratiporcroa},
+        #{valraticashflow},
+        #{valratiporccashflowvtas},
+        #{valratideudfinabrutanos},
+        #{valratideudfinaestranos},
+        #{valratideudfinaebitda},
+        #{valratiebitda},
+        #{valratidepramorejer},
+        #{valratidivi},
+        #{valratinromese},
+        #{valrativardepramorejer},
+        #{valrativardivi},
+        #{valghistebitdaanual},
+        #{valghistcashflowanual},
+        #{valbgaccajabcos},
+        #{valbgacvalonego},
+        #{valbgacclie},
+        #{valbgacprovcobrdud},
+        #{valbgaccxcsrel},
+        #{valbgaccxcdive},
+        #{valbgacexist},
+        #{valbgacgastpagaanti},
+        #{valbgac},
+        #{valbgancinverela},
+        #{valbgancotrainve},
+        #{valbganccxcsrel},
+        #{valbgancinmuneto},
+        #{valbgancterr},
+        #{valbgancedif},
+        #{valbgancmaqu},
+        #{valbgancmueb},
+        #{valbgancunidtrans},
+        #{valbgancequidive},
+        #{valbgancdepracum},
+        #{valbganctrab},
+        #{valbgancotroacti},
+        #{valbgancintan},
+        #{valbgancotroanc},
+        #{valbganc},
+        #{valbgtotaacti},
+        #{valbgpcbancdeudfinacp},
+        #{valbgpcotradeudfinacp},
+        #{valbgpcdeudlp},
+        #{valbgpctribpaga},
+        #{valbgpcremupaga},
+        #{valbgpcprov},
+        #{valbgpccxpsrel},
+        #{valbgpccxpdive},
+        #{valbgpc},
+        #{valbgpncbcosdeudfinalp},
+        #{valbgpncotradeudfinalp},
+        #{valbgpnccxpsrel},
+        #{valbgpncotropnc},
+        #{valbgpncganadife},
+        #{valbgpnc},
+        #{valbgtotapasi},
+        #{valbgpatcapi},
+        #{valbgpatcapadic},
+        #{valbgpatexcereva},
+        #{valbgpatrese},
+        #{valbgpatresuacum},
+        #{valbgpatresuejer},
+        #{valbgpatotro},
+        #{valbgpat},
+        #{valtotapasipatr},
+        #{valcdreactipasipatr},
+        #{valbgvaraccajabcos},
+        #{valbgvaracvalonego},
+        #{valbgvaracclie},
+        #{valbgvaracprovcobrdud},
+        #{valbgvaraccxcsrel},
+        #{valbgvaraccxcdive},
+        #{valbgvaracexist},
+        #{valbgvaracgastpagaanti},
+        #{valbgvarac},
+        #{valbgvarancinverela},
+        #{valbgvarancotrainve},
+        #{valbgvaranccxcsrel},
+        #{valbgvarancinmuneto},
+        #{valbgvarancterr},
+        #{valbgvarancedif},
+        #{valbgvarancmaqu},
+        #{valbgvarancmueb},
+        #{valbgvarancunidtrans},
+        #{valbgvarancequidive},
+        #{valbgvarancdepracum},
+        #{valbgvaranctrab},
+        #{valbgvarancotroacti},
+        #{valbgvarancintan},
+        #{valbgvarancotroanc},
+        #{valbgvaranc},
+        #{valbgvartotaacti},
+        #{valbgvarpcbancdfinacp},
+        #{valbgvarpcotradfinacp},
+        #{valbgvarpcdeudlp},
+        #{valbgvarpctribpaga},
+        #{valbgvarpcremupaga},
+        #{valbgvarpcprov},
+        #{valbgvarpccxpsrel},
+        #{valbgvarpccxpdive},
+        #{valbgvarpc},
+        #{valbgvarpncbcosdfinalp},
+        #{valbgvarpncotradfinalp},
+        #{valbgvarpnccxpsrel},
+        #{valbgvarpncotropnc},
+        #{valbgvarpncganadife},
+        #{valbgvarpnc},
+        #{valbgvartotapasi},
+        #{valbgvarpatcapi},
+        #{valbgvarpatcapadic},
+        #{valbgvarpatexcereva},
+        #{valbgvarpatrese},
+        #{valbgvarpatresuacum},
+        #{valbgvarpatresuejer},
+        #{valbgvarpatotro},
+        #{valbgvarpat},
+        #{valvartotapasipatr},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+      <select id="insertarMaturity" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.resumenFinanciero.InsertarResumenFinancieroMaturityProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_FINANCIERO.sp_ins_resumen_maturity(
+        #{codSoliCred},
+        #{codcliente},
+        #{valMatuAnoProy},
+        #{codmoneeeff},
+        #{valmatuamordeudactu},
+        #{valmatuamordeudnuev},
+        #{valmatugastfinadeudactu},
+        #{valmatugastfinadeudnuev},
+        #{valmatuservdeud},
+        #{valmatuebitdaproy},
+        #{valmatucashflowproy},
+        #{valmatufactebitdasdeu},
+        #{valmatufactcashfsdeu},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    	
+    <resultMap id="resumenFinancieroMap" type="pe.com.divemotor.solicitudcredito.dominio.ResumenFinanciero">
+        <result property="codmaeeeff" column="COD_MAE_EEFF"/>
+        <result property="codcliente" column="COD_CLIENTE"/>
+        <result property="valanoeeff" column="VAL_ANO_EEFF"/>
+        <result property="codmoneeeff" column="COD_MONE_EEFF"/>
+        <result property="valegypvtastota" column="VAL_EGYP_VTAS_TOTA"/>
+        <result property="valegypcostvtasserv" column="VAL_EGYP_COST_VTAS_SERV"/>
+        <result property="valegyputilbrut" column="VAL_EGYP_UTIL_BRUT"/>
+        <result property="valegypgastvtas" column="VAL_EGYP_GAST_VTAS"/>
+        <result property="valegypgastadmi" column="VAL_EGYP_GAST_ADMI"/>
+        <result property="valegypotroingrgast" column="VAL_EGYP_OTRO_INGR_GAST"/>
+        <result property="valegyputiloper" column="VAL_EGYP_UTIL_OPER"/>
+        <result property="valegypgastfina" column="VAL_EGYP_GAST_FINA"/>
+        <result property="valegypingrfina" column="VAL_EGYP_INGR_FINA"/>
+        <result property="valegyppartrela" column="VAL_EGYP_PART_RELA"/>
+        <result property="valegyputilordi" column="VAL_EGYP_UTIL_ORDI"/>
+        <result property="valegypingrextrccja" column="VAL_EGYP_INGR_EXTR_CCJA"/>
+        <result property="valegypegreextrccaja" column="VAL_EGYP_EGRE_EXTR_CCAJA"/>
+        <result property="valegypingrextrscja" column="VAL_EGYP_INGR_EXTR_SCJA"/>
+        <result property="valegypegreextrscja" column="VAL_EGYP_EGRE_EXTR_SCJA"/>
+        <result property="valegypotroingr" column="VAL_EGYP_OTRO_INGR"/>
+        <result property="valegypotroegre" column="VAL_EGYP_OTRO_EGRE"/>
+        <result property="valegyputilanteimp" column="VAL_EGYP_UTIL_ANTE_IMP"/>
+        <result property="valegypimppart" column="VAL_EGYP_IMP_PART"/>
+        <result property="valegyputilperdneta" column="VAL_EGYP_UTIL_PERD_NETA"/>
+        <result property="valegypvarvtastota" column="VAL_EGYP_VAR_VTAS_TOTA"/>
+        <result property="valegypvarcostvtasserv" column="VAL_EGYP_VAR_COST_VTAS_SERV"/>
+        <result property="valegypvarutilbrut" column="VAL_EGYP_VAR_UTIL_BRUT"/>
+        <result property="valegypvargastvtas" column="VAL_EGYP_VAR_GAST_VTAS"/>
+        <result property="valegypvargastadmi" column="VAL_EGYP_VAR_GAST_ADMI"/>
+        <result property="valegypvarotroingrgast" column="VAL_EGYP_VAR_OTRO_INGR_GAST"/>
+        <result property="valegypvarutiloper" column="VAL_EGYP_VAR_UTIL_OPER"/>
+        <result property="valegypvargastfina" column="VAL_EGYP_VAR_GAST_FINA"/>
+        <result property="valegypvaringrfina" column="VAL_EGYP_VAR_INGR_FINA"/>
+        <result property="valegypvarpartrela" column="VAL_EGYP_VAR_PART_RELA"/>
+        <result property="valegypvarutilordi" column="VAL_EGYP_VAR_UTIL_ORDI"/>
+        <result property="valegypvaringrextrccja" column="VAL_EGYP_VAR_INGR_EXTR_CCJA"/>
+        <result property="valegypvaregreextrccaja" column="VAL_EGYP_VAR_EGRE_EXTR_CCAJA"/>
+        <result property="valegypvaringrextrscja" column="VAL_EGYP_VAR_INGR_EXTR_SCJA"/>
+        <result property="valegypvaregreextrscja" column="VAL_EGYP_VAR_EGRE_EXTR_SCJA"/>
+        <result property="valegypvarotroingr" column="VAL_EGYP_VAR_OTRO_INGR"/>
+        <result property="valegypvarotroegre" column="VAL_EGYP_VAR_OTRO_EGRE"/>
+        <result property="valegypvarutilanteimp" column="VAL_EGYP_VAR_UTIL_ANTE_IMP"/>
+        <result property="valegypvarimppart" column="VAL_EGYP_VAR_IMP_PART"/>
+        <result property="valegypvarutilperdneta" column="VAL_EGYP_VAR_UTIL_PERD_NETA"/>
+        <result property="valraticapitrab" column="VAL_RATI_CAPI_TRAB"/>
+        <result property="valratidiasexist" column="VAL_RATI_DIAS_EXIST"/>
+        <result property="valraticobrclie" column="VAL_RATI_COBR_CLIE"/>
+        <result property="valratipagoprov" column="VAL_RATI_PAGO_PROV"/>
+        <result property="valraticicloper" column="VAL_RATI_CICL_OPER"/>
+        <result property="valratipasitotapatr" column="VAL_RATI_PASI_TOTA_PATR"/>
+        <result property="valratideudfinabrut" column="VAL_RATI_DEUD_FINA_BRUT"/>
+        <result property="valratideudfinaestr" column="VAL_RATI_DEUD_FINA_ESTR"/>
+        <result property="valratiporcvarvtas" column="VAL_RATI_PORC_VAR_VTAS"/>
+        <result property="valratiebitdaanual" column="VAL_RATI_EBITDA_ANUAL"/>
+        <result property="valratiporcebitdavtas" column="VAL_RATI_PORC_EBITDA_VTAS"/>
+        <result property="valratiporcroe" column="VAL_RATI_PORC_ROE"/>
+        <result property="valratiporcroa" column="VAL_RATI_PORC_ROA"/>
+        <result property="valraticashflow" column="VAL_RATI_CASH_FLOW"/>
+        <result property="valratiporccashflowvtas" column="VAL_RATI_PORC_CASH_FLOW_VTAS"/>
+        <result property="valratideudfinabrutanos" column="VAL_RATI_DEUD_FINA_BRUT_ANOS"/>
+        <result property="valratideudfinaestranos" column="VAL_RATI_DEUD_FINA_ESTR_ANOS"/>
+        <result property="valratideudfinaebitda" column="VAL_RATI_DEUD_FINA_EBITDA"/>
+        <result property="valratiebitda" column="VAL_RATI_EBITDA"/>
+        <result property="valratidepramorejer" column="VAL_RATI_DEPR_AMOR_EJER"/>
+        <result property="valratidivi" column="VAL_RATI_DIVI"/>
+        <result property="valratinromese" column="VAL_RATI_NRO_MESE"/>
+        <result property="valrativardepramorejer" column="VAL_RATI_VAR_DEPR_AMOR_EJER"/>
+        <result property="valrativardivi" column="VAL_RATI_VAR_DIVI"/>
+        <result property="valghistebitdaanual" column="VAL_GHIST_EBITDA_ANUAL"/>
+        <result property="valghistcashflowanual" column="VAL_GHIST_CASH_FLOW_ANUAL"/>
+        <result property="valbgaccajabcos" column="VAL_BG_AC_CAJA_BCOS"/>
+        <result property="valbgacvalonego" column="VAL_BG_AC_VALO_NEGO"/>
+        <result property="valbgacclie" column="VAL_BG_AC_CLIE"/>
+        <result property="valbgacprovcobrdud" column="VAL_BG_AC_PROV_COBR_DUD"/>
+        <result property="valbgaccxcsrel" column="VAL_BG_AC_CXC_SREL"/>
+        <result property="valbgaccxcdive" column="VAL_BG_AC_CXC_DIVE"/>
+        <result property="valbgacexist" column="VAL_BG_AC_EXIST"/>
+        <result property="valbgacgastpagaanti" column="VAL_BG_AC_GAST_PAGA_ANTI"/>
+        <result property="valbgac" column="VAL_BG_AC"/>
+        <result property="valbgancinverela" column="VAL_BG_ANC_INVE_RELA"/>
+        <result property="valbgancotrainve" column="VAL_BG_ANC_OTRA_INVE"/>
+        <result property="valbganccxcsrel" column="VAL_BG_ANC_CXC_SREL"/>
+        <result property="valbgancinmuneto" column="VAL_BG_ANC_INMU_NETO"/>
+        <result property="valbgancterr" column="VAL_BG_ANC_TERR"/>
+        <result property="valbgancedif" column="VAL_BG_ANC_EDIF"/>
+        <result property="valbgancmaqu" column="VAL_BG_ANC_MAQU"/>
+        <result property="valbgancmueb" column="VAL_BG_ANC_MUEB"/>
+        <result property="valbgancunidtrans" column="VAL_BG_ANC_UNID_TRANS"/>
+        <result property="valbgancequidive" column="VAL_BG_ANC_EQUI_DIVE"/>
+        <result property="valbgancdepracum" column="VAL_BG_ANC_DEPR_ACUM"/>
+        <result property="valbganctrab" column="VAL_BG_ANC_TRAB"/>
+        <result property="valbgancotroacti" column="VAL_BG_ANC_OTRO_ACTI"/>
+        <result property="valbgancintan" column="VAL_BG_ANC_INTAN"/>
+        <result property="valbgancotroanc" column="VAL_BG_ANC_OTRO_ANC"/>
+        <result property="valbganc" column="VAL_BG_ANC"/>
+        <result property="valbgtotaacti" column="VAL_BG_TOTA_ACTI"/>
+        <result property="valbgpcbancdeudfinacp" column="VAL_BG_PC_BANC_DEUD_FINA_CP"/>
+        <result property="valbgpcotradeudfinacp" column="VAL_BG_PC_OTRA_DEUD_FINA_CP"/>
+        <result property="valbgpcdeudlp" column="VAL_BG_PC_DEUD_LP"/>
+        <result property="valbgpctribpaga" column="VAL_BG_PC_TRIB_PAGA"/>
+        <result property="valbgpcremupaga" column="VAL_BG_PC_REMU_PAGA"/>
+        <result property="valbgpcprov" column="VAL_BG_PC_PROV"/>
+        <result property="valbgpccxpsrel" column="VAL_BG_PC_CXP_SREL"/>
+        <result property="valbgpccxpdive" column="VAL_BG_PC_CXP_DIVE"/>
+        <result property="valbgpc" column="VAL_BG_PC"/>
+        <result property="valbgpncbcosdeudfinalp" column="VAL_BG_PNC_BCOS_DEUD_FINA_LP"/>
+        <result property="valbgpncotradeudfinalp" column="VAL_BG_PNC_OTRA_DEUD_FINA_LP"/>
+        <result property="valbgpnccxpsrel" column="VAL_BG_PNC_CXP_SREL"/>
+        <result property="valbgpncotropnc" column="VAL_BG_PNC_OTRO_PNC"/>
+        <result property="valbgpncganadife" column="VAL_BG_PNC_GANA_DIFE"/>
+        <result property="valbgpnc" column="VAL_BG_PNC"/>
+        <result property="valbgtotapasi" column="VAL_BG_TOTA_PASI"/>
+        <result property="valbgpatcapi" column="VAL_BG_PAT_CAPI"/>
+        <result property="valbgpatcapadic" column="VAL_BG_PAT_CAP_ADIC"/>
+        <result property="valbgpatexcereva" column="VAL_BG_PAT_EXCE_REVA"/>
+        <result property="valbgpatrese" column="VAL_BG_PAT_RESE"/>
+        <result property="valbgpatresuacum" column="VAL_BG_PAT_RESU_ACUM"/>
+        <result property="valbgpatresuejer" column="VAL_BG_PAT_RESU_EJER"/>
+        <result property="valbgpatotro" column="VAL_BG_PAT_OTRO"/>
+        <result property="valbgpat" column="VAL_BG_PAT"/>
+        <result property="valtotapasipatr" column="VAL_TOTA_PASI_PATR"/>
+        <result property="valcdreactipasipatr" column="VAL_CDRE_ACTI_PASI_PATR"/>
+        <result property="valbgvaraccajabcos" column="VAL_BG_VAR_AC_CAJA_BCOS"/>
+        <result property="valbgvaracvalonego" column="VAL_BG_VAR_AC_VALO_NEGO"/>
+        <result property="valbgvaracclie" column="VAL_BG_VAR_AC_CLIE"/>
+        <result property="valbgvaracprovcobrdud" column="VAL_BG_VAR_AC_PROV_COBR_DUD"/>
+        <result property="valbgvaraccxcsrel" column="VAL_BG_VAR_AC_CXC_SREL"/>
+        <result property="valbgvaraccxcdive" column="VAL_BG_VAR_AC_CXC_DIVE"/>
+        <result property="valbgvaracexist" column="VAL_BG_VAR_AC_EXIST"/>
+        <result property="valbgvaracgastpagaanti" column="VAL_BG_VAR_AC_GAST_PAGA_ANTI"/>
+        <result property="valbgvarac" column="VAL_BG_VAR_AC"/>
+        <result property="valbgvarancinverela" column="VAL_BG_VAR_ANC_INVE_RELA"/>
+        <result property="valbgvarancotrainve" column="VAL_BG_VAR_ANC_OTRA_INVE"/>
+        <result property="valbgvaranccxcsrel" column="VAL_BG_VAR_ANC_CXC_SREL"/>
+        <result property="valbgvarancinmuneto" column="VAL_BG_VAR_ANC_INMU_NETO"/>
+        <result property="valbgvarancterr" column="VAL_BG_VAR_ANC_TERR"/>
+        <result property="valbgvarancedif" column="VAL_BG_VAR_ANC_EDIF"/>
+        <result property="valbgvarancmaqu" column="VAL_BG_VAR_ANC_MAQU"/>
+        <result property="valbgvarancmueb" column="VAL_BG_VAR_ANC_MUEB"/>
+        <result property="valbgvarancunidtrans" column="VAL_BG_VAR_ANC_UNID_TRANS"/>
+        <result property="valbgvarancequidive" column="VAL_BG_VAR_ANC_EQUI_DIVE"/>
+        <result property="valbgvarancdepracum" column="VAL_BG_VAR_ANC_DEPR_ACUM"/>
+        <result property="valbgvaranctrab" column="VAL_BG_VAR_ANC_TRAB"/>
+        <result property="valbgvarancotroacti" column="VAL_BG_VAR_ANC_OTRO_ACTI"/>
+        <result property="valbgvarancintan" column="VAL_BG_VAR_ANC_INTAN"/>
+        <result property="valbgvarancotroanc" column="VAL_BG_VAR_ANC_OTRO_ANC"/>
+        <result property="valbgvaranc" column="VAL_BG_VAR_ANC"/>
+        <result property="valbgvartotaacti" column="VAL_BG_VAR_TOTA_ACTI"/>
+        <result property="valbgvarpcbancdfinacp" column="VAL_BG_VAR_PC_BANC_DFINA_CP"/>
+        <result property="valbgvarpcotradfinacp" column="VAL_BG_VAR_PC_OTRA_DFINA_CP"/>
+        <result property="valbgvarpcdeudlp" column="VAL_BG_VAR_PC_DEUD_LP"/>
+        <result property="valbgvarpctribpaga" column="VAL_BG_VAR_PC_TRIB_PAGA"/>
+        <result property="valbgvarpcremupaga" column="VAL_BG_VAR_PC_REMU_PAGA"/>
+        <result property="valbgvarpcprov" column="VAL_BG_VAR_PC_PROV"/>
+        <result property="valbgvarpccxpsrel" column="VAL_BG_VAR_PC_CXP_SREL"/>
+        <result property="valbgvarpccxpdive" column="VAL_BG_VAR_PC_CXP_DIVE"/>
+        <result property="valbgvarpc" column="VAL_BG_VAR_PC"/>
+        <result property="valbgvarpncbcosdfinalp" column="VAL_BG_VAR_PNC_BCOS_DFINA_LP"/>
+        <result property="valbgvarpncotradfinalp" column="VAL_BG_VAR_PNC_OTRA_DFINA_LP"/>
+        <result property="valbgvarpnccxpsrel" column="VAL_BG_VAR_PNC_CXP_SREL"/>
+        <result property="valbgvarpncotropnc" column="VAL_BG_VAR_PNC_OTRO_PNC"/>
+        <result property="valbgvarpncganadife" column="VAL_BG_VAR_PNC_GANA_DIFE"/>
+        <result property="valbgvarpnc" column="VAL_BG_VAR_PNC"/>
+        <result property="valbgvartotapasi" column="VAL_BG_VAR_TOTA_PASI"/>
+        <result property="valbgvarpatcapi" column="VAL_BG_VAR_PAT_CAPI"/>
+        <result property="valbgvarpatcapadic" column="VAL_BG_VAR_PAT_CAP_ADIC"/>
+        <result property="valbgvarpatexcereva" column="VAL_BG_VAR_PAT_EXCE_REVA"/>
+        <result property="valbgvarpatrese" column="VAL_BG_VAR_PAT_RESE"/>
+        <result property="valbgvarpatresuacum" column="VAL_BG_VAR_PAT_RESU_ACUM"/>
+        <result property="valbgvarpatresuejer" column="VAL_BG_VAR_PAT_RESU_EJER"/>
+        <result property="valbgvarpatotro" column="VAL_BG_VAR_PAT_OTRO"/>
+        <result property="valbgvarpat" column="VAL_BG_VAR_PAT"/>
+        <result property="valvartotapasipatr" column="VAL_VAR_TOTA_PASI_PATR"/>   
+    </resultMap>
+    
+    <resultMap id="resumenFinancieroMaturityMap" type="pe.com.divemotor.solicitudcredito.dominio.ResumenFinancieroMaturity">
+        <result property="codmaeeeff" column="COD_MAE_EEFF"/>
+        <result property="codcliente" column="COD_CLIENTE"/>
+        <result property="valmatuanoproy" column="VAL_MATU_ANO_PROY"/>
+        <result property="codmoneeeff" column="COD_MONE_EEFF"/>
+        <result property="valmatuamordeudactu" column="VAL_MATU_AMOR_DEUD_ACTU"/>
+        <result property="valmatuamordeudnuev" column="VAL_MATU_AMOR_DEUD_NUEV"/>
+        <result property="valmatugastfinadeudactu" column="VAL_MATU_GAST_FINA_DEUD_ACTU"/>
+        <result property="valmatugastfinadeudnuev" column="VAL_MATU_GAST_FINA_DEUD_NUEV"/>
+        <result property="valmatuservdeud" column="VAL_MATU_SERV_DEUD"/>
+        <result property="valmatuebitdaproy" column="VAL_MATU_EBITDA_PROY"/>
+        <result property="valmatucashflowproy" column="VAL_MATU_CASH_FLOW_PROY"/>
+        <result property="valmatufactebitdasdeu" column="VAL_MATU_FACT_EBITDA_SDEU"/>
+        <result property="valmatufactcashfsdeu" column="VAL_MATU_FACT_CASHF_SDEU"/>  
+    </resultMap>    
+   
+ <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.resumenFinanciero.ListarResumenFinancieroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_FINANCIERO.sp_list_resumen(
+        #{codSoliCred},
+        #{codcliente},
+        #{codUsuario},
+        #{idUsuario},
+        #{fecSolicitudUltima, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=resumenFinancieroMap},
+        #{busquedaMat, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=resumenFinancieroMaturityMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+ <select id="listarRangos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.resumenFinanciero.ListarResumenFinancieroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_FINANCIERO.sp_list_resumen_rangos(
+        #{codSoliCred},
+        #{codcliente},
+        #{codUsuario},
+        #{idUsuario},
+        #{anioSup},
+        #{anioInf},
+        #{fecSolicitudUltima, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=resumenFinancieroMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>    
+
+</mapper>

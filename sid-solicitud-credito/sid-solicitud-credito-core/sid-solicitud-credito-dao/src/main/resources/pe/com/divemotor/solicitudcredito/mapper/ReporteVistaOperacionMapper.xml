@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.ReporteVistaOperacionMapper">
+
+    <cache />
+
+    <resultMap id="reporteVistaOperacionMap" type="pe.com.divemotor.solicitudcredito.dominio.ReporteVistaOperacion">
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="codOperRel" column="COD_OPER_REL"/>
+        <result property="codEmpresa" column="COD_EMPR"/>
+        <result property="nombreCliente" column="NOMB_CLIENTE" />
+        <result property="region" column="REGION" /> 
+        <result property="sucursal" column="SUCURSAL" />
+        <result property="totalUnidadesVendidas" column="TOTA_UNID_VENDIDAS" />
+        <result property="unidades" column="UN" />
+        <result property="fechaOtorgamiento" column="FEC_OTORGA" />
+        <result property="valorTotalVenta" column="VAL_TOTA_VENTA" />
+        <result property="tipoFinanciamiento" column="TIPO_FINAN" />
+        <result property="tea" column="TEA" />  
+        <result property="plazo" column="PLAZO" />  
+        <result property="cuotaInicial" column="CUOTA_INICIAL" />  
+        <result property="comisionAdministrativa" column="COMIS_ADMINI" />  
+        <result property="gpsTotal" column="GPS_TOTAL" />  
+        <result property="montoFinanciado" column="MONTO_FINAN" />  
+        <result property="fechaVencimiento1Letra" column="FEC_VENCI_1LETRA" />
+        <result property="periodoGracia" column="PERIO_GRACIA" />  
+        <result property="tipoPeriodoGracia" column="TIPO_PERIO_GRACIA" />
+        <result property="seguroTotal" column="SEGU_TOTAL" />          
+        <result property="valorRealizGarantias" column="VAL_REALIZ_GARA" />  
+        <result property="asesorComercial" column="ASESOR_COMERCIAL" />  
+        <result property="jefeFinanzas" column="JEFE_FINANZAS" /> 
+        <result property="nivelAutonomiaCredi" column="NIVEL_AUTONOMIA_CREDI" /> 
+        <result property="codClieSap" column="COD_CLIE_SAP" />
+        <result property="ruc" column="NUM_RUC" />
+        <result property="existeGaraAdic" column="EXISTE_GARA_ADIC" />
+        <result property="valorRealizacionAdic" column="VAL_REALIZ_GARA_ADIC" />
+        <!--<I Req. 87567 E2.1 ID## avilca 16/12/2020>-->
+         <result property="fechaVencUltLet" column="FEC_VENC_ULT_LET" />
+         <!--<F Req. 87567 E2.1 ID## avilca 16/12/2020>-->
+    </resultMap>
+    
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.vistaoperacion.ListarReporteVistaOperacionProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_REPORTES.SP_LIST_CRED_SOLI_VO(
+        #{codSoliCred},
+        #{codOperacion},
+        #{codUsuario},
+        #{idUsuario},        
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=reporteVistaOperacionMap},
+        #{cantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+   
+</mapper>

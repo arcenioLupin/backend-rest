@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.TipoMovimientosSimuladorMapper">
+<!--/*Req. 87567 E2.1 ID## EBARBOZA 21/01/2020*/-->
+    <cache />
+    
+    <resultMap id="tipoMovimientosSimulador" type="pe.com.divemotor.solicitudcredito.dominio.TipoMovimientosSimulador">
+    <result property="codIdSoliTipm" column="cod_id_soli_tipm"/>
+    <result property="codSoliCred" column="cod_soli_cred"/>
+    <result property="codTipoMoviPago" column="cod_tipo_movi_pago"/>
+    <result property="fecMoviPago" column="fec_movi_pago"/>
+    <result property="codBanco" column="cod_banco"/>
+    <result property="codMoneda" column="cod_moneda"/>
+    <result property="valMontoPago" column="val_monto_pago"/>
+    <result property="txtNroDocumento" column="txt_nro_documento"/>
+    <result property="indInactivo" column="ind_inactivo"/>
+    <result property="IndTipoDocu" column="ind_tipo_docu"/>
+    <result property="codEmpresaCargo" column="cod_empresa_cargo"/>
+    <result property="fecCreaRegi" column="fec_crea_regi"/>
+    <result property="codUsuaCreaRegi" column="cod_usua_crea_regi"/>
+    <result property="fecModiRegi" column="fec_modi_regi"/>
+    <result property="codUsuaModiRegi" column="cod_usua_modi_regi"/>
+    </resultMap>
+
+    
+    <select id="actualizarTipoMovimientosSimulador" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.RegistrarSimuladorTipoMovimientoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_TMSIMU.SP_ACT_TIPO_MOVI_SIMU(
+        #{codIdSoliTipm},
+        #{codSoliCred},
+        #{codTipoMoviPago},
+        #{fecMoviPago},
+        #{codBanco},
+        #{codMoneda},
+        #{valMontoPago},
+        #{txtNroDocumento},
+        #{indInactivo},
+        #{IndTipoDocu},
+        #{codEmpresaCargo},
+        #{fecCreaRegi},
+        #{codUsuaCreaRegi},
+        #{fecModiRegi},
+        #{codUsuaModiRegi},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    
+   <select id="listarPorCodSoliCred" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarTipoMovimientosSimuladorProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_TMSIMU.SP_LISTAR_TIPO_MOVIMIENTO_SIMU( 
+        #{codSoliCred},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.TipoMovimientosSimuladorMapper.tipoMovimientosSimulador},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+        
+    </select> 
+
+</mapper>

@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteResumen" pageWidth="595" pageHeight="942" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9d4f39e0-9961-4ff1-ad59-c1a82b13c539">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="115"/>
+	<property name="ireport.y" value="759"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<subDataset name="Table DataSet Cronograma" uuid="66bdba99-1113-4776-9a32-3229a4801ef3">
+		<field name="codNumeLetr" class="java.lang.Integer"/>
+		<field name="fecVenc" class="java.lang.String"/>
+		<field name="item" class="java.lang.Integer"/>
+		<field name="saldoInicial" class="java.lang.Double"/>
+		<field name="capital" class="java.lang.Double"/>
+		<field name="interes" class="java.lang.Double"/>
+		<field name="cuota" class="java.lang.Double"/>
+		<field name="saldoFinal" class="java.lang.Double"/>
+		<field name="fVcto" class="java.lang.String"/>
+		<field name="igv" class="java.lang.Double"/>
+		<field name="seguro" class="java.lang.Double"/>
+		<field name="cobranzas" class="java.lang.Double"/>
+		<field name="interesMoratorio" class="java.lang.Double"/>
+		<field name="interesCompensatorio" class="java.lang.Double"/>
+		<field name="costoTraslado" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="cliente" class="java.lang.String"/>
+	<parameter name="tipSoliCred" class="java.lang.String"/>
+	<parameter name="nomMoneda" class="java.lang.String"/>
+	<parameter name="desMoneda" class="java.lang.String"/>
+	<parameter name="valTotal" class="java.lang.String"/>
+	<parameter name="valCI" class="java.lang.String"/>
+	<parameter name="valMonFin" class="java.lang.String"/>
+	<parameter name="canPlazMeses" class="java.lang.Integer"/>
+	<parameter name="perCredSol" class="java.lang.String"/>
+	<parameter name="canDiasVenc1raLetr" class="java.lang.Integer"/>
+	<parameter name="canTotLet" class="java.lang.Integer"/>
+	<parameter name="valPorcTea" class="java.lang.String"/>
+	<parameter name="valIntPerGra" class="java.lang.String"/>
+	<parameter name="valMontLetr" class="java.lang.String"/>
+	<parameter name="valCuoBal" class="java.lang.String"/>
+	<parameter name="valGastAdm" class="java.lang.String"/>
+	<parameter name="cronograma" class="java.util.List"/>
+	<parameter name="indGPS" class="java.lang.String"/>
+	<parameter name="hasSeguro" class="java.lang.Boolean"/>
+	<parameter name="hasCobranzas" class="java.lang.Boolean"/>
+	<parameter name="hasInteresCompensatorio" class="java.lang.Boolean"/>
+	<parameter name="hasInteresMoratorio" class="java.lang.Boolean"/>
+	<parameter name="hasCostoTraslado" class="java.lang.Boolean"/>
+	<parameter name="tipUsoVeh" class="java.lang.String"/>
+	<parameter name="pathLogo" class="java.io.InputStream"/>
+	<parameter name="pathMarcas" class="java.io.InputStream"/>
+	<parameter name="flagDatos" class="java.lang.String"/>
+	<parameter name="valGarantia" class="java.lang.String"/>
+	<parameter name="txtOtrCond" class="java.lang.String"/>
+	<parameter name="garantias" class="java.lang.String"/>
+	<parameter name="seguros" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="9"/>
+	</pageHeader>
+	<detail>
+		<band height="73" splitType="Stretch">
+			<image>
+				<reportElement x="31" y="13" width="365" height="39" uuid="6ad05c57-6340-411f-9637-9dc2df85ce4d"/>
+				<imageExpression><![CDATA[$P{pathLogo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="66" width="555" height="1" uuid="e1db94ac-9ea2-4429-99a4-ec290ea12d46"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Solid"/>
+					<topPen lineWidth="0.0" lineStyle="Solid"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid"/>
+				</box>
+				<textElement>
+					<font isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="785">
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="477" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="12874945-87af-4c03-ae84-810a6f198bc7"/>
+				<text><![CDATA[ Seguro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="497" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="6d438868-5a53-425c-8e19-aaf5cd0378cc"/>
+				<text><![CDATA[ Gastos administrativos **:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="517" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="c468b1a9-0176-4634-96ae-06b0a37c1c9e"/>
+				<text><![CDATA[ GPS :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="537" width="203" height="75" forecolor="#000000" backcolor="#CCCCCC" uuid="94706260-2cef-42bd-8a67-01eaff05872d"/>
+				<text><![CDATA[ Otras condiciones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="616" width="360" height="13" uuid="f998162d-b745-4323-abad-9967d80e5251"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[* Los gastos notariales y registrales deben ser asumidos por el cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="629" width="360" height="12" uuid="33913a6d-431c-4a18-8c21-ff0aac3f6296"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[** Gastos administrativos debe ser cancelado previo a la firma de contrato.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="675" width="456" height="20" uuid="45b23524-0c8b-42d1-b71b-57fc1e6adf25"/>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<text><![CDATA[En señal de conformidad a la presente propuesta, agradeceremos enviar firmada por representante.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="695" width="456" height="20" uuid="b15e0fb5-e185-460f-bac7-802096d7a44a"/>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Atentamente,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="715" width="456" height="20" uuid="1f256997-b3ef-4b3a-931d-a699b74c7f10"/>
+				<textElement>
+					<font size="12" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Dpto. Créditos y Gestión Bancaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="437" width="203" height="20" isRemoveLineWhenBlank="true" forecolor="#000000" backcolor="#CCCCCC" uuid="ee8a3f26-d248-4936-8989-7ba3912891d3"/>
+				<text><![CDATA[   Cuota ballon:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="457" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="25d97c65-402e-44f3-9497-f1ca5e793429"/>
+				<text><![CDATA[ Garantías *:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="159" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="705ab4a5-a80d-4f0d-8855-efc7b1a050d9"/>
+				<text><![CDATA[ Moneda:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="179" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="4cd6ecbb-882d-477b-bdb0-147c4b849baf"/>
+				<text><![CDATA[ Uso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="199" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="64c9ec3e-69a9-48a5-964f-4b99f4bfc0de"/>
+				<textElement>
+					<font size="10" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Estructura:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="219" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="3c70bb64-f3d7-41b2-974c-02eb803f34fb"/>
+				<text><![CDATA[ Precio de Venta Total:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="239" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="7520e8ba-4dc6-40ff-b1bf-66a59f38857a"/>
+				<text><![CDATA[ Cuota Inicial:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="259" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="56227b15-73b7-4519-a9c3-d4942150a872"/>
+				<text><![CDATA[ Monto de financiamiento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="279" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="a86aaaf0-570e-4d8f-bdda-36370fa0aa5d"/>
+				<text><![CDATA[ Plazo del crédito:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="299" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="3c84fd2e-8141-4a33-9fef-bc22e8d39ecc"/>
+				<text><![CDATA[ Tipo de amortización:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="319" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="55730549-ddf6-4530-83aa-3a4cea0b22ea"/>
+				<text><![CDATA[ Vcto. 1ra letra:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="339" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="5d096338-dd70-4d92-a023-f398a9664f2e"/>
+				<text><![CDATA[ N° letras:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="359" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="9b4a4914-0178-4309-8fc9-c8ff2d2b1c48"/>
+				<text><![CDATA[ Tasa Efectiva Anual :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="379" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="bf16a9cb-bdf2-46a8-9386-6a546ef71bf2"/>
+				<text><![CDATA[ Monto cada letra:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="399" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="dc0b0d23-154f-4d63-8254-6647c05da4be"/>
+				<text><![CDATA[   Intereses por periodo de gracia:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="419" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="38b851dc-a01f-46c6-b110-60958c234429"/>
+				<text><![CDATA[   Letra mensual:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="36" y="139" width="203" height="20" forecolor="#000000" backcolor="#CCCCCC" uuid="42ceb30a-4aa5-42bf-9198-ad84239c9f0c"/>
+				<textElement>
+					<font isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ Tipo de Crédito:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="19" width="100" height="20" uuid="a49577c2-b4f1-466e-a1f2-52d5797ae8e4"/>
+				<text><![CDATA[Señores]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="56" width="100" height="20" uuid="923b742d-f4eb-490b-a5d4-11c755764756"/>
+				<text><![CDATA[Presente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="107" width="203" height="20" uuid="8a50e99d-0be0-4008-b527-73c0f2fe974c"/>
+				<text><![CDATA[Condiciones de crédito sujeto a aprobación:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="76" width="36" height="20" uuid="d2f73853-5195-4bfa-945d-237b477f604c"/>
+				<text><![CDATA[Lima,]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="354" y="76" width="178" height="20" uuid="8abb2297-6254-48a8-8e40-eebd886d9d9c"/>
+				<textFieldExpression><![CDATA[(new java.text.SimpleDateFormat("EEEEE dd 'de' MMMMM 'del' yyyy",new Locale("es", "ES"))).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="136" y="19" width="396" height="20" uuid="953b3894-18e2-4948-9d2a-3ff553501e9c"/>
+				<textFieldExpression><![CDATA[$P{cliente}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="139" width="187" height="20" uuid="00d50241-49ff-4e8c-b7aa-bd298d38affb"/>
+				<textFieldExpression><![CDATA[$P{tipSoliCred}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="159" width="187" height="20" uuid="5675c800-103c-499d-a07c-355faca2b892"/>
+				<textFieldExpression><![CDATA[$P{nomMoneda}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="284" y="219" width="142" height="20" uuid="fe0d1557-1a5d-483c-906d-46d232abf239"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{valTotal}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="219" width="45" height="20" uuid="cabfa2b5-f7d3-4b2a-81b7-c1cc3e0d6607"/>
+				<textFieldExpression><![CDATA[$P{desMoneda}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="239" width="45" height="20" uuid="8df47a1d-e834-4bcc-9064-06e3b57270db"/>
+				<textFieldExpression><![CDATA[$P{desMoneda}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="259" width="45" height="20" uuid="7f7aa5a8-a104-40ac-9294-1b933e847bea"/>
+				<textFieldExpression><![CDATA[$P{desMoneda}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="284" y="239" width="142" height="20" uuid="902c6f6f-299f-4fb2-9aa7-b8960ca8036f"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{valCI}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="284" y="259" width="142" height="20" uuid="4575b2d3-2b0f-418c-bff3-c2558164cc06"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{valMonFin}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="279" width="45" height="20" uuid="2aa76dbb-4102-40fc-bff4-0e9f14aaa770"/>
+				<textFieldExpression><![CDATA[$P{canPlazMeses}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="284" y="279" width="142" height="20" uuid="5f496f26-478b-4a93-acb5-a20d96ebbe59"/>
+				<text><![CDATA[meses]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="299" width="187" height="20" uuid="e0adfe37-4312-4b1a-9fe8-0849089ae51f"/>
+				<textFieldExpression><![CDATA[$P{perCredSol}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="319" width="187" height="20" uuid="6e072d0a-8534-474b-9d1f-d0a37c5665ef"/>
+				<textFieldExpression><![CDATA[$P{canDiasVenc1raLetr}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="339" width="45" height="20" uuid="113ddc17-5218-4bf9-8522-4c0b7438abe0"/>
+				<textFieldExpression><![CDATA[$P{canTotLet}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="239" y="379" width="296" height="20" uuid="1500940d-fcfe-4a2b-9ca9-f069cdba074a"/>
+				<text><![CDATA[Letra que incluye pago de capital + intereses + seguro]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="359" width="45" height="20" uuid="6f8cbe0a-e3c5-4f56-9041-fee3ebeefa8d"/>
+				<textFieldExpression><![CDATA[$P{valPorcTea}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="284" y="359" width="142" height="20" uuid="537e992e-8add-485f-aff0-3dda7f604587"/>
+				<text><![CDATA[% + IGV]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="399" width="45" height="20" uuid="2d36f566-69de-41af-a232-f1ffb6b69e0d"/>
+				<textFieldExpression><![CDATA[$P{desMoneda}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="284" y="399" width="142" height="20" uuid="e0c9ddd7-0985-4a39-b744-9a4a22643c98"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{valIntPerGra}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="419" width="45" height="20" uuid="1b20079d-9724-4901-9a4d-abda05b24f89"/>
+				<textFieldExpression><![CDATA[$P{desMoneda}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="284" y="419" width="142" height="20" uuid="3f5a5058-e62a-439d-9704-339c55da66ed"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{valMontLetr}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="437" width="45" height="20" isRemoveLineWhenBlank="true" uuid="11c06f76-f3fa-4636-8022-df2756f23b44"/>
+				<textFieldExpression><![CDATA[$P{desMoneda}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="284" y="439" width="142" height="18" isRemoveLineWhenBlank="true" uuid="987fdce5-edec-4cc6-a9bb-9b93dc85c5db"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{valCuoBal}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="497" width="45" height="20" uuid="a2d27ebf-4e98-4c6d-99fd-099edfaab99c"/>
+				<textFieldExpression><![CDATA[$P{desMoneda}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="284" y="497" width="142" height="20" uuid="c51f9fc0-cf80-46aa-9ce7-14a892010cbf"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{valGastAdm}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="517" width="187" height="20" uuid="992922ac-d73d-4082-b49f-8af073cd1026"/>
+				<textFieldExpression><![CDATA[$P{indGPS}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="179" width="187" height="20" uuid="ae81211a-b2f3-43b2-b0e9-21b0f1f7626e"/>
+				<textFieldExpression><![CDATA[$P{tipUsoVeh}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="36" y="641" width="360" height="11" uuid="742826ee-b45e-4631-8b05-b0680d7471f1">
+					<printWhenExpression><![CDATA[new Boolean ($P{flagDatos} != "")]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[*** Intereses gravados con IGV.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="655" width="456" height="20" uuid="9e7013de-a038-466b-a6c6-04fd4d1c57c0">
+					<printWhenExpression><![CDATA[new Boolean ($P{flagDatos} != "")]]></printWhenExpression>
+				</reportElement>
+				<textElement>
+					<font isItalic="false"/>
+				</textElement>
+				<text><![CDATA[La vigencia de la presente propuesta es válida por 30 días a partir de la fecha.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="537" width="296" height="75" uuid="8d706e75-12a7-4332-8203-6c84529ea310"/>
+				<textFieldExpression><![CDATA[$P{txtOtrCond}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="10" y="735" width="535" height="50" uuid="2ebd9e7b-6736-43b9-8afe-3d9408135096"/>
+				<imageExpression><![CDATA[$P{pathMarcas}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="239" y="457" width="187" height="20" uuid="3512704f-ce81-46fb-a541-319243051fe0"/>
+				<textFieldExpression><![CDATA[$P{garantias}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="239" y="477" width="306" height="20" uuid="7612c770-e12d-4760-b4c7-c2a8887dd8f4"/>
+				<textFieldExpression><![CDATA[$P{seguros}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="218">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="82" width="555" height="14" backcolor="#CCCCCC" uuid="b0c7a021-a9f2-466f-86e6-52bea2c42f54"/>
+				<box topPadding="0" leftPadding="2" bottomPadding="0">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DETALLE DEL CRONOGRAMA DE PAGOS]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" x="0" y="96" width="555" height="50" uuid="da19ec9b-7c99-41a0-9e35-544bb3bf2bd3"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table DataSet Cronograma" uuid="e34b6b6e-a7b4-4f17-a216-1cb9a1faa4a2">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{cronograma}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="49" uuid="0e1cd608-8b42-4a2d-a518-e6b0abdf3997">
+						<jr:columnHeader height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="49" height="30" uuid="af9e8962-0a80-44fa-aeb2-1087fdfb9a60"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Número Letra]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="49" height="20" uuid="4f6de464-eeea-4a0c-8a92-471194275ee0"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{codNumeLetr}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="1681f501-f47a-4524-96cb-2d19c4f0f45a">
+						<jr:columnHeader height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="90dbfc76-39db-413e-a744-5be029e210e0"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Saldo Inicial]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="a2f1a98e-1295-4d71-ab0a-622498b6e648"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format($F{saldoInicial})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="42e54cdc-7522-44d8-97d3-760db9319d68">
+						<jr:columnHeader height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="15c20f8a-7c6f-4767-a2c5-83103a97cf85"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Amortización]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="628d08d1-3998-4213-b406-4e789d591619"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format($F{capital})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="93791ff8-ab3a-412e-83df-0e614eba7728">
+						<jr:columnHeader height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="38275e15-85ca-46f4-8331-e6d3c1a094a3"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Intereses]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="b6b666b1-a3f6-463f-976a-849cab5d6d31"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format($F{interes})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="d6c11e2a-a747-447b-9ea3-a111672e09ca">
+						<jr:columnHeader height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="c41ebc61-8e33-4dc3-bb54-0b65961f8c03"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[IGV]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="1cdb97cc-cbc5-434f-a623-45dbbd24e03d"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format($F{igv})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="affe72ef-999a-4471-adf3-a0bfa71fd994">
+						<printWhenExpression><![CDATA[$P{hasSeguro}]]></printWhenExpression>
+						<jr:columnHeader height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="8f10403a-ad4c-430a-a3f5-d94dad83ad59"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Seguro]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="0cdc036f-031d-4717-b553-688ec984c516"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format($F{seguro})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="fe2e543d-1a50-4b03-aae1-7f44fdf91039">
+						<jr:columnHeader height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="fab1a116-db77-4e3c-afad-eaceb9a53d9a"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total Cuota]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="cf7dc16a-5136-4196-9f4d-4f50abccb55b"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format($F{cuota})]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="d97400dc-0f99-4edb-bf90-95ed2eb4ccd1">
+						<jr:columnHeader height="31" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" uuid="1aa33238-b166-43bc-98ea-f7438ced061b"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Fecha Venc.]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="20" uuid="cb0bf4d7-c73a-410c-a088-ea6f7e2acad5"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{fecVenc}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.GarantiaMapper">
+
+    <cache />
+
+    <resultMap id="garantiaMap" type="pe.com.divemotor.solicitudcredito.dominio.Garantia">
+        <result property="codGarantia" column="COD_GARANTIA"/>
+        <result property="idMarca" column="MARCA" />
+        <result property="modelo" column="MODELO" />
+        <result property="tipoVehiculo" column="TIPO_VEHICULO" />
+        <result property="carroceria" column="CARROCERIA" /> 
+        <result property="anhoFabricacion" column="ANHO_FABRICACION" /> 
+        <result property="motor" column="MOTOR" />   
+        <result property="valorRealizable" column="VAL_REALIZ_GAR" />
+        <result property="valorConstituido" column="VAL_CONST_GAR" />
+        <result property="valorMontoOtorgado" column="VAL_MONT_OTOR_HIP" />
+        <result property="placa" column="NRO_PLACA" />
+        <result property="chasis" column="NRO_CHASIS" />
+        <result property="idRango" column="VAL_NRO_RANGO" />
+        <result property="idActividad" column="COD_TIPO_ACTIVIDAD" />
+        <result property="tipoActividad" column="TIPO_ACTIVIDAD" />
+        <result property="codTipoVeh" column="COD_TIPO_VEH" />
+        <result property="codPersProp" column="COD_PERS_PROP" />
+        <result property="direccion" column="TXT_DIRECCION" />
+        <result property="idDepartamento" column="COD_DEPARTAMENTO" />
+        <result property="idProvincia" column="COD_PROVINCIA" />
+        <result property="idDistrito" column="COD_DISTRITO" />
+        <result property="codEstadoCivil" column="COD_ESTADO_CIVIL" />
+        <result property="estadoCivil" column="ESTADO_CIVIL" />
+        <result property="codTipoPersona" column="COD_TIPO_PERSONA" />
+        <result property="tipoPersona" column="TIPO_PERSONA" /> 
+        <result property="marca" column="DES_MARCA" />
+        <result property="rango" column="DES_RANGO" />
+        <result property="actividad" column="DES_ACTIVIDAD" />
+        <result property="desTipoVeh" column="DES_TIPO_VEH" />
+        <result property="desPersProp" column="DES_PERS_PROP" />
+        <result property="departamento" column="DEPARTAMENTO" />
+        <result property="provincia" column="PROVINCIA" />
+        <result property="distrito" column="DISTRITO" />
+        <result property="idTipoBien" column="IND_TIPO_BIEN" />
+        <result property="desTipoBien" column="DES_TIPO_BIEN" />
+        <result property="idOtorgante" column="IND_OTOR" />
+        <result property="desOtorgante" column="DES_OTOR"/>
+        <result property="numPedidoVeh" column="NUM_PEDIDO_VEH" />
+        <result property="codOfRegistral" column="COD_OF_REGISTRAL"/>
+        <result property="codTipoCred" column="TIP_SOLI_CRED"/>
+        <result property="desTipoCred" column="DES_TIPO_CRED"/>
+        <result property="indAdicional" column="IND_ADICIONAL"/>
+        
+        <result property="indRatificaGar" column="IND_RATIFICA_GAR"/>
+        <result property="valNvoMonto" column="VAL_NVO_MONTO"/>
+        <result property="valNvoVal" column="VAL_NVO_VAL"/>
+        <result property="indPreConstMob" column="IND_PRE_CONST"/>
+        <result property="indRegMobContratos" column="IND_REG_MOB_CONTRATOS"/>
+        <result property="indRegJurBien" column="IND_REG_JUR_BIEN"/>
+        <result property="numTituloRpv" column="NUM_TITULO_RPV"/>
+        <result property="nroPartida" column="NRO_PARTIDA"/>
+        <result property="indSegDive" column="IND_SEG_DIVE"/>
+        <result property="valNroAsie" column="VAL_NRO_ASIE"/>
+        <result property="codTipoFamilia" column="COD_FAMILIA_VEH"/>
+        
+    </resultMap>
+
+    <resultMap id="coberturaGarantiaMap" type="pe.com.divemotor.solicitudcredito.dominio.CoberturaGarantia">
+        <result property="ratio_cob" column="RATIO_COB"/>
+        <!--I Req. 87567 E2.1 ID## avilca 25/02/2021-->
+        <result property="ano" column="ANIO" />
+        <!--F Req. 87567 E2.1 ID## avilca 25/02/2021-->
+    </resultMap>        
+    
+    
+    
+    <resultMap id="garantiaHistoricoMap" type="pe.com.divemotor.solicitudcredito.dominio.GarantiaHistorico">
+        <result property="codGarantia" column="COD_GARANTIA"/>
+        <result property="indTipoGarantia" column="IND_TIPO_GARANTIA"/>
+        <result property="indTipoBien" column="IND_TIPO_BIEN"/>
+        <result property="idOtorgante" column="IND_OTOR"/>
+        <result property="codPersProp" column="COD_PERS_PROP"/>
+        <result property="codMarca" column="COD_MARCA"/>
+        <result property="txtModelo" column="TXT_MODELO"/>
+        <result property="codTipoVeh" column="COD_TIPO_VEH"/>
+        <result property="nroMotor" column="NRO_MOTOR"/>
+        <result property="txtCarroceria" column="TXT_CARROCERIA"/>
+        <result property="fecFabConst" column="FEC_FAB_CONST"/>
+        <result property="nroChasis" column="NRO_CHASIS"/>
+        <result property="valNroRango" column="VAL_NRO_RANGO"/>
+        <result property="nroPlaca" column="NRO_PLACA"/>
+        <result property="codTipoActividad" column="COD_TIPO_ACTIVIDAD"/>
+        <result property="valConstGar" column="VAL_CONST_GAR"/>
+        <result property="valRealizGar" column="VAL_REALIZ_GAR"/>
+        <result property="codOfRegistral" column="COD_OF_REGISTRAL"/>
+        <result property="valAnosDeprec" column="VAL_ANOS_DEPREC"/>
+        <result property="codMoneda" column="COD_MONEDA"/>
+        <result property="desDescripcion" column="DES_DESCRIPCION"/>
+        <result property="indAdicional" column="IND_ADICIONAL"/>
+        <result property="numTituloRpv" column="NUM_TITULO_RPV"/>
+        <result property="nroTarjPropVeh" column="NRO_TARJ_PROP_VEH"/>
+        <result property="nroPartida" column="NRO_PARTIDA"/>
+        <result property="indRegMobContratos" column="IND_REG_MOB_CONTRATOS"/>
+        <result property="indRegJurBien" column="IND_REG_JUR_BIEN"/>
+        <result property="txtInfoModGar" column="TXT_INFO_MOD_GAR"/>
+        <result property="indRatificaGar" column="IND_RATIFICA_GAR"/>
+        <result property="valNvoMonto" column="VAL_NVO_MONTO"/>
+        <result property="valNvoVal" column="VAL_NVO_VAL"/>
+        <result property="valMontOtorHip" column="VAL_MONT_OTOR_HIP"/>
+        <result property="txtDireccion" column="TXT_DIRECCION"/>
+        <result property="codDistrito" column="COD_DISTRITO"/>
+        <result property="codProvincia" column="COD_PROVINCIA"/>
+        <result property="codDepartamento" column="COD_DEPARTAMENTO"/>
+        <result property="codCliente" column="COD_CLIENTE"/>
+        <result property="txtMarca" column="TXT_MARCA"/>   
+        <result property="codOperRel" column="COD_OPER_REL"/>
+        <result property="tipoGarantiaDesc" column="TIPO_GARANTIA_DESC"/>
+        <result property="valAnoFab" column="VAL_ANO_FAB"/>
+        <result property="marca" column="DES_MARCA" />
+        <result property="rango" column="DES_RANGO" />
+        <result property="actividad" column="DES_ACTIVIDAD" />
+        <result property="tipo" column="DES_TIPO_VEH" />
+        <result property="desPersProp" column="DES_PERS_PROP" />
+        <result property="distrito" column="DISTRITO" />
+        <result property="provincia" column="PROVINCIA" />
+        <result property="departamento" column="DEPARTAMENTO" />       
+        <result property="tipoBien" column="TIPO_BIEN" />
+        <result property="tipoOtorgante" column="TIPO_OTORGANTE" />
+        <result property="tipoPersona" column="TIPO_PERSONA" />
+        <result property="estadoCivil" column="ESTADO_CIVIL" />
+        <result property="indPreConstMob" column="IND_PRE_CONST" />
+        <result property="indSegDive" column="IND_SEG_DIVE" />
+        <result property="valNroAsie" column="VAL_NRO_ASIE" />
+        <result property="codTipoFamilia" column="COD_FAMILIA_VEH"/>
+    </resultMap>
+    
+    <!-- GarantiaPaisesMap -->
+    <resultMap id="garantiaPaisMap" type="pe.com.divemotor.solicitudcredito.dominio.Pais">
+        <result property="codPais" column="COD_PAIS"/>
+        <result property="nomPais" column="NOM_PAIS"/>
+    </resultMap>
+    
+    <!-- GarantiaDepartamentosMap -->
+    <resultMap id="garantiaDepaMap" type="pe.com.divemotor.solicitudcredito.dominio.Departamento">
+        <result property="codDepa" column="COD_ID_DEPARTAMENTO"/>
+        <result property="nomDepa" column="DES_NOMBRE"/>
+    </resultMap>
+    
+    <!-- GarantiaProvinciasMap -->
+    <resultMap id="garantiaProvMap" type="pe.com.divemotor.solicitudcredito.dominio.Provincia">
+        <result property="codProv" column="COD_ID_PROVINCIA"/>
+        <result property="nomProv" column="DES_NOMBRE"/>
+    </resultMap>
+    
+    <!-- GarantiaDistritosMap -->
+    <resultMap id="garantiaDistMap" type="pe.com.divemotor.solicitudcredito.dominio.Distrito">
+        <result property="codDist" column="COD_ID_DISTRITO"/>
+        <result property="nomDist" column="DES_NOMBRE"/>
+    </resultMap>
+    
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.garantia.ListarGarantiasProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_list_garantia(
+        #{codSoliCred},
+        #{indTipoGarantia},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=garantiaMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarHistorico" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.garantia.ListarGarantiasHistoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_list_garantia_histo(
+        #{codSoliCred},
+        #{indTipoGarantia},
+        #{codCliente},
+        #{numPedidoVeh},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=garantiaHistoricoMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+   
+    <!-- Paises -->
+    <select id="listarPaises" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.ListarPaisesAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_listado_paises(
+        #{codCia},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=garantiaPaisMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Departamentos -->
+    <select id="listarDepartamentos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.ListarDepartamentosAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_listado_departamentos(
+        #{codPais},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=garantiaDepaMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Provincias -->
+    <select id="listarProvincias" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.ListarProvinciasAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_listado_provincias(
+        #{codDepa},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=garantiaProvMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Distritos -->
+    <select id="listarDistritos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.ListarDistritosAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_listado_distritos(
+        #{codProv},
+        #{codDepa},<!--Req. 87567 E2.1 ID avilca 03/06/2020 -->
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=garantiaDistMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="insertar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.garantia.InsertarGarantiaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_ins_gara_soli(
+        #{codSoliCred},
+        #{codGarantia},
+        #{indTipoGarantia},
+        #{indTipoBien},
+        #{indOtor},
+        #{codPersProp},
+        #{codMarca},
+        #{txtMarca},
+        #{txtModelo},
+        #{codTipoVeh},
+        #{nroMotor},
+        #{txtCarroceria},
+        #{fecFabConst},
+        #{nroChasis},
+        #{valNroRango},
+        #{nroPlaca},
+        #{tipoActividad},
+        #{valConstGar},
+        #{valRealizGar},
+        #{codOfRegistral},
+        #{valAnosDeprec},
+        #{codMoneda},
+        #{desDescripcion},
+        #{indAdicional},
+        #{numTituloRpv},
+        #{nroTarjPropVeh},
+        #{nroPartida},
+        #{indRegMobContratos},
+        #{indRegJurBien},
+        #{txtInfoModGar},
+        #{indRatificaGar},
+        #{valNvoMonto},
+        #{valNvoVal},
+        #{valMontOtorHip},
+        #{txtDireccion},
+        #{codDistrito},
+        #{codProvincia},
+        #{codDepartamento},
+        #{codCliente},
+        #{nuevo},
+        #{valAnoFab},
+        #{numPedidoVeh},
+        #{indPreConstMob},
+        #{indSegDive},
+        #{numAsiento},
+        #{codTipoFamilia},
+        #{codUsuario},
+        #{idUsuario},
+        #{codGarantiaOut, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="eliminar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.garantia.InsertarGarantiaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_eli_gara_soli(
+        #{codSoliCred},
+        #{indTipoGarantia},
+        #{listaGarantias},
+        #{listaGarantiasEliminadas},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="eliminarByGara" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.garantia.InsertarGarantiaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_eli_by_gara(
+        #{codSoliCred},
+        #{indTipoGarantia},
+        #{codGarantia},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarCoberturaGarantia" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.garantia.ListarCoberturaGarantiaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_list_cobergara_fc(
+        #{codSoliCred},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=coberturaGarantiaMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    <!-- <I> 90690 ivelasquez 21/09/2021 -->
+    <select id="consultarGarantias" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.garantia.ConsultarGarantiasProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_GARANTIA.sp_count_garantias(
+        #{codSoliCred},
+        #{codUsuario},
+        #{idUsuario},
+        #{cantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    <!-- <F> 90690 ivelasquez 21/09/2021 -->
+</mapper>

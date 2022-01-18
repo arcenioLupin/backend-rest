@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper">
+
+    <cache />
+    	
+    <resultMap id="companiaSeguroMap" type="pe.com.divemotor.solicitudcredito.dominio.CompaniaSeguro">
+        <result property="codCiaSeg" column="cod_ciaseg"/>
+        <result property="nombre" column="nom_perso"/> 
+    </resultMap>
+    
+    <resultMap id="proformaMap" type="pe.com.divemotor.solicitudcredito.dominio.Proforma">
+        <result property="numProfVeh" column="num_prof_veh"/>
+        <result property="numFichaVtaVeh" column="num_ficha_vta_veh"/>
+        <result property="codFamiliaVeh" column="cod_familia_veh"/>
+        <result property="desFamiliaVeh" column="des_familia_veh"/>
+        <result property="codTipoVeh" column="cod_tipo_veh"/>
+        <result property="desTipoVeh" column="des_tipo_veh"/>
+        <result property="codMarca" column="cod_marca"/>
+        <result property="nomMarca" column="nom_marca"/>
+        <result property="codBaumuster" column="cod_baumuster"/>
+        <result property="nomBaumuster" column="baumuster"/>
+        <result property="anioFabricacion" column="anio_fabricacion"/>
+        <result property="codMonedaProf" column="cod_moneda_prof"/>
+        <result property="desMonedaProf" column="des_moneda_prof"/>
+        <result property="canVeh" column="can_veh"/>
+        <result property="precioUnitario" column="precio_unitario"/>
+        <result property="ventaTotal" column="venta_total"/>
+        <result property="indSoliProf" column="ind_soli_prof"/>
+        <result property="canVehProf" column="can_veh_prof"/>
+        <result property="indProfFvInac" column="ind_prof_fv_inac"/>
+    </resultMap>
+    
+    <resultMap id="simuladorConceptoMap" type="pe.com.divemotor.solicitudcredito.dominio.SimuladorConcepto">
+        <result property="codConcCol" column="cod_conc_col"/>
+        <result property="desConc" column="des_conc"/> 
+        <result property="indConcOblig" column="ind_conc_oblig"/>
+    </resultMap>
+    
+    <resultMap id="cronogramaMap" type="pe.com.divemotor.solicitudcredito.dominio.SimuladorCronograma">
+        <result property="codNumeLetr" column="cod_nume_letr"/>
+        <result property="fecVenc" column="fec_venc"/>
+        <result property="item" column="item"/>
+        <result property="saldoInicial" column="saldoinicial"/>
+        <result property="capital" column="capital"/>
+        <result property="interes" column="interes"/>
+        <result property="cuota" column="cuota"/>
+        <result property="saldoFinal" column="saldofinal"/>
+        <result property="fVcto" column="fvcto"/>
+        <result property="igv" column="igv"/>
+        <result property="seguro" column="seguro"/>
+        <result property="cobranzas" column="cobranzas"/>
+        <result property="interesMoratorio" column="interesmoratorio"/>
+        <result property="interesCompensatorio" column="interescompensatorio"/>
+        <result property="costoTraslado" column="costodetraslado"/>
+    </resultMap>
+    
+    <resultMap id="propuestaMap" type="pe.com.divemotor.solicitudcredito.dominio.SimuladorPropuesta">
+        <result property="cliente" column="cliente"/>
+        <result property="tipSoliCred" column="tip_soli_cred"/>
+        <result property="nomMoneda" column="nom_moneda"/>
+        <result property="desMoneda" column="des_moneda"/>        
+        <result property="tipUsoVeh" column="tip_uso_veh"/>
+        <result property="valTotal" column="val_total"/>
+        <result property="valCI" column="val_ci"/>
+        <result property="valMonFin" column="val_mon_fin"/>
+        <result property="canPlazMeses" column="can_plaz_meses"/>
+        <result property="perCredSol" column="per_cred_sol"/>
+        <result property="canDiasVenc1raLetr" column="can_dias_venc_1ra_letr"/>
+        <result property="canTotLet" column="can_tot_let"/>
+        <result property="valPorcTea" column="val_porc_tea"/>
+        <result property="valIntPerGra" column="val_int_per_gra"/>
+        <result property="valMontLetr" column="val_mont_letr"/>
+        <result property="valCuoBal" column="val_cuo_bal"/>
+        <result property="valGastAdm" column="val_gast_adm"/>     
+        <result property="indGPS" column="ind_gps"/>
+        <result property="txtOtrCond" column="txt_otr_cond"/>
+        <result property="cuotaCredito" column="cuota_credito"/>
+        <result property="int1raLetra" column="int_1ra_letra"/>
+        <result property="totalLetra" column="total_letra"/>
+        <result property="valSegLetra" column="val_seg_letra"/>
+        <result property="valGarantia" column="val_garantia"/>
+        <!--<I Req. 87567 E2.1 ID## avilca 28/12/2020>-->
+        <result property="garantias" column="des_garantias"/>
+        <result property="seguros" column="des_seguros"/>
+         <!--<F Req. 87567 E2.1 ID## avilca 28/12/2020>-->
+    </resultMap>    
+    
+    <resultMap id="simuladorTotalMap" type="pe.com.divemotor.solicitudcredito.dominio.SimuladorTotal">
+        <result property="totMonFin" column="tot_mon_fin"/>
+        <result property="totAmortizacion" column="tot_amortizacion"/> 
+        <result property="totSegFin" column="tot_seg_fin"/>
+        <result property="totInteres" column="tot_interes"/>
+        <result property="totCuotas" column="tot_cuotas"/>               
+    </resultMap>
+    
+    <resultMap id="simuladorProcesoMap" type="pe.com.divemotor.solicitudcredito.dominio.SimuladorProceso">
+        <result property="nombre" column="nombre"/>
+        <result property="restrictivo" column="restrictivo"/>             
+    </resultMap>
+    
+    <resultMap id="simuladorGastoMap" type="pe.com.divemotor.solicitudcredito.dominio.SimuladorGasto">
+        <result property="codConcCol" column="cod_conc_col"/>
+        <result property="desConcCol" column="des_conc"/> 
+        <result property="valMonTotal" column="val_mon_total"/> 
+        <result property="valMonPer" column="val_mon_per"/>
+        <result property="codMoneda" column="cod_moneda"/>
+        <result property="indFin" column="ind_fin"/>           
+    </resultMap>                                                                                                                                
+    
+    <resultMap id="tasasMap" type="pe.com.divemotor.solicitudcredito.dominio.Tasas">
+        <result property="codigo" column="codigo"/>
+        <result property="descripcion" column="descripcion"/> 
+        <result property="porcentaje" column="porcentaje"/> 
+    </resultMap>
+    
+    <select id="listarTasas" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.ListarTasasProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_list_tasas(
+        #{noCia},
+        #{moneda},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=tasasMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarCompaniaSeguro" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.ListarCompaniaSeguroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_list_comp_segu(
+        #{codCiaSeg},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=companiaSeguroMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarProforma" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.ListarProformaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_PROFORMA.sp_list_cred_soli_proforma(
+        #{codSoliCred},
+        #{codUsuario},
+        #{idUsuario},
+        #{indPaginado},
+        #{liminf},
+        #{limsup},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.proformaMap},
+        #{cantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarSimuladorConcepto" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.ListarSimuladorConceptoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_list_maes_conc_letr(
+        #{codConcCol},
+        #{indConcOblig},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=simuladorConceptoMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="registrarSimulador" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.RegistrarSimuladorProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_inse_para_simulador(
+        #{codSoliCred},
+        #{numProfVeh},
+        #{valPorcCI},
+        #{valCI},
+        #{valMonFin},
+        #{valPagContCI},
+        #{fecVenc1raLet},
+        #{codPerCredSol},
+        #{canTotLet},
+        #{canPlazMeses},
+        #{indTipPerGra},
+        #{valDiasPerGra},
+        #{canLetPerGra},
+        #{valPorcTEASIGV},
+        #{valPorcTEPSIGV},
+        #{indGPS},
+        #{valPorcCuoBal},
+        #{valCuoBal},
+        #{indTipSeg},
+        #{codCiaSeg},
+        #{codTipUsoVeh},
+        #{valTasaSeg},
+        #{valTasaOriSeg},
+        #{valPrimaSeg},
+        #{codTipUnidad},
+        #{valPorcGastAdm},
+        #{valGastAdm},
+        #{valIntPerGra},
+        #{codMoneda},
+        #{tipSoliCred},
+        #{txtOtrCond},
+        #{valTipoCambio},
+        #{indSinInt},
+        #{codUsuario},
+        #{idUsuario},
+        #{codigo, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+
+     <select id="registrarSimuladorSap" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.RegistrarSimuladorSapProcedure" useCache="false">
+        {CALL pkg_sweb_cred_simulador_sap.sp_inse_para_simulador(
+        #{valPorcCI}, 
+        #{valCI}, 
+        #{valMonFin}, 
+        #{fecVenc1raLet}, 
+        #{codPerCredSol},   
+        #{canTotLet},
+        #{tipoPeriodo}, 
+        #{codMoneda},       
+        #{tipSoliCred}, 
+        #{valTipoCambio},        
+        #{orgaVenta},   
+        #{sector},
+        #{modelo},                        
+        #{sku},
+        #{tipoVehiculo},        
+        #{cantidad},                                   
+        #{codUsuario},
+        #{idUsuario},
+        #{codigo, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>      
+    
+    <select id="registrarSimuladorGasto" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.RegistrarSimuladorGastoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_inse_para_gasto(
+        #{codConcCol},
+        #{codSimu},
+        #{valMonTotal},
+        #{indFin},
+        #{valMonPer},
+        #{codMoneda},
+        #{codUsuario},
+        #{idUsuario},
+        #{codigo, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="generarCronograma" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.GenerarCronogramaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_gene_crono(
+        #{codSimu},
+        #{codGruTipCred},
+        #{codTipCred},
+        #{monVta},
+        #{porcCuoIni},
+        #{periodicidad},
+        #{primaSeg},
+        #{nroCuotas},
+        #{plazMes},
+        #{porcCB},
+        #{codGruTipPgra},
+        #{codTipPgra},
+        #{valDiasPgra},
+        #{valMonIntPgra},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="cuadrarCronograma" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.ListarCronogramaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_cuad_crono(
+        #{codSimu},
+        #{codSoliCred},
+        #{numProfVeh},
+        #{cronograma, javaType=Object, jdbcType=ARRAY,
+        jdbcTypeName=VENTA.VVE_TYTA_CRONO, mode=IN,
+        typeHandler=pe.com.divemotor.solicitudcredito.typehandler.CronogramaTypeHandler},
+        #{codTipoOpe},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.cronogramaMap},
+        #{listadoColumna, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.simuladorConceptoMap},
+        #{total, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.simuladorTotalMap},
+        #{proceso, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.simuladorProcesoMap},       
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>    
+    
+    <select id="listarCronograma" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.ListarCronogramaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_list_crono(
+        #{codSimu},
+        #{codSoliCred},
+        #{numProfVeh},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.cronogramaMap},
+        #{listadoColumna, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.simuladorConceptoMap},
+        #{total, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.simuladorTotalMap},
+        #{proceso, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.simuladorProcesoMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarPropuesta" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.ListarPropuestaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_list_propuesta(
+        #{codSimu},
+        #{codSoliCred},
+        #{numProfVeh},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.propuestaMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarGasto" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.ListarSimuladorGastoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_list_gasto(
+        #{codSimu},
+        #{codSoliCred},
+        #{numProfVeh},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SimuladorMapper.simuladorGastoMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>              
+    
+    <select id="obtenerTasaSeguro" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.ObtenerTasaSeguroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_obt_tasa_seg(
+        #{codCia},
+        #{codTipoVeh},
+        #{indTipoUso},
+        #{codCliente},
+        #{codUsuario},
+        #{idUsuario},        
+        #{tasaSeg, mode=OUT, jdbcType=DOUBLE, javaType=double},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="calculaTasa" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.CalculaTasaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_calc_tasa_seg(
+        #{primaSeg},
+        #{plazoMeses},
+        #{montoVta},
+        #{porcIgv},
+        #{codUsuario},
+        #{idUsuario},        
+        #{tasaSeg, mode=OUT, jdbcType=DOUBLE, javaType=double},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="generarPlantillaCambioTasaSeguro" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.GenerarPlantillaCambioTasaSeguroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_gene_plan_cambio_tasa(
+        #{codSoliCred},
+        #{destinatarios},
+        #{codUsuario},
+        #{idUsuario},        
+        #{codigo, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+
+    <select id="registrarSimuladorProforma" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.simulador.RegistrarSimuladorProformaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SIMULADOR.sp_inse_para_proforma(
+        #{codSoliCred},
+        #{numProfVeh},
+        #{canVehFin},
+        #{valVtaTotFin},
+        #{indRegistro},
+        #{codUsuario},
+        #{idUsuario},
+        #{codigo, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+     
+</mapper>

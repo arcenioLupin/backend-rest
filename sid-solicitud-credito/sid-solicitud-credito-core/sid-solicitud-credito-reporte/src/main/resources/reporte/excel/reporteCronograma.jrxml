@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteResumen" pageWidth="942" pageHeight="595" orientation="Landscape" columnWidth="902" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9d4f39e0-9961-4ff1-ad59-c1a82b13c539">
+	<property name="ireport.zoom" value="1.239669421487604"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset Cronograma" uuid="f79c860c-4b82-4db2-ab24-91b13be1194e">
+		<field name="codNumeLetr" class="java.lang.Integer"/>
+		<field name="fecVenc" class="java.lang.String"/>
+		<field name="item" class="java.lang.Integer"/>
+		<field name="saldoInicial" class="java.lang.Double"/>
+		<field name="capital" class="java.lang.Double"/>
+		<field name="interes" class="java.lang.Double"/>
+		<field name="cuota" class="java.lang.Double"/>
+		<field name="saldoFinal" class="java.lang.Double"/>
+		<field name="fVcto" class="java.lang.String"/>
+		<field name="igv" class="java.lang.Double"/>
+		<field name="seguro" class="java.lang.Double"/>
+		<field name="cobranzas" class="java.lang.Double"/>
+		<field name="interesMoratorio" class="java.lang.Double"/>
+		<field name="interesCompensatorio" class="java.lang.Double"/>
+		<field name="costoTraslado" class="java.lang.Double"/>
+	</subDataset>
+	<parameter name="nroLetras" class="java.lang.String"/>
+	<parameter name="totMonFin" class="java.lang.String"/>
+	<parameter name="totAmortizacion" class="java.lang.String"/>
+	<parameter name="totSegFin" class="java.lang.String"/>
+	<parameter name="totInteres" class="java.lang.String"/>
+	<parameter name="totCuotas" class="java.lang.String"/>
+	<parameter name="cronograma" class="java.util.List"/>
+	<parameter name="hasSeguro" class="java.lang.Boolean"/>
+	<parameter name="hasCobranzas" class="java.lang.Boolean"/>
+	<parameter name="hasInteresCompensatorio" class="java.lang.Boolean"/>
+	<parameter name="hasInteresMoratorio" class="java.lang.Boolean"/>
+	<parameter name="hasCostoTraslado" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="33">
+			<staticText>
+				<reportElement x="11" y="13" width="131" height="20" uuid="e999b67f-a15d-48d8-8f42-ba3e90c57474"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número de Cuotas]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="142" y="13" width="100" height="20" uuid="016c9e11-6bbd-4940-a2a3-bd6e4e49ad10"/>
+				<textFieldExpression><![CDATA[$P{nroLetras}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="61" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 1" x="11" y="11" width="891" height="50" uuid="8f32c358-e989-479c-8486-e8895fe94a8d">
+					<propertyExpression name="xxxx"><![CDATA[$P{totSegFin}]]></propertyExpression>
+					<printWhenExpression><![CDATA[$P{cronograma}!=null && !$P{cronograma}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset Cronograma" uuid="5f26c401-45a8-4bc7-9ed0-ce7d6dad543b">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{cronograma}, false)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="5f38b02c-a6f5-4bb7-a88f-cc0b1ff17cf1">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="ff619ac4-96f0-4063-b5d1-749dbe48cb6d"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[ITEM]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" uuid="b4c25cec-25a5-4e18-aa35-5219b249fb66"/>
+								<textElement textAlignment="Center">
+									<font isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{codNumeLetr}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="92977ef4-9a94-4b0a-b4c0-c4466d27ce22">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="08d6238f-0994-44db-80e9-2341f2d68138"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[SALDO INICIAL]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="df4f9f0f-d22f-4300-bb70-12f13323e204">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right">
+									<font isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{saldoInicial}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c882a045-f97c-4ab2-9047-43b0829b3813">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="56db1e6d-74b4-4a5a-ba3d-012a1ed8ec9b"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[CAPITAL]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="3b288272-53df-4e04-ad43-3f193387fcd7">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right">
+									<font isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{capital}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="8498768d-2490-4665-b6b1-1266b0927f59">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="d05e5dd3-f557-4d41-86ab-f7c458090400"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[INTERES]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="76bd93a3-1e5b-4093-a663-697e7701498f">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right">
+									<font isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{interes}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="c5e129e5-d869-455e-a3c1-7580cce6bb30">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="cc09ed97-ac81-484f-a303-ab69d0a801d5"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[IGV]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="5981cb1a-8b57-45eb-933a-6f6646f00599">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{igv}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d298308c-8da4-4799-98d8-944e053c591f">
+						<printWhenExpression><![CDATA[$P{hasSeguro}]]></printWhenExpression>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="c0a339d8-fa5c-46a6-b97e-6f025dd84382"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[SEGURO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="f691d019-689f-402d-8d32-e99ea646dfb4">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{seguro}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="3943ddff-ae11-44df-9d29-e31c74a41028">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="044582c5-a28a-4963-9cf0-af93c4071c97"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[CUOTA]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="b45902b5-e361-4ae7-9bf3-fa100c4c08bc">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{cuota}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="55a5033d-b815-4207-b343-290af622f028">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="eb313211-4be6-4488-b4e5-39060ee707b2"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[F. VCTO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="be4c2c7c-2b9e-47a3-b535-c8e9b2bbd32b"/>
+								<textElement textAlignment="Center"/>
+								<textFieldExpression><![CDATA[$F{fVcto}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="2ff4fb6a-5965-4bba-a932-73803f310326">
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="3fe5ae30-d036-451d-a860-f47931be4b29"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[SALDO FINAL]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="4d50580d-8a5e-444e-8609-e023a100bc33">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right"/>
+								<textFieldExpression><![CDATA[$F{saldoFinal}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="8d09dcb6-d397-4c5c-9351-c193c154471b">
+						<printWhenExpression><![CDATA[$P{hasCobranzas}]]></printWhenExpression>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="2b48d8b7-0616-4629-96c8-015c2eb3aad0"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[COBRANZAS]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="affc9433-5519-432d-9e87-e7bd901b9c21">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right">
+									<font isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{cobranzas}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="870ac354-c1f0-4202-8e78-1e3f5f2e7626">
+						<printWhenExpression><![CDATA[$P{hasInteresMoratorio}]]></printWhenExpression>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="7c5f9c27-b7a8-48c0-abd8-a53c9ea0f286"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[INTERES MORATORIO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="8b661900-dccc-4d6c-b2bd-c27499078cf3">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right">
+									<font isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{interesMoratorio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="106" uuid="6cf50213-548c-497a-bf1e-a66dc83f60b1">
+						<printWhenExpression><![CDATA[$P{hasInteresCompensatorio}]]></printWhenExpression>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="106" height="30" isRemoveLineWhenBlank="true" uuid="15e2ea20-099f-4a6e-85c4-63e2028851d9"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[INTERES COMPENSATORIO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="106" height="20" isRemoveLineWhenBlank="true" uuid="613dacc6-44ba-44cd-862e-721347c3f7e4">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right">
+									<font isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{interesCompensatorio}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d8092bcf-93f9-4ed9-b7d3-896516cc16aa">
+						<printWhenExpression><![CDATA[$P{hasCostoTraslado}]]></printWhenExpression>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement style="table" x="0" y="0" width="90" height="30" uuid="1e0ee87c-de09-48f1-abea-d35c25ede6be"/>
+								<textElement textAlignment="Center">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[COSTO TRASLADO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="21" rowSpan="1">
+							<textField isBlankWhenNull="true">
+								<reportElement style="table" x="0" y="0" width="90" height="20" isRemoveLineWhenBlank="true" uuid="801d7867-2c79-4fb2-91ae-aa0ed5634f88">
+									<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+								</reportElement>
+								<textElement textAlignment="Right">
+									<font isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{costoTraslado}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="73">
+			<textField isBlankWhenNull="true">
+				<reportElement x="163" y="13" width="79" height="20" uuid="171a40f5-ad68-4250-b2fb-09f7a96496e4">
+					<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{totMonFin}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="13" width="152" height="20" uuid="c4f756e9-6e0e-4cbf-ae96-9c9a83788fec"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total a Financiar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="13" width="131" height="20" uuid="2dfefca2-13be-4236-abd9-93055d46a21d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Amortización]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="404" y="13" width="91" height="20" uuid="edab53b8-a2d1-418e-b527-ecd5d89a1c9b">
+					<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{totAmortizacion}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="525" y="13" width="131" height="20" uuid="b70ab636-d227-41c0-9cba-6c4ce002bcb9"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Seguro]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="656" y="13" width="91" height="20" uuid="0fdd544f-f7af-4273-9651-9916d09ec5b7">
+					<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{totSegFin}))]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="11" y="47" width="152" height="20" uuid="6e9db4bd-aa3e-47d9-bc0b-340c16000607"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Intereses (Inc IGV)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="47" width="131" height="20" uuid="589d34ee-5cb3-417d-804a-71262b270929"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Cuotas]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="163" y="47" width="79" height="20" uuid="e594870b-dc3f-494d-ae86-ab5d75ff8d58">
+					<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{totInteres}))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="404" y="47" width="91" height="20" uuid="90ae4c7b-7778-4a45-b0e7-3e2cd2e68876">
+					<property name="net.sf.jasperreports.export.xls.pattern" value="###,##0.00"/>
+				</reportElement>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("###,##0.00", new java.text.DecimalFormatSymbols(java.util.Locale.US)).format(Double.parseDouble($P{totCuotas}))]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

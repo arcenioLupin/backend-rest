@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.SeguroMapper">
+
+    <cache />
+    
+    <resultMap id="solicitudCreditoSeguroMap" type="pe.com.divemotor.solicitudcredito.dominio.Seguro">
+        <result property="indTipoSegu" column="IND_TIPO_SEGU"/>
+        <result property="nroPoliza" column="NRO_POLI_SEG"/>
+        <result property="fecInicVigePoli" column="FEC_INIC_VIGE_POLI"/>
+        <result property="fecFinVigePoli" column="FEC_FIN_VIGE_POLI"/>
+        <result property="valPorcTeaSigv" column="VAL_PORC_TEA_SIGV"/>
+        <result property="canLetrFin" column="CAN_LETR_FIN"/>
+        <result property="fecPrimPagoPoliEndo" column="FEC_PRIM_PAGO_POLI_ENDO"/>
+        <result property="fecUltiPagoPoliEndo" column="FEC_ULTI_PAGO_POLI_ENDO"/>
+        <result property="txtRutaPoliEndo" column="TXT_RUTA_POLI_ENDO"/>
+        <result property="txtRutaFactura" column="TXT_RUTA_FACT"/>
+        <result property="valTasaSeg" column="VAL_TASA_SEGU"/>
+        <result property="fecMinSimu" column="FEC_MIN_SIMU"/>
+        <result property="fecMaxSimu" column="FEC_MAX_SIMU"/>
+        <result property="fecActPoli" column="FEC_ACT_POLI"/>
+        <!--<I Req. 87567 E2.1 ID## avilca 30/12/2020>-->
+        <result property="codCiaSeg" column="cod_cia_seg"/>
+        <!--<I Req. 87567 E2.1 ID## avilca 30/12/2020>-->
+        <!--<I Req. 87567 E2.1 ID## avilca 05/01/2021>-->
+        <result property="fecFirmCont" column="fec_firm_cont"/>
+        <!--<I Req. 87567 E2.1 ID## avilca 05/01/2021>-->
+        <result property="indRespAproTseg" column="IND_RESP_APRO_TSEG"/> 
+    </resultMap>
+    
+    <resultMap id="solicitudCreditoSeguroTramaMap" type="pe.com.divemotor.solicitudcredito.dominio.TramaSeguro">
+        <result property="contratante" column="contratante"/>
+        <result property="nomComercial" column="nom_comercial"/>
+        <result property="dirDomicilio" column="dir_domicilio"/>
+        <result property="numRuc" column="num_ruc"/>
+        <result property="numTelfMovil" column="num_telf_movil"/>
+        <result property="txtRutaVeh" column="txt_ruta_veh"/>
+        <result property="clase" column="clase"/>
+        <result property="tipoVehiculo" column="tipo_vehiculo"/>
+        <result property="uso" column="uso"/>
+        <result property="marca" column="marca"/>
+        <result property="modelo" column="modelo"/>
+        <result property="valAnoFab" column="val_ano_fab"/>
+        <result property="nroPlaca" column="nro_placa"/>
+        <result property="nroMotor" column="nro_motor"/>
+        <result property="nroChasis" column="nro_chasis"/>
+        <result property="canNroAsientos" column="can_nro_asie"/>
+        <result property="valPrimaSeg" column="val_prim_seg"/>
+        <result property="fecInicVigePoli" column="fec_inic_vige_poli"/>
+        <result property="fecFinVigePoli" column="fec_fin_vige_poli"/>
+        <result property="codOperRel" column="cod_oper_rel"/>
+        <result property="valTasaSeg" column="val_tasa_segu"/>
+    </resultMap>    
+    
+    <resultMap id="polizaMap" type="pe.com.divemotor.solicitudcredito.dominio.Seguro">
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="nroPoliza" column="NRO_POLI_SEG"/>
+        <result property="fecInicVigePoli" column="FEC_INIC_VIGE_POLI"/>
+        <result property="fecFinVigePoli" column="FEC_FIN_VIGE_POLI"/>
+        <result property="desAreaVta" column="des_area_vta"/>
+        <result property="desEstaPoli" column="des_esta_poli"/>
+        <result property="desCiaSeg" column="des_cia_seg"/>
+        <result property="desTipoSeguro" column="des_tipo_seguro"/>
+        <result property="fecFirmCont" column="fec_firm_cont"/>
+    </resultMap>
+   
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.seguro.ListarSeguroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SEGURO.SP_LIST_SOLI_CRED_SEGURO(
+        #{codSoliCred},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SeguroMapper.solicitudCreditoSeguroMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+
+    <select id="listarPoliza" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.seguro.ListarPolizaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SEGURO.SP_LIST_POLI_SEG(
+        #{codSoliCred},
+        #{nroPoliza},
+        #{fecInicVigePoli},
+        #{fecFinVigePoli},
+        #{indTipoSegu},
+        #{codCiaSeg},
+        #{codAreaVta},
+        #{codEstaPoli},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SeguroMapper.polizaMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="actualizar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.seguro.ActualizarSeguroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SEGURO.sp_actu_estado_soli_seg(
+            #{codSoliCred},
+            #{indRespAproTseg},
+            #{txtObseRechTseg},
+            #{codUsuaGestSeg},
+            #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+            #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+   
+   
+    <select id="actualizarPlaca" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.seguro.ActualizarSeguroDetalleVehiculoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SEGURO.SP_ACTU_PLACA_SOLI_SEG(
+            #{codGarantia},
+            #{numPlacaVeh},
+            #{codUsuaModReg},
+            #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+            #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="actualizarPoliza" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.seguro.ActualizarSeguroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SEGURO.SP_ACTU_DATOS_SOLI_SEG(
+            #{codSoliCred},
+            #{nroPoliSeg},
+            #{fecInicVigePoli},
+            #{fecFinVigePoli},
+            #{fecPrimPagoPoliEndo},
+            #{fecUltiPagoPoliEndo},
+            #{txtRutaPoliEndo},
+            #{txtRutaFactura},
+            #{fecActPoli},
+            #{codUsuaGestSeg},
+            #{codCiaSeg},<!--//I Req. 87567 E2.1 ID## avilca 07/10/2020-->
+            #{valPorcTeaSigv},<!--//I Req. 87567 E2.1 ID## avilca 07/10/2020-->
+            #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+            #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="vencimientoSeguro" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.seguro.VencimientoSeguroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_EVENTO.sp_gen_plant_vcto_seguro(
+            #{diasConsulta},
+            #{idUsuario},
+            #{correlativoCorreo, mode=OUT, jdbcType=INTEGER, javaType=int},
+            #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+            #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=java.lang.String}
+        )}
+    </select>
+
+    <select id="listarTramaSeguro" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.seguro.ListarSeguroTramaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_SEGURO.SP_LIST_SOLI_CRED_SEGURO_TRAMA(
+        #{codSoliCred},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SeguroMapper.solicitudCreditoSeguroTramaMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+
+</mapper>

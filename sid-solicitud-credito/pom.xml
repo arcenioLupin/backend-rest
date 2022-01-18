@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>pe.com.divemotor.solicitud-credito</groupId>
+    <artifactId>solicitud-credito</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0</version>
+    <properties>
+        <jdk.version>1.7</jdk.version>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <build>        
+        <finalName>sid-solicitud-credito</finalName>        
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>            
+        </plugins>
+    </build>
+    <name>sid-solicitud-credito</name>
+    <description>Parent pacakage - Reactor for SID solicitud-credito project.</description>
+    <modules>
+        <module>sid-solicitud-credito-core</module>
+        <module>sid-solicitud-credito-dominio</module>
+    </modules>
+	
+	<distributionManagement> 
+        <repository>
+            <id>nexus</id>
+            <name>maven-releases</name>
+            <url>http://172.20.200.32:8081/repository/dev_releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>maven-snapshots</name>
+            <url>http://172.20.200.32:8081/repository/dev_snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>

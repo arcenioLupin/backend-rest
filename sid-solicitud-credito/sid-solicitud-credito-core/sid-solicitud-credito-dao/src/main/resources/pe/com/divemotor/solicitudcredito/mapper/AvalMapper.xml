@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.AvalMapper">
+
+    <cache />
+
+    <select id="insertar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.InsertarAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_AVAL.sp_ins_aval(
+        #{codSoliCred},
+        #{codperaval},
+        #{indtipopersona},
+        #{indestadocivil},
+        #{indtiporelacion},
+        #{codmoneda},
+        #{valmontofianza},
+        #{txtdireccion},
+        #{coddistrito},
+        #{codprovincia},
+        #{coddepartamento},
+        #{codempr},
+        #{codpais},
+        #{codzona},
+        #{txtnombpers},
+        #{txtapelpatepers},
+        #{txtapelmatepers},
+        #{codperrelaval},
+        #{txtdoi},
+        #{avalHisto},
+        #{codTipoOtor},
+        #{telefono},
+        #{flagCopropEliminado},
+        #{codUsuario},
+        #{idUsuario},
+        #{codperavalret, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    	
+    <!-- AvalMap -->    
+    <resultMap id="avalMap" type="pe.com.divemotor.solicitudcredito.dominio.Aval">
+        <result property="codperaval" column="COD_PER_AVAL"/>
+        <result property="documentoIdentidad" column="TXT_DOI"/>
+        <result property="idTipoPersona" column="IND_TIPO_PERSONA"/>
+        <result property="idEstadoCivil" column="IND_ESTA_CIVIL"/>
+        <result property="idTipoRelacion" column="COD_RELA_AVAL"/>
+        <result property="idMoneda" column="COD_MONEDA"/>
+        <result property="montoFianza" column="VAL_MONTO_FIANZA"/>
+        <result property="direccion" column="TXT_DIRECCION"/>
+        <result property="idDistrito" column="COD_DISTRITO"/>
+        <result property="idProvincia" column="COD_PROVINCIA"/>
+        <result property="idDepartamento" column="COD_DEPARTAMENTO"/>
+        <result property="codempr" column="COD_EMPR"/>
+        <result property="idPais" column="COD_PAIS"/>
+        <result property="idZona" column="COD_ZONA"/>
+        <result property="tipoPersona" column="DES_TIPO_PERSONA"/>
+        <result property="estadoCivil" column="DES_ESTADO_CIVIL"/>
+        <result property="relacion" column="DES_TIPO_RELA_AVAL"/>
+        <result property="moneda" column="DES_MONEDA"/>
+        <result property="distrito" column="DES_DISTRITO"/>
+        <result property="provincia" column="DES_PROVINCIA"/>
+        <result property="departamento" column="DES_DEPARTAMENTO"/>
+        <result property="desempr" column="DES_EMPR"/>
+        <result property="pais" column="DES_PAIS"/>
+        <result property="deszona" column="DES_ZONA"/>
+        <result property="nombreCompleto" column="NOMBRE_COMPLETO"/>
+        <result property="nombres" column="TXT_NOMB_PERS"/>
+        <result property="apellidoPaterno" column="TXT_APEL_PATE_PERS"/>
+        <result property="apellidoMaterno" column="TXT_APEL_MATE_PERS"/>
+        <result property="codperrelaval" column="COD_PER_REL_AVAL"/>
+        <result property="codTipoOtor" column="COD_TIPO_OTOR"/>
+        <result property="telefono" column="txt_telefono"/>
+    </resultMap>
+    
+    <!-- AvalPaisesMap -->
+    <resultMap id="avalPaisMap" type="pe.com.divemotor.solicitudcredito.dominio.Pais">
+        <result property="codPais" column="COD_PAIS"/>
+        <result property="nomPais" column="NOM_PAIS"/>
+    </resultMap>
+    
+    <!-- AvalDepartamentosMap -->
+    <resultMap id="avalDepaMap" type="pe.com.divemotor.solicitudcredito.dominio.Departamento">
+        <result property="codDepa" column="COD_ID_DEPARTAMENTO"/>
+        <result property="nomDepa" column="DES_NOMBRE"/>
+    </resultMap>
+    
+    <!-- AvalProvinciasMap -->
+    <resultMap id="avalProvMap" type="pe.com.divemotor.solicitudcredito.dominio.Provincia">
+        <result property="codProv" column="COD_ID_PROVINCIA"/>
+        <result property="nomProv" column="DES_NOMBRE"/>
+    </resultMap>
+    
+    <!-- AvalDistritosMap -->
+    <resultMap id="avalDistMap" type="pe.com.divemotor.solicitudcredito.dominio.Distrito">
+        <result property="codDist" column="COD_ID_DISTRITO"/>
+        <result property="nomDist" column="DES_NOMBRE"/>
+    </resultMap>
+    
+    <!-- ListarAval -->
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.ListarAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_AVAL.sp_list_aval(
+        #{codSoliCred},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=avalMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    
+    <!-- ListarAvalesHistorico -->
+    <select id="listarAvalesHistorico" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.ListarAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_AVAL.sp_list_aval_histo(
+        #{codSoliCred},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=avalMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Paises -->
+    <select id="listarPaises" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.ListarPaisesAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_AVAL.sp_listado_paises(
+        #{codCia},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=avalPaisMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Departamentos -->
+    <select id="listarDepartamentos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.ListarDepartamentosAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_AVAL.sp_listado_departamentos(
+        #{codPais},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=avalDepaMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Provincias -->
+    <select id="listarProvincias" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.ListarProvinciasAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_AVAL.sp_listado_provincias(
+        #{codDepa},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=avalProvMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Distritos -->
+    <select id="listarDistritos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.ListarDistritosAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_AVAL.sp_listado_distritos(
+        #{codProv},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=avalDistMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+   
+    <select id="eliminar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.InsertarAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_AVAL.sp_eli_aval_soli(
+        #{codSoliCred},
+        #{tipo},
+        #{listaAvales},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="eliminarbyaval" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.aval.EliminarAvalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_AVAL.sp_eli_by_aval(
+        #{codSoliCred},
+        #{codperaval},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+</mapper>

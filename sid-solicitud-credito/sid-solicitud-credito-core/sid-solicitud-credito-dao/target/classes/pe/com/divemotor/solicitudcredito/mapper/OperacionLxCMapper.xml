@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper">
+
+    <cache />
+    
+    <resultMap id="documentosRelacionadosMap" type="pe.com.divemotor.solicitudcredito.dominio.DocumentosRelacionados">
+        <result property="tipoDocumento" column="TIPO_DOC"/>
+        <result property="numDocumento" column="NO_DOCU"/>
+        <result property="fecha" column="FECHA_VENCE"/>
+        <result property="moneda" column="MONEDA"/>
+        <result property="monto" column="SALDO"/>
+        <result property="formaPago" column="FORMA_PAGO"/>
+    </resultMap> 
+    
+    <resultMap id="totalDocumentosRelacionadosMap" type="pe.com.divemotor.solicitudcredito.dominio.DocumentosRelacionadosTotales">        
+        <result property="totalDocRelacionados" column="TOTAL"/>
+    </resultMap> 
+    
+    <resultMap id="tiposDocumentosLxCMap" type="pe.com.divemotor.solicitudcredito.dominio.TiposDocumentosLxC">        
+        <result property="tipo" column="TIPO"/>
+        <result property="descripcion" column="DESCRIPCION"/>
+    </resultMap> 
+    
+    <resultMap id="tiposGastosLxCMap" type="pe.com.divemotor.solicitudcredito.dominio.TiposGastosLxC">        
+        <result property="noCia" column="NO_CIA"/>
+        <result property="codGasto" column="COD_GASTO"/>
+        <result property="descripcion" column="DESCRIPCION"/>
+    </resultMap> 
+    
+    <resultMap id="gastosLxCMap" type="pe.com.divemotor.solicitudcredito.dominio.GastosLxC">   
+        <result property="codGasto" column="COD_GAST"/>     
+        <result property="desGasto" column="DES_CONC"/>
+        <result property="moneda" column="MONEDA"/>
+        <result property="monto" column="VAL_MON_TOTAL"/>
+    </resultMap> 
+    
+    <resultMap id="avalLxCMap" type="pe.com.divemotor.solicitudcredito.dominio.Aval">   
+        <result property="secAval" column="SEC_AVAL"/>     
+        <result property="nomAval" column="NOM_AVAL"/>
+        <result property="direcAval" column="DIREC_AVAL"/>
+        <result property="telfAval" column="TELF_AVAL"/>
+        <result property="le" column="LE"/>
+        <result property="desAval" column="DES_AVAL"/>
+    </resultMap>
+    
+    <resultMap id="totalGastosMap" type="pe.com.divemotor.solicitudcredito.dominio.GastosLxCTotales">        
+        <result property="totalGastos" column="TOTAL"/>
+    </resultMap> 
+    
+    <resultMap id="representanteLegalMap" type="pe.com.divemotor.solicitudcredito.dominio.RepresentanteLegal">        
+        <result property="nombre" column="NOM_PERSO"/>
+        <result property="direccion" column="DIRECCION"/>
+        <result property="numTelefono" column="NUM_TELF_MOVIL"/>
+        <result property="numDocumento" column="NRO_DOCU"/>
+        <result property="avalar" column="AVALAR"/>
+    </resultMap> 
+    
+    <resultMap id="reprogramacionOperacionesMap" type="pe.com.divemotor.solicitudcredito.dominio.ReprogramacionOperaciones">        
+        <result property="numOperacion" column="COD_OPER"/>
+        <result property="moneda" column="MONEDA"/>
+        <result property="monto" column="MONTO_FINA"/>
+        <result property="nroLetras" column="NRO_CUOTAS"/>
+        <result property="tea" column="TEA"/>
+        <result property="fechaPrimVenc" column="VCTO_1RA_LET"/>
+        <result property="estado" column="ESTADO"/>
+    </resultMap>
+    
+    <resultMap id="operacionLxCRegistradoMap" type="pe.com.divemotor.solicitudcredito.dominio.OperacionLxCRegistrado">        
+        <result property="fechaContrato" column="FECHA_CONTRATO"/>
+        <result property="fechaEntrega" column="FECHA_ENTREGA"/>
+        <result property="tipoDocu" column="TIPO_DOCU"/>
+    </resultMap> 
+    
+    
+    <resultMap id="cronogramaLetrasLxCMap" type="pe.com.divemotor.solicitudcredito.dominio.CronogramaLetrasLxC">        
+        <result property="noLetra" column="NO_LETRA"/>
+        <result property="nroSec" column="NRO_SEC"/>
+        <result property="indCuotaExt" column="IND_CUOTA_EXT"/>
+        <result property="saldoInicial" column="SALDO_INICIAL"/>
+        <result property="amortizacion" column="AMORTIZACION"/>
+        <result property="intereses" column="INTERESES"/>
+        <result property="igv" column="IGV"/>
+        <result property="isc" column="ISC"/>
+        <result property="seguro" column="SEGURO"/>
+        <result property="cuota" column="CUOTA"/>
+        <result property="saldoFinal" column="SALDO_FINAL"/>
+        <result property="fechaVenc" column="FECHA_VENCE"/>
+    </resultMap> 
+    
+    <resultMap id="totalesLetrasLxCMap" type="pe.com.divemotor.solicitudcredito.dominio.CronogramaLetrasLxCTotales">        
+        <result property="totalCuotas" column="TOTAL_CUOTAS"/>
+        <result property="totalFinanciado" column="TOTAL_FINANCIAR"/>
+        <result property="totalAmortizacion" column="TOTAL_AMORTIZACION"/>
+        <result property="totalInteres" column="TOTAL_INTERES"/>
+        <result property="totalIgv" column="TOTAL_IGV"/>
+        <result property="totalIsc" column="TOTAL_ISC"/>
+        <result property="totalSeguro" column="TOTAL_SEGURO"/>
+        <result property="totalCuota" column="TOTAL_CUOTA"/>
+    </resultMap> 
+    
+    <resultMap id="datosGeneralesCronogramaLxCMap" type="pe.com.divemotor.solicitudcredito.dominio.CronogramaLetrasLxCDatosGenerales">        
+        <result property="noCia" column="NO_CIA"/>
+        <result property="grupo" column="GRUPO"/>
+        <result property="codOper" column="COD_OPER"/>
+        <result property="tea" column="TEA"/>
+        <result property="estado" column="ESTADO"/>
+        <result property="fechaCronograma" column="FECHA_CRONOGRAMA"/>
+        <result property="moneda" column="MONEDA"/>
+        <result property="tipoCambio" column="TIPO_CAMBIO"/>
+        <result property="noCliente" column="NO_CLIENTE"/>
+        <result property="totalFinanciar" column="TOTAL_FINANCIAR"/>
+        <result property="nroCuotas" column="NO_CUOTAS"/>
+        <result property="fechaActual" column="FECHA_ACTUAL"/>
+        <result property="nomCliente" column="NOM_CLIENTE"/>
+    </resultMap> 
+    
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarDocumentosRelacionadosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LXC.SP_LIST_DOCU_RELA(
+        #{codCliente},
+        #{codSoliCred},
+        #{noCia},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.documentosRelacionadosMap},
+        #{listadoTotalesDocuRela, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.totalDocumentosRelacionadosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    
+    <select id="listarTiposDocumentos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarTiposDocumentosLxCProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LXC.SP_LIST_TIPO_DOCU(
+        #{noCia},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.tiposDocumentosLxCMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarTiposGastos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarTiposDocumentosLxCProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LXC.SP_LIST_TIPO_GASTO(
+        #{noCia},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.tiposGastosLxCMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarGastos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarGastosLxCProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LXC.SP_LIST_GASTOS(
+        #{codSoliCred},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.gastosLxCMap},
+        #{listaGastosLxCTotales, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.totalGastosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarRepresentanteLegal" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarRepresentanteLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LXC.SP_LIST_REPRE_LEGAL(
+        #{codCliente},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.representanteLegalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarReprogramacionOperaciones" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarReprogramacionOperacionesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LXC.SP_LIST_REPRO_OPER(
+        #{codSoliCred},
+        #{noCia},
+        #{codUsuario},
+        #{indPaginado},
+        #{liminf},
+        #{limsup},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.reprogramacionOperacionesMap},
+        #{cantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="registrarOperacionLxC" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.lxc.RegistrarOperacionLxCProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_LXC.SP_GUARDAR_OP(  
+        #{noCia},
+        #{codClie},
+        #{codSoliCred},
+        #{codTipoCred},
+        #{codTipoOper},
+        #{fechaContrato},
+        #{fechaEntrega},
+        #{tipoCuota},
+        #{fechaAut},
+        #{usuarioAprob},
+        #{idUsuario},
+        #{documentosRelacionados, javaType=Object, jdbcType=ARRAY,
+        jdbcTypeName=VENTA.VVE_TYTA_DOCU_RELA, mode=IN,
+        typeHandler=pe.com.divemotor.solicitudcredito.typehandler.DocumentosRelacionadosTypeHandler},
+        #{avales, javaType=Object, jdbcType=ARRAY,
+        jdbcTypeName=VENTA.VVE_TYTA_AVAL, mode=IN,
+        typeHandler=pe.com.divemotor.solicitudcredito.typehandler.AvalesTypeHandler},
+        #{gastos, javaType=Object, jdbcType=ARRAY,
+        jdbcTypeName=VENTA.VVE_TYTA_GASTOS, mode=IN,
+        typeHandler=pe.com.divemotor.solicitudcredito.typehandler.GastosTypeHandler},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.documentosRelacionadosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    
+    <select id="listarOperacionLxCRegistrado" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.lxc.ListarOperacionLxCRegistradaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LXC.SP_LIST_OPER_REGI(
+        #{codSoliCred},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.documentosRelacionadosMap},
+        #{listadoTotalesDocuRela, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.totalDocumentosRelacionadosMap},
+        #{gastos, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.gastosLxCMap},
+        #{listaGastosLxCTotales, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.totalGastosMap},
+        #{avales, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.avalLxCMap},
+        #{listaOperacionLxCRegistrado, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.operacionLxCRegistradoMap},
+        #{tipoCreditoLxc, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    
+    <select id="listarCronogramaLetrasLxC" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.lxc.ListarCronogramaLetrasLxCProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LXC.SP_LIST_CRONO_LXC(
+        #{codSoliCred},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.cronogramaLetrasLxCMap},
+        #{cronogramaTotales, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.totalesLetrasLxCMap},
+        #{datosGenerales, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.OperacionLxCMapper.datosGeneralesCronogramaLxCMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+</mapper>

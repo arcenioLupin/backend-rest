@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.DocumentoMapper">
+
+    <cache />
+
+    <select id="actualizar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.documento.ActualizarDocumentoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_DOCUMENTO.sp_act_docu_soli(
+        #{codDocuEval},
+        #{codSoliCred},
+         <!-- I-90028:Dante Artica   -->
+        #{codSecArchivo},
+        #{txtDesArchivo},
+        <!---F-90028:Dante Artica   -->
+        #{txtRutaDoc},
+        #{fecEmisDoc},
+        #{operacion},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    	
+    <resultMap id="documentoMap" type="pe.com.divemotor.solicitudcredito.dominio.Documento">
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="codDocuEval" column="COD_DOCU_EVAL"/>
+        <result property="indOblig" column="IND_OBLIG" />
+        <result property="txtRutaDoc" column="TXT_RUTA_DOC" /> 
+        <result property="desDocuEval" column="DES_DOCU_EVAL" />
+        <result property="fecRegDocu" column="FEC_REG_DOCU" />
+        <result property="fecEmisDoc" column="FEC_EMIS_DOC" />
+        <result property="codUsuaWeb" column="COD_USUA_WEB" /> 
+        <result property="fecModDocu" column="FEC_MODI_REG" />
+        <result property="codModUsua" column="COD_USUA_MODI_REG" />  
+        <result property="fecMinVig" column="FEC_MIN_VIG" />
+            <!--I-90028:Dante Artica   -->
+        <result property="codSecArchivo" column="COD_SEC_ARCHIVO" />
+        <result property="txtDesArchivo" column="TXT_DES_ARCHIVO" />
+         <!--F-90028:Dante Artica   -->
+    </resultMap>
+    
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.documento.ListarDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_DOCUMENTO.sp_list_docu_soli(
+        #{codSoliCred},
+        <!-- I-90028:Dante Artica   -->
+        #{codDocuEval},
+        #{txtDesArchivo},
+        <!---F-90028:Dante Artica   -->
+        #{indMancomunado},
+        #{codTipoPerso},
+        #{codEstadoCivil},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=documentoMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+      <!-- I-90028:Dante Artica- -->
+     <select id="listarTiposDocumeto" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.documento.ListarDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_DOCUMENTO.sp_list_docu_soli_combo(
+        #{codSoliCred},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=documentoMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+     <select id="listarAdjuntosAnteriores" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.documento.ListarDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_DOCUMENTO.sp_lista_adjuntos_anteriores(
+        #{codSoliCred},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=documentoMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+       <!---F-90028:Dante Artica-->
+    <select id="actualizarGeneral" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.documento.ActualizarDocumentoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_DOCUMENTO.sp_act_docu_general(
+        #{tipoDocu},
+        #{codProceso},
+        #{codDocuEval},
+        #{codSoliCred},
+        #{txtRutaDoc},
+        #{fecEmisDoc},
+        #{operacion},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    	
+    <resultMap id="documentoMapGeneral" type="pe.com.divemotor.solicitudcredito.dominio.Documento">
+        <result property="codItemDocu" column="COD_ITEM_DOCU"/>
+        <result property="codProceso" column="COD_PROCESO"/>
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="codDocuEval" column="COD_DOCU_EVAL"/>
+        <result property="indOblig" column="IND_OBLIG" />
+        <result property="txtRutaDoc" column="TXT_RUTA_DOC" /> 
+        <result property="desDocuEval" column="DES_DOCU_EVAL" />
+        <result property="fecRegDocu" column="FEC_REG_DOCU" />
+        <result property="fecEmisDoc" column="FEC_EMIS_DOC" />
+        <result property="codUsuaWeb" column="COD_USUA_WEB" />   
+        <result property="fecModDocu" column="FEC_MODI_REG" />
+        <result property="codModUsua" column="COD_USUA_MODI_REG" />
+        <result property="fecMinVig" column="FEC_MIN_VIG" />
+        <result property="fecMinVig" column="FEC_MIN_VIG" />
+        <!--I-90028-->
+        <result property="codSecArchivo" column="COD_SEC_ARCHIVO" />
+        <result property="txtDesArchivo" column="TXT_DES_ARCHIVO" />
+         <!--F-90028-->     
+    </resultMap>
+    
+    <select id="listarGeneral" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.documento.ListarDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_DOCUMENTO.sp_list_docu_general(
+        #{tipoDocu},
+        #{codigoProceso},
+        #{indTipoDocu},
+        #{codSoliCred},
+        #{indMancomunado},
+        #{codTipoPerso},
+        #{codEstadoCivil},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=documentoMapGeneral},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <resultMap id="documentoMapConsulta" type="pe.com.divemotor.solicitudcredito.dominio.Documento">
+        <result property="codDocuEval" column="CODIGO"/>
+        <result property="desDocuEval" column="DOCUMENTO"/>
+        <result property="indTipoDocu" column="COD_TIPO_DOCU"/>
+        <result property="desTipoDocu" column="DES_TIPO_DOCU" />
+        <result property="valDiasVig" column="VIGENCIA"/>
+        <result property="indOblig" column="OBLIGATORIO" /> 
+        <result property="indObligLegal" column="OBLIGATORIO_LEGAL" /> <!--Req. 87567 E2.1 ID## avilca 01/02/2021-->
+        <result property="codDocuLegal" column="DOCUMENTO_LEGAL" />
+        <result property="indInactivo" column="ESTADO" />
+        <result property="desDocLegal" column="DES_DOC_LEGAL"/>    
+    </resultMap>
+    
+    <select id="listarConsulta" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.documento.ListarDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_DOCU.SP_LIST_DOCU(
+        #{desDocuEval},
+        #{indTipoDocu},
+        #{indOblig},
+        #{indInactivo},
+        #{codUsuario},
+        #{idUsuario},
+        #{indPaginado},
+        #{liminf},
+        #{limsup},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=documentoMapConsulta},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+        
+    <select id="actualizarDocumento" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.documento.ActualizarDocumentoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_DOCU.SP_ACT_DOCU(
+        #{codDocuEval},
+        #{desDocuEval},
+        #{tipoDocu},
+        #{indOblig},
+        #{indObligatorioLegal},<!--Req. 87567 E2.1 ID## avilca 01/02/2021-->
+        #{indInactivo},
+        #{codDocLegal},
+        #{valDiasVig},<!--Req. 87567 E2.1 ID## avilca 23/11/2020-->
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+ 
+      <select id="listarDocLegales" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.documento.ListarDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_DOCU.SP_LIST_DOCU_LEGAL(
+        #{indTipoDocu},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=documentoMapConsulta},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>  
+    
+    <select id="listarDocLegalesXCodLeg" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.documento.ListarDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_DOCU.SP_OBTIENE_DOCU_LEGAL(
+        #{codDocLeg},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=documentoMapConsulta},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>  
+
+</mapper>

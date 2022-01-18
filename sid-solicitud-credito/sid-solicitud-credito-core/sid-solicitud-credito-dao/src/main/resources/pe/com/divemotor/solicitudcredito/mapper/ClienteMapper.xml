@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.ClienteMapper">
+
+    <cache />
+    
+    <resultMap id="clientesMap" type="pe.com.divemotor.solicitudcredito.dominio.Cliente">
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="tipSoliCred" column="TIPO_CREDITO"/>
+        <result property="tipoCredito" column="DES_TIPO_CREDITO"/>
+        <result property="codClie" column="COD_CLIE"/>
+        <result property="codigoClieSap" column="COD_CLIE_SAP"/>
+        <result property="nombClie" column="NOM_PERSO"/>
+        <result property="codTipoPersona" column="COD_TIPO_PERSO"/>
+        <result property="tipoPersona" column="DES_TIPO_PERSO" />
+        <result property="codTipoDocumento" column="COD_TIPO_DOCU" /> 
+        <result property="dni" column="DNI" />
+        <result property="ruc" column="RUC" />
+        
+        <result property="codAreaVta" column="COD_AREA_VTA" />
+        <result property="areaVta" column="AREA_VENTA" />
+        <result property="codFilial" column="COD_FILIAL" />
+        <result property="nomFilial" column="NOM_FILIAL" />
+        <result property="codZona" column="COD_ZONA" />
+        <result property="desZona" column="DES_ZONA" />
+        <result property="codCia" column="COD_CIA"/>
+        <result property="nomSociedad" column="NOM_SOCIEDAD"/>
+        <result property="codPais" column="COD_PAIS" />
+        <result property="nomPais" column="NOM_PAIS" />
+        <result property="codDepa" column="COD_DPTO" />
+        <result property="codProv" column="COD_PROVINCIA" />
+        <result property="codDist" column="COD_DISTRITO" />
+        <result property="codVendedor" column="COD_VENDEDOR" />
+        <result property="vendedor" column="VENDEDOR" />
+        <result property="codEstadoSolicitud" column="COD_ESTADO_SOLI" />
+        <result property="estadoSoli" column="DES_ESTADO_SOLI" />
+        <result property="estadoClie" column="COD_ESTADO_CLIE" />
+        <result property="seleccion" column="SELECCION" />
+        <!--I Req. 87567 E2.1 ID:131 avilca 12/02/2020--> 
+        <result property="nomUbigeo" column="NOM_UBIGEO" />
+        <result property="nomDepa" column="DES_DPTO" />
+        <result property="nomProv" column="DES_PROVINCIA" />
+        <result property="nomDist" column="DES_DISTRITO" />
+        <!--F Req. 87567 E2.1 ID:131 avilca 12/02/2020--> 
+        <!--I Req. Obs  MBardales 14/10/2020--> 
+        <result property="codCall" column="COD_CALL" />
+        <result property="nroCelular" column="NRO_CEL" />
+         <!--F Req. Obs  MBardales 14/10/2020--> 
+        
+    </resultMap>
+    
+    <resultMap id="codOperMap" type="pe.com.divemotor.solicitudcredito.dominio.Cliente">
+        <result property="nroOperacion" column="COD_OPER"/>
+        <result property="codTipoOperacion" column="COD_TIPO_OPER"/>
+        <result property="codTipoMoneda" column="COD_MONEDA"/>
+        <result property="estadoOpera" column="ESTADO"/>
+    </resultMap>
+    
+    <resultMap id="operacionesClienteMap" type="pe.com.divemotor.solicitudcredito.dominio.Cliente">
+        <result property="nroCia" column="NRO_CIA"/>
+        <result property="nroOperacion" column="NRO_OPERACION"/>
+        <result property="tipoOperacion" column="TIPO_OPERACION"/>
+        <result property="fechaOtorgamiento" column="FEC_OTORGAMIENTO" />
+        <result property="fechaVencimientoUL" column="FEC_VENCIMIENTO" /> 
+        <result property="plazoDias" column="PLAZO_DIAS" />
+        <result property="tea" column="TEA" />
+        <result property="rutaCartaBanco" column="CARTA_BANCO" />
+    </resultMap>
+    
+    <resultMap id="garantiasClienteMap" type="pe.com.divemotor.solicitudcredito.dominio.Cliente">
+        <result property="codSoliCred" column="COD_SOLI_CRED"/>
+        <result property="nroOperacion" column="NRO_OPERACION"/>
+        <result property="nroGarantia" column="NRO_GARANTIA"/>
+        <result property="indTipoGara" column="IND_TIPO_GARANTIA"/>
+        <result property="desTipoGara" column="DES_TIPO_GARANTIA"/>
+        <result property="codTipoCred" column="COD_TIPO_CREDITO" />
+        <result property="desTipoCred" column="DES_TIPO_CREDITO" />
+        <result property="flagGaraAdic" column="GARA_ADIC" />
+        <result property="nroPoliza" column="NRO_POLIZA" />
+        <result property="codEstaPoliza" column="COD_EST_POLIZA" /> 
+        <result property="estadoPoliza" column="EST_POLIZA" />
+        <result property="divisaOrigen" column="DIVISA" />
+        <result property="valorComercial" column="VAL_COMERCIAL" />
+        <result property="valorRealizacion" column="VAL_REALIZ" />
+        <result property="fechaConstitucion" column="FEC_CONST" />
+        <result property="codMarca" column="COD_MARCA" />
+        <result property="marca" column="TXT_MARCA" />
+        <result property="modelo" column="TXT_MODELO" />
+        <result property="codTipoVehi" column="COD_TIPO_VEH" />
+        <result property="nroPlaca" column="NRO_PLACA" />
+        <result property="valAnoFab" column="VAL_ANO_FAB" />
+        <result property="codRangoGara" column="COD_RANG_GAR" />
+        <result property="desRangoGara" column="DES_RANG_GAR" />
+        <result property="indInactivo" column="IND_INACTIVO" />
+        <result property="mismaUnidad" column="TXT_MISMA_UNIDAD" />
+        <result property="estadoGara" column="TXT_ESTADO_GARA" />
+    </resultMap>
+    
+    <!-- Combo para listar pais, depa, prov, dist Req. Obs Consulta Cliente MBardales 16/10/2020 --> 
+    <resultMap id="maestroComboMapCliente" type="pe.com.divemotor.solicitudcredito.dominio.Maestro">
+        <result property="codTipo" column="COD_TIPO"/>
+        <result property="descripcion" column="DESCRIPCION"/>
+        <result property="valorAdicional" column="VALOR_ADICIONAL"/>
+    </resultMap>
+   
+    <select id="listarClientes" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.cliente.ListarClienteProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_CLIE.SP_LIST_CLIENTES(
+        #{codTipoCredSoli},
+        #{codSoliCred},
+        #{codClie},
+        #{codigoClieSap},
+        #{nombClie},        
+        #{codTipoPersona},
+        #{codTipoDocumento},
+        #{dni},
+        #{ruc},
+        #{codAreaVta},
+        #{codFilial},
+        #{codZona},
+        #{codCia},
+        #{codPais},
+        #{codDepa},
+        #{codProv},
+        #{codDist},
+        #{codEstadoSolicitud},
+        #{estadoClie},
+        #{codUsuario},
+        #{idUsuario},
+        #{indPaginado},
+        #{liminf},
+        #{limsup},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=clientesMap},
+        #{cantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarTodosClientes" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.cliente.ListarClienteProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_CLIE.SP_LIST_TODOS_CLIENTE(
+        #{nombClie},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=clientesMap},
+        #{cantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>    
+    
+    <select id="listarCodigosOperPorCliente" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.cliente.ListarClienteProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_CLIE.SP_LIST_COD_OPERS(
+        #{codClie},
+        #{codOpera},
+        #{codTipoOpera},
+        #{codMoneda},
+        #{estadoOpera},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=codOperMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarOperacionesPorCliente" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.cliente.ListarClienteProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_CLIE.SP_LIST_OPERS(
+        #{codClie},
+        #{codOpera},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=operacionesClienteMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarGarantiasPorCliente" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.cliente.ListarClienteProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_CLIE.SP_LIST_GARAN(
+        #{codClie},
+        #{codTipoCredSoli},
+        #{estadoGara},
+        #{tipoGara},
+        #{codMarca},
+        #{codSoliCred},
+        #{anioFabricacion},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=garantiasClienteMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="updateGarantia" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.cliente.ActualizarGarantiaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_CLIE.SP_ACT_GARANTIA(
+        #{codSoliCred},
+        #{codGarantia},
+        #{codClie},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Req Obs Consulta cliente MBardales 16/10/2020 -->
+    <!-- Paises -->
+    <select id="listarPaises" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.maestro.ListarMaestroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_CLIE.sp_listado_paises(
+        #{tipo},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=maestroComboMapCliente},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Departamentos -->
+    <select id="listarDepartamentos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.maestro.ListarMaestroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_CLIE.sp_listado_departamentos(
+        #{tipo},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=maestroComboMapCliente},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Provincias -->
+    <select id="listarProvincias" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.maestro.ListarMaestroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_CLIE.sp_listado_provincias(
+        #{tipo},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=maestroComboMapCliente},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <!-- Distritos -->
+    <select id="listarDistritos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.maestro.ListarMaestroProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_CLIE.sp_listado_distritos(
+        #{tipo},
+        #{codUsuario},
+        #{idUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=maestroComboMapCliente},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.KPIsMapper">
+    <cache />
+    
+    <resultMap id="kpisMap" type="pe.com.divemotor.solicitudcredito.dominio.KPIs">
+        <result property="codDetalle" column="COD_DETALLE"/>
+        <result property="codKpi" column="COD_KPI"/>
+        <result property="desKpi" column="DES_KPI"/>
+        <result property="valKpi" column="VALOR_KPI"/>
+        <result property="anio" column="VAL_AÑO"/>
+        <result property="mes" column="VAL_MES"/>
+        <result property="codZona" column="COD_ZONA"/>
+        <result property="desZona" column="DES_ZONA"/>
+        <result property="codAreaVenta" column="COD_AREA_VTA"/>
+        <result property="desAreaVenta" column="DES_AREA_VTA"/>
+    </resultMap>
+    
+    
+    <select id="listarKPIs" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.kpis.ListarKPIsProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_KPI.SP_LIST_KPI(
+        #{codZona},
+        #{periodo},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=kpisMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="actualizarKPIs" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.kpis.ActualizarKPIsProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_KPI.SP_ACT_KPI(
+        #{id},
+        #{descripcion},
+        #{valor},
+        #{periodo},
+        #{codUsuario},
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.ReporteVistaClienteMapper">
+
+    <cache />
+    
+    <resultMap id="codigosOperacionMap" type="pe.com.divemotor.solicitudcredito.dominio.ReporteVistaCliente">
+        <result property="nroOperacion" column="COD_OPER"/>
+    </resultMap>
+    
+    <resultMap id="amortizacionMap" type="pe.com.divemotor.solicitudcredito.dominio.Amortizacion">
+        <result property="amortizacion" column="AMORTIZACION"/>
+    </resultMap>
+    
+     <resultMap id="operacionesMap" type="pe.com.divemotor.solicitudcredito.dominio.ReporteVistaCliente">
+        <result property="nroCia" column="NRO_CIA"/>
+        <result property="nroOperacion" column="NRO_OPERACION"/>
+        <result property="tipoOperacion" column="TIPO_OPERACION"/>
+        <result property="fechaOtorgamiento" column="FEC_OTORGAMIENTO" />
+        <result property="fechaVencimientoUL" column="FEC_VENCIMIENTO" /> 
+        <result property="plazoDias" column="PLAZO_DIAS" />
+        <result property="tea" column="TEA" />
+       <result property="ratioCoberturaGara" column="RATIO_COBERTURA" />
+        <!--I Req. 87567 E2.1 Nuevos campos en reportes jquintanilla 02/03/2020 -->
+        <result property="asesorComercial" column="ASESOR_COMERCIAL" />
+        <result property="region" column="REGION" />
+        <result property="saldoOriginal" column="SALDO_ORIGINAL" />
+        <!--F Req. 87567 E2.1 Nuevos campos en reportes jquintanilla 02/03/2020 -->
+        <!--I Req. 87567 E2.1 Nuevos campos en reportes ebarboza 12/03/2020 -->
+        <result property="valMonFin" column="VAL_MON_FIN" /> 
+        <!--F Req. 87567 E2.1 Nuevos campos en reportes ebarboza 12/03/2020 -->
+    </resultMap>
+    
+  
+    <resultMap id="garantiasMap" type="pe.com.divemotor.solicitudcredito.dominio.ReporteVistaCliente">
+        <result property="nroOperacion" column="NRO_OPERACION"/>
+        <result property="nroGarantia" column="NRO_GARANTIA"/>
+        <result property="tipoGarantia" column="TIPO_GARANTIA"/>
+        <result property="nroPoliza" column="NRO_POLI" />
+        <result property="codEstaPoliza" column="COD_EST_POLI" /> 
+        <result property="estadoPoliza" column="EST_POLI" />
+        <result property="divisaOrigen" column="DIVISA" />
+        <result property="valorComercial" column="VAL_COMERCIAL" />
+        <result property="valorRealizacion" column="VAL_REALIZ" />
+        <result property="fechaConstitucion" column="FEC_CONST" />
+    </resultMap>
+    
+    <select id="listarCodigosOperacion" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.vistacliente.ListarReporteVistaClienteProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_REPORTES.SP_LIST_CRED_SOLI_VC_COD_OPERS(
+        #{codCliente},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=codigosOperacionMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarOperaciones" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.vistacliente.ListarReporteVistaClienteProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_REPORTES.SP_LIST_CRED_SOLI_VC_OPERS(
+        #{codCliente},
+        #{codOperacion},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=operacionesMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="amortizacionesPorLetraOperacion" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.vistacliente.AmortizacionPorLetrtaOperacionesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_REPORTES.SP_lIST_AMORTIZACION_X_OPERA(
+        #{CodSociedad},
+        #{CodRef1},
+        #{NumRefer},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=amortizacionMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarGarantias" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.vistacliente.ListarReporteVistaClienteProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_REPORTES.SP_LIST_CRED_SOLI_VC_GARAN(
+        #{codCliente},
+        #{codOperacion},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=garantiasMap},
+        #{retCantidad, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+</mapper>

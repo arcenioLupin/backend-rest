@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.LegalMapper">
+
+    <cache />
+    
+    <resultMap id="legalMap" type="pe.com.divemotor.solicitudcredito.dominio.Legal">
+        <result property="codSolcre" column="cod_solcre"/>
+        <result property="codSoliCred" column="cod_soli_cred"/>
+        <result property="nroExpediente" column="nro_expediente"/>
+        <result property="descripcion" column="descripcion"/>
+        <result property="nombre" column="nombre"/>
+        <result property="nomPerso" column="nom_perso"/>
+        <result property="tipoPersona" column="TIPOPERSONA"/>
+        <result property="fechaRevision" column="fecha_revision"/>
+        <result property="fechaCaduca" column="fecha_caduca"/>
+    </resultMap>
+    
+    <resultMap id="documentoLegalMap" type="pe.com.divemotor.solicitudcredito.dominio.DocumentoLegal">
+        <result property="codDocleg" column="cod_docleg"/>
+        <result property="descripcion" column="descripcion"/>
+        <result property="indOblig" column="ind_oblig"/>
+    </resultMap>
+    
+    <resultMap id="estadoLegalMap" type="pe.com.divemotor.solicitudcredito.dominio.EstadoLegal">
+        <result property="codEstLeg" column="cod_Estleg"/>
+        <result property="descripcion" column="descripcion"/>
+    </resultMap>
+    
+    <resultMap id="operacionEmpresaMap" type="pe.com.divemotor.solicitudcredito.dominio.OperacionEmpresa">
+        <result property="descripcion" column="descripcion"/>
+        <result property="nomPerso" column="nom_perso"/>
+    </resultMap>
+    
+    <resultMap id="personaFacultadaMap" type="pe.com.divemotor.solicitudcredito.dominio.PersonaFacultada">
+        <result property="cargo" column="cargo"/>
+        <result property="nombre" column="nombre"/>
+        <result property="doi" column="doi"/>
+    </resultMap>
+
+    <resultMap id="operacionPersonaMap" type="pe.com.divemotor.solicitudcredito.dominio.OperacionPersona">
+        <result property="codDanleg" column="cod_danleg"/>
+        <result property="codCanleg" column="cod_canleg"/>
+        <result property="codDtipope" column="cod_dtipope"/>
+        <result property="codTipope" column="cod_tipope"/>
+        <result property="descripcion" column="descripcion"/>
+        <result property="indConforme" column="ind_conforme"/>
+    </resultMap>
+    
+    <resultMap id="operacionLegalMap" type="pe.com.divemotor.solicitudcredito.dominio.OperacionLegal">
+        <result property="codTipope" column="cod_tipope"/>
+        <result property="descripcion" column="descripcion"/>
+    </resultMap>
+    
+    <resultMap id="avalClienteMap" type="pe.com.divemotor.solicitudcredito.dominio.AvalCliente">
+        <result property="codPerso" column="cod_perso"/>
+        <result property="nomRevision" column="nom_perso"/>
+    </resultMap>
+    
+    <resultMap id="checkConRegistroMap" type="pe.com.divemotor.solicitudcredito.dominio.CheckDocumentos">
+        <result property="codDocrev" column="cod_docrev"/>
+        <result property="codDdorev" column="cod_ddorev"/>
+        <result property="codOpeleg" column="cod_opeleg"/>
+        <result property="codTipope" column="cod_tipope"/>
+        <result property="utiliza" column="utiliza"/>
+        <result property="indConforme" column="ind_conforme"/>
+    </resultMap>
+    
+    <resultMap id="checkSinRegistroMap" type="pe.com.divemotor.solicitudcredito.dominio.CheckDocumentos">
+        <result property="codOpeleg" column="cod_opeleg"/>
+        <result property="codTipope" column="cod_tipope"/>
+        <result property="descripcion" column="descripcion"/>
+    </resultMap>
+    
+    <resultMap id="documentoRevisionMap" type="pe.com.divemotor.solicitudcredito.dominio.DocumentoRevision">
+        <result property="codOpeleg" column="cod_opeleg"/>
+        <result property="codTipope" column="cod_tipope"/>
+        <result property="descripcion" column="descripcion"/>
+         <result property="txtRutaDoc" column="txt_ruta_doc"/>
+    </resultMap>
+    
+    <resultMap id="operacionLegalSolcreMap" type="pe.com.divemotor.solicitudcredito.dominio.OperacionLegal">
+        <result property="codDocrev" column="cod_docrev"/>
+        <result property="codTipope" column="cod_tipope"/>
+        <result property="nomRevision" column="nom_revision"/>
+        <result property="observacion" column="observacion"/>
+    </resultMap>
+    
+    <resultMap id="personaFacultadaSolcreMap" type="pe.com.divemotor.solicitudcredito.dominio.PersonaFacultada">
+        <result property="codFdorev" column="cod_fdorev"/>
+        <result property="codDocrev" column="cod_docrev"/>
+        <result property="cargo" column="cargo"/>
+        <result property="nombre" column="nombre"/>
+        <result property="doi" column="doi"/>
+    </resultMap>
+    
+    <resultMap id="solicitudLegalMap" type="pe.com.divemotor.solicitudcredito.dominio.SolicitudLegal">
+        <result property="codSoliCred" column="cod_soli_cred"/>
+        <result property="codSolcre" column="cod_solcre_legal"/>
+        <result property="codClie" column="cod_clie"/>
+        <result property="nomPerso" column="nom_perso"/>
+        <result property="codTipoPerso" column="cod_tipo_perso"/>
+        <result property="numDocu" column="num_docu"/>
+        <result property="noCia" column="no_cia"/>
+    </resultMap>
+       
+    <resultMap id="estructuraOperacionMap" type="pe.com.divemotor.solicitudcredito.dominio.EstructuraOperacion">
+        <result property="codEstope" column="cod_Estope"/>
+        <result property="descripcion" column="descripcion"/>
+    </resultMap>
+    
+    <resultMap id="garantiaMobiliariaLegalMap" type="pe.com.divemotor.solicitudcredito.dominio.Garantia">
+        <result property="codGarantia" column="cod_garantia"/>
+        <result property="codPersProp" column="COD_PERS_PROP"/>
+        <result property="tipoPersona" column="cod_tipo_perso"/>
+        <result property="desPersProp" column="nom_perso"/>
+        <result property="marca" column="txt_marca"/>
+        <result property="modelo" column="txt_modelo"/>
+        <result property="placa" column="nro_placa"/>
+        <result property="anhoFabricacion" column="val_ano_fab"/>
+    </resultMap>
+    
+    <resultMap id="garantiaHipotecariaLegalMap" type="pe.com.divemotor.solicitudcredito.dominio.Garantia">
+        <result property="codGarantia" column="cod_garantia"/>
+        <result property="codPersProp" column="COD_PERS_PROP"/>
+        <result property="tipoPersona" column="cod_tipo_perso"/>
+        <result property="desPersProp" column="nom_perso"/>
+        <result property="apePaterno" column="ape_paterno"/>
+        <result property="apeMaterno" column="ape_materno"/>
+        <result property="nom1" column="nom_1"/>
+        <result property="nom2" column="nom_2"/>
+        <result property="direccion" column="txt_direccion"/>
+        <result property="tipoBien" column="ind_tipo_bien"/>
+     </resultMap>
+     
+    <resultMap id="garantiaHipotecariaRegMap" type="pe.com.divemotor.solicitudcredito.dominio.GarantiaReg">
+        <result property="codCanleg" column="cod_canleg"/>
+        <result property="codSolcre" column="cod_solcre"/>
+        <result property="tipoPersona" column="tip_persona"/>
+        <result property="propietario" column="propietario"/>
+        <result property="marca" column="marca"/>
+        <result property="modelo" column="modelo"/>
+        <result property="placa" column="placa"/>
+        <result property="anhoFabricacion" column="año"/>
+        <result property="tipoBien" column="tip_bien"/>
+        <result property="tipoDoipersona" column="tip_doiper"/>
+        <result property="doiPersona" column="nro_doiper"/>
+        <result property="nomPersona" column="nom_per"/>
+        <result property="apePatPersona" column="appat_per"/>
+        <result property="apeMatPersona" column="apmat_per"/>
+        <result property="tipoDoiConyuge" column="tip_doicon"/>
+        <result property="doiConyuge" column="nro_doicon"/>
+        <result property="nomConyuge" column="nom_conyuge"/>
+        <result property="apePatConyuge" column="appat_conyuge"/>
+        <result property="apeMatConyuge" column="apmat_conyuge"/>      
+        <result property="opinionLegal" column="opi_legal"/>
+        <result property="ubicacion" column="ubi_garantia"/>
+        <result property="areaMetro" column="area_metro"/>
+        <result property="tipMedida" column="tip_medida"/>
+        <result property="parRegistral" column="par_registral"/>
+        <result property="sedRegistral" column="sed_registral"/>
+     </resultMap>
+     
+      <resultMap id="garantiaMobiliariaRegMap" type="pe.com.divemotor.solicitudcredito.dominio.GarantiaReg">
+          
+        <result property="codCanleg" column="cod_canleg"/>
+        <result property="codSolcre" column="cod_solcre"/>
+        <result property="tipoPersona" column="tip_persona"/>
+        <result property="propietario" column="propietario"/>
+        <result property="tipoBien" column="tip_bien"/>
+        <result property="tipoDoipersona" column="tip_doiper"/>
+        <result property="doiPersona" column="nro_doiper"/>
+        <result property="nomPersona" column="nom_per"/>
+        <result property="apePatPersona" column="appat_per"/>
+        <result property="apeMatPersona" column="apmat_per"/>
+        <result property="tipoDoiConyuge" column="tip_doicon"/>
+        <result property="doiConyuge" column="nro_doicon"/>
+        <result property="nomConyuge" column="nom_conyuge"/>
+        <result property="apePatConyuge" column="appat_conyuge"/>
+        <result property="apeMatConyuge" column="apmat_conyuge"/>      
+        <result property="opinionLegal" column="opi_legal"/>  
+        <result property="observacion1" column="observacion1"/> 
+        <result property="observacion2" column="observacion2"/>  
+        <result property="ubicacion" column="ubi_garantia"/> 
+        <result property="areaMetro" column="area_metro"/>   
+        <result property="tipMedida" column="tip_medida"/> 
+        <result property="parRegistral" column="par_registral"/> 
+        <result property="sedRegistral" column="sed_registral"/> 
+        <result property="asiento" column="asiento"/>
+        <result property="anhoFabricacion" column="año"/>
+        <result property="placa" column="placa"/> 
+        
+     </resultMap>
+     
+    <resultMap id="fianzaSolidariaPNMap" type="pe.com.divemotor.solicitudcredito.dominio.FianzaSolidariaPN">
+        <result property="nomFiador" column="nom_fiador"/>
+        <result property="tipoFianza" column="tipo_fianza"/>
+        <result property="tipoDoc" column="tipo_doc"/>
+        <result property="parentesco" column="parentesco"/>
+        <result property="doi" column="doi"/>
+        <result property="codTipope" column="cod_tipope"/>
+        <result property="codPerAval" column="cod_per_aval"/>
+    </resultMap>
+    
+    <resultMap id="propAvalFSPNMap" type="pe.com.divemotor.solicitudcredito.dominio.FianzaSolidariaPN">
+        <result property="tipoFianza" column="tipo_fianza"/>
+        <result property="parentesco" column="parentesco"/>
+        <result property="nomFiadorNat" column="nom_fiador_nat"/>
+        <result property="apePatFiaNat" column="ape_pat_fia_nat"/>
+        <result property="apeMatFiaNat" column="ape_mat_fia_nat"/>    
+        <result property="tipoDoiFiaNat" column="tipo_doi_fia_nat"/>      
+        <result property="doiFiadorNat" column="doi_fiador_nat"/>     
+        <result property="nomRelFiaNat" column="nom_rel_fia_nat"/>   
+        <result property="apeRelPatFiaNat" column="ape_rel_pat_fia_nat"/>  
+        <result property="apeRelMatFiaNat" column="ape_rel_mat_fia_nat"/>
+        <result property="tipoDoiRelFiaNat" column="tipo_doi_rel_fia_nat"/>
+        <result property="doiRelFiaNat" column="doi_rel_fia_nat"/>        
+    </resultMap>     
+    
+    <resultMap id="fianzaSolidariaPNRegMap" type="pe.com.divemotor.solicitudcredito.dominio.FianzaSolidariaPNReg">
+        <result property="codCanleg" column="cod_canleg"/>
+        <result property="codSolcre" column="cod_solcre"/>
+        <result property="codTipope" column="cod_tipope"/>
+        <result property="propietario" column="propietario"/>
+        <result property="opinionLegal" column="opi_legal"/>
+        <result property="observacion1" column="observacion1"/>
+        <result property="observacion2" column="observacion2"/>
+        <result property="tipoDoipersona" column="tip_doiper"/>
+        <result property="doiPersona" column="nro_doiper"/>
+        <result property="nomPersona" column="nom_per"/>
+        <result property="apePatPersona" column="appat_per"/>
+        <result property="apeMatPersona" column="apmat_per"/>
+        <result property="tipoDoiConyuge" column="tip_doicon"/>
+        <result property="doiConyuge" column="nro_doicon"/>
+        <result property="nomConyuge" column="nom_conyuge"/>
+        <result property="apePatConyuge" column="appat_conyuge"/>
+        <result property="apeMatConyuge" column="apmat_conyuge"/>
+        <result property="tipoBien" column="tip_bien"/>
+        <!--/*I Req. 87567 E2.1 ID 127 avilca 24.01.2020-->
+        <result property="codPerAval" column="cod_per_aval"/>
+        <!--/*I Req. 87567 E2.1 ID 127 avilca 24.01.2020-->
+    </resultMap>
+    
+    <resultMap id="docLegalHipRegMap" type="pe.com.divemotor.solicitudcredito.dominio.DocLegalHipReg">
+        <result property="codDanleg" column="cod_danleg"/>
+        <result property="codCanleg" column="cod_canleg"/>
+        <result property="codDtipope" column="cod_dtipope"/>
+        <result property="codTipope" column="cod_tipope"/>
+        <result property="indOk" column="ind_conforme"/>
+        <result property="observacion" column="observacion"/>  
+        <result property="descripcion" column="descripcion"/>   
+        <result property="txtRutaDoc" column="txt_ruta_doc"/>          
+    </resultMap>
+    
+    <resultMap id="anexoContratosMap" type="pe.com.divemotor.solicitudcredito.dominio.AnexosContratos">
+        <result property="rutaDocsFirm" column="txt_ruta_docs_firm"/>
+        <result property="rutaContrato" column="txt_ruta_contrato"/>
+        <result property="rutaAnexo" column="txt_ruta_anex"/>
+        <result property="codOperRel" column="cod_oper_rel"/>
+        <result property="codSoliCred" column="cod_soli_cred"/>
+        <result property="tipSoliCred" column="TIP_SOLI_CRED"/>   
+        <result property="codTipSoliCred" column="cod_tipo_cred"/>  
+    </resultMap> 
+    <resultMap id="datosAnexosMap" type="pe.com.divemotor.solicitudcredito.dominio.DatosAnexos">
+        <result property="nomCia" column="nom_cia"/>
+        <result property="nomBanco" column="nom_banco"/>
+        <result property="marca" column="marca"/>
+        <result property="modelo" column="modelo"/>
+        <result property="nomMoneda" column="nom_moneda"/>
+        <result property="montoCi" column="monto_ci"/>    
+        <result property="montoFin" column="monto_fin"/>
+        <result property="descMoneda" column="descripcion_moneda"/> 
+        <result property="montoLetrasFin" column="monto_letras_fin"/> 
+        <result property="montoLetrasCi" column="monto_letras_ci"/>    
+        <result property="tipoVeh" column="des_tipo_veh"/> 
+        <result property="numMotor" column="nro_motor"/> 
+        <result property="numChasis" column="nro_chasis"/> 
+        <result property="numPlaca" column="nro_placa"/> 
+        <result property="montoGM" column="monto_gm"/> 
+        <result property="montoLetrasGM" column="monto_letras_gm"/> 
+        <result property="valorGM" column="monto_vm"/> 
+        <result property="montoLetrasValorGM" column="monto_letras_vm"/>   
+        
+         <result property="detaLeasingUno" column="deta_leasing_uno"/> 
+         <result property="detaListFact" column="deta_list_fact"/> 
+         <result property="detaNotaCred" column="deta_nota_cred"/> 
+         
+    </resultMap>
+    
+     <resultMap id="facturasMap" type="pe.com.divemotor.solicitudcredito.dominio.DatosAnexos">
+        <result property="numFactura" column="no_docu"/>    
+    </resultMap>
+       
+    <resultMap id="facturaAnexoMap" type="pe.com.divemotor.solicitudcredito.dominio.FacturaAnexo">
+        <result property="numFactura" column="no_docu"/>
+        <result property="fechaFactura" column="fecha"/>
+        <result property="monedaFactura" column="moneda"/>
+        <result property="importeFactura" column="monto"/>    
+    </resultMap>
+    
+    <resultMap id="AnexoPagosMap" type="pe.com.divemotor.solicitudcredito.dominio.DatosAnexosPagos">
+        <result property="desMovi" column="desMovi"/>
+        <result property="fecMovi" column="fecMovi"/>
+        <result property="desBcoMovi" column="desBcoMovi"/>
+        <result property="nomeMoneda" column="nomeMoneda"/> 
+        <result property="montoMovi" column="montoMovi"/>
+        <result property="fMontoTexto" column="fMontoTexto"/>
+        <result property="desLargaMoneda" column="desLargaMoneda"/>
+        <result property="nroDocMovi" column="nroDocMovi"/>
+        <result property="desFecMovi" column="desFecMovi"/>
+        <result property="tipoDocMovi" column="tipoDocMovi"/>
+        <result property="desCiaCargo" column="desCiaCargo"/>
+        </resultMap>
+    
+    
+    <resultMap id="AnexoPagosTotalMap" type="pe.com.divemotor.solicitudcredito.dominio.DatosAnexosPagosTotal">
+        <result property="valMontoCiTotal" column="valMontoCiTotal"/>
+        <result property="fMontoTextoTotal" column="fMontoTextoTotal"/> 
+    </resultMap>
+    
+    <resultMap id="AnexoGarantiasPagosMap" type="pe.com.divemotor.solicitudcredito.dominio.DatosAnexosGarantias">
+        <result property="item" column="item"/>
+        <result property="cliente" column="cliente"/>
+        <result property="marca" column="marca"/>
+        <result property="modelo" column="modelo"/> 
+        <result property="tipoVeh" column="tipoVeh"/>
+        <result property="numeroMotor" column="numeroMotor"/> 
+        <result property="numeroChasis" column="numeroChasis"/>
+        <result property="numeroPlaca" column="numeroPlaca"/> 
+        <result property="montoGarantia" column="montoGarantia"/>
+        <result property="nomeMone" column="nomeMone"/> 
+        <result property="montoTexto" column="montoTexto"/>
+        <result property="nomeMoneLargo" column="nomeMoneLargo"/> 
+        <result property="montoValorizacion" column="montoValorizacion"/>
+        <result property="montoValorizacionTexto" column="montoValorizacionTexto"/>  
+        <result property="desProvincia" column="desc_provincia"/>
+    </resultMap>
+
+    <resultMap id="datosCabeCronMap" type="pe.com.divemotor.solicitudcredito.dominio.DatosCabeceraCronograma">
+        <result property="codCliente" column="cod_cliente"/>
+        <result property="cliente" column="cliente"/>
+        <result property="comiGaAdmin" column="gastos_admin"/>
+        <result property="tcea" column="tcea"/> 
+        <result property="periodiLetras" column="perio_letra"/>  
+        <result property="moneda" column="moneda"/> 
+        <result property="tea" column="tea"/>  
+        <result property="numCuotas" column="num_cuotas"/>  
+        <result property="numLetras" column="num_letras"/>  
+        <result property="deudaFinanciar" column="monto_financiar"/>  
+        <result property="venPriLetra" column="venc_prim_letra"/> 
+        <result property="montoPenalidad" column="monto_penalidad"/> 
+        <result property="listaCuotasPerGrac" column="lista_cuota_grac"/> 
+        <result property="nroDiasPagoGrac" column="nro_dias_pago"/> 
+        <result property="nroDiasPagoGracLetras" column="can_dias_grac_letras"/>     
+    </resultMap>  
+    
+      
+    <resultMap id="datosDetaCronMap" type="pe.com.divemotor.solicitudcredito.dominio.SimuladorCronograma">
+        <result property="codNumeLetr" column="cod_nume_letra"/>
+        <result property="numLetra" column="num_letra"/>
+        <result property="saldoInicial" column="saldo_inicial"/>
+        <result property="capital" column="capital"/>
+        <result property="interes" column="interes"/>
+        <result property="igv" column="igv"/>
+        <result property="cuota" column="cuota"/>
+        <result property="seguro" column="seguro"/>
+        <result property="igvSegVeh" column="igv_seg_veh"/>
+        <result property="fecVenc" column="fec_venc"/>
+    </resultMap>
+    
+    <resultMap id="documentosSolicitadosMap" type="pe.com.divemotor.solicitudcredito.dominio.DocumentoSolicitado">
+        <result property="codDtipope" column="cod_dtipope"/>
+        <result property="codTipope" column="cod_tipope"/>
+        <result property="descripcion" column="descripcion"/>
+        <result property="txtRutaDoc" column="txt_ruta_doc"/> 
+    </resultMap>
+    
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_SOL_LEGAL(
+        #{codSoliCred},
+        #{codSolcre},
+        #{nroExpediente},
+        #{nomPerso},
+        #{codEstLeg},
+        #{noCia},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.legalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarEstados" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarEstadoLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_EST_LEGAL(
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.estadoLegalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarDocumentosLegales" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarDocumentosLegalesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_DOC_LEGALES(
+        #{codSolcre},
+        #{ordTitdoc},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.documentoLegalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarDocumentosGarantias" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarDocumentosLegalesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_DOC_GARANTIA(
+        #{codSolcre},
+        #{ordTitdoc},
+        #{indTipoDocu},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.documentoLegalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarDocumentosAvales" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarDocumentosLegalesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_DOC_AVALES(
+        #{codSolcre},
+        #{ordTitdoc},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.documentoLegalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="actualizarChkListDocLegales" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ActualizarChkListDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_ACTUALIZAR_CHK_DOC_LEGALES(
+        #{codSolcre},
+        #{codDocleg},
+        #{indOblig},
+        #{codUsuario},        
+        #{idUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="actualizarChkListDocGarantias" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ActualizarChkListDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_ACTUALIZAR_CHK_DOC_GARA(
+        #{codSolcre},
+        #{codDocleg},
+        #{indOblig},
+        #{codUsuario},        
+        #{idUsuario},  
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="actualizarChkListDocAvales" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ActualizarChkListDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_ACTUALIZAR_CHK_DOC_AVAL(
+        #{codSolcre},
+        #{codDocleg},
+        #{indOblig},
+        #{codUsuario},        
+        #{idUsuario}, 
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="actualizarEstadoSolicitud" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ActualizarChkListDocumentosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_ACTUALIZAR_EST_LEGAL(
+        #{codSolcre},
+        #{codEstleg},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarOperacionCliente" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarOperacionEmpresaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_OPERACION_CLIENTE(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.operacionEmpresaMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarPersonasFacultadas" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarPersonasFacultadasProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_PERSONAS_FACULTADAS(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.personaFacultadaMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarOperacionesPersonas" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarOperacionesPersonasProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_OPERACIONES_PERSONAS(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.operacionPersonaMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarOperacionesLegales" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarOperacionLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_OPERACIONES_LEGALES(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.operacionLegalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarAvalCliente" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarAvalClienteProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_AVAL_CLIENTE(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.avalClienteMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarDocumentoRevision" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarDocumentoRevisionProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_OPERACIONES_PERSONAS(
+        #{codSolcre},
+        #{codTipope},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.documentoRevisionMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarCheckSinRegistro" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarDocumentoRevisionProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_CHK_SINREGISTRO(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.checkSinRegistroMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarCheckConRegistro" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarDocumentoRevisionProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_CHK_CONREGISTRO(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.checkConRegistroMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="registrarOperacionconLegal" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarOperacionLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_REGISTRA_OPERACION_LEGAL(
+        #{codDocrev},
+        #{codSolcre},
+        #{nomRevision},
+        #{observacion},
+        #{codTipope},
+        #{codUsuario},
+        #{codDocrevOut, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+
+    <select id="eliminarOperacionconLegal" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarOperacionLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_ELIMINA_OPERACION_LEGAL(
+        #{codDocrev},
+        #{codSolcre},
+        #{codUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>        
+    
+    <select id="registrarPersonaFacultada" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarPersonaFacultadaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_REGISTRA_PERSONA_FACULTADA(
+        #{codFdorev},
+        #{codSolcre},
+        #{codDocrev},
+        #{cargo},
+        #{nombre},
+        #{doi},
+        #{codUsuario},
+        #{codFdorevOut, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{codDocrevOut, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="registrarDocumentoRevision" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarDocumentoRevisionProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_REGISTRA_DOCUMENTO_REVISION(
+        #{codDdorev},
+        #{codSolcre},
+        #{codDocrev},
+        #{codOpeleg},
+        #{codTipope},
+        #{indConforme},
+        #{codUsuario},
+        #{codDdorevOut, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{codDocrevOut, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarOperacionesLegalesSolcre" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarOperacionLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_OPELEGAL_SOLCRE(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.operacionLegalSolcreMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarPersonaFacultadaSolcre" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarPersonaFacultadaSolcreProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_PERFACULTADA_SOLCRE(
+        #{codDocrev},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.personaFacultadaSolcreMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarEstructuraOperaciones" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarEstructuraOperacionProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_ESTRUCTURA_OPERACION(
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.estructuraOperacionMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarValidarSolicitud" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarSolicitudLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_VALIDAR_SOLCRE(
+        #{codSoliCred},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.solicitudLegalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="registarLegal" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_REGISTRAR_LEGAL(
+        #{codSoliCred},
+        #{codEstope},  
+        #{codEstleg},
+        #{nroExpediente},
+        #{noCia},
+        #{codClie},
+        #{fechaSolcre},
+        #{fechaRevision},
+        #{fechaCaduca},
+        #{codUsuario},
+        #{codSolcre, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="actualizarSolcre" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_ACTUALIZAR_SOLCRE(
+        #{codSolcre},  
+        #{codSoliCred},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarGarantiaMobiliariaLegal" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarGarantiaLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_GARANTIA_MOBILIARIA(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.garantiaMobiliariaLegalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarDocumentosSolicitados" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarGarantiaLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_DOCUMENTO_SOLICITADO(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.documentosSolicitadosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="registarGarantiaMobiliaria" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarGarantiaMobiliariaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_REGISTRAR_GARA_MOB(
+        #{codCanleg},
+        #{codSoliCred},  
+        #{tipPersona},
+        #{propietario},
+        #{marca},
+        #{placa},
+        #{modelo},
+        #{anio},
+        #{tipoBien},
+        #{nombrePersona},
+        #{apPaternoPersona},
+        #{apMaternoPersona},
+        #{nombreConyuge},
+        #{apPaternoConyuge},
+        #{apMaternoConyuge},
+        #{tipoDocPersona},
+        #{nroDocPersona},
+        #{tipoDocConyuge},
+        #{nroDocConyuge},
+        #{opinionLegal},
+        #{codUsuario},
+        #{codCanlegOut, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="registarDocumentosSolicitados" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarDocumentosSolicitadosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_REGISTRAR_DOC_LEG_SOL(
+        #{codCanleg},
+        #{codDanleg},  
+        #{codDtipope},
+        #{codTipope},
+        #{indConforme},
+        #{observacion},       
+        #{codUsuario},
+        #{codDanlegOut, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{codCanlegOut, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarGarantiaHipotecariaLegal" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarGarantiaLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_GARANTIA_HIPOTECARIA(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.garantiaHipotecariaLegalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarGarantiaHipotecariaReg" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarGarantiaRegProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_GARANTIA_HIPO_REG(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.garantiaHipotecariaRegMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+     <select id="listarGarantiaMobiliariaReg" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarGarantiaRegProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_GARANTIA_MOB_REG(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.garantiaMobiliariaRegMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="registarGarantiaHipotecaria" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarGarantiaHipotecariaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_REGISTRAR_GARA_HIP(
+        #{codCanleg},
+        #{codSoliCred},  
+        #{tipPersona},
+        #{propietario},
+        #{ubicacion},
+        #{areaMetro},
+        #{tipMedida},
+        #{parRegistral},
+        #{sedRegistral},
+        #{asiento},
+        #{tipoBien},
+        #{nombrePersona},
+        #{apPaternoPersona},
+        #{apMaternoPersona},
+        #{nombreConyuge},
+        #{apPaternoConyuge},
+        #{apMaternoConyuge},
+        #{tipoDocPersona},
+        #{nroDocPersona},
+        #{tipoDocConyuge},
+        #{nroDocConyuge},
+        #{opinionLegal},
+        #{observacion1},
+        #{observacion2},
+        #{codUsuario},
+        #{codCanlegOut, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarDocumentosHip" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarGarantiaLegalProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_DOCUMENTOS_HIP(
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.documentosSolicitadosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>   
+    
+    <select id="listarDocumentoFianzaSolidariaPN" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarDocumentoRevisionProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_DOCS_FSN(
+        #{codSolcre},
+        #{codTipope},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.documentoRevisionMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+   <select id="listarFianzasSolidariasPN" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarFianzaSolidariaPNProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_FIANZAS_SOLIDARIAS(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.fianzaSolidariaPNMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarPropsAvalFSPN" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarFianzaSolidariaPNProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_PROP_AVAL_FSPN(
+        #{codSolcre},
+        #{codPerAval},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.propAvalFSPNMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>     
+     
+    <select id="registrarFianzaSolidariaPN" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarFianzaSolidariaFSNProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_REGISTRAR_FIANZA_SOL_PN(
+        #{codCanleg},
+        #{codSoliCred},  
+        #{propietario},
+        #{tipoBien},
+        #{nombrePersona},
+        #{apPaternoPersona},
+        #{apMaternoPersona},
+        #{nombreConyuge},
+        #{apPaternoConyuge},
+        #{apMaternoConyuge},
+        #{tipoDocPersona},
+        #{nroDocPersona},
+        #{tipoDocConyuge},
+        #{nroDocConyuge},
+        #{opinionLegal},
+        #{observacion1},
+        #{observacion2},
+        #{codUsuario},
+        #{codCanlegOut, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>    
+    <select id="listarFSNRegistradas" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarFianzaSolidariaPNRegProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_FSN_REGISTRADAS(
+        #{codSolcre},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.fianzaSolidariaPNRegMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+     </select>  
+     
+     <select id="listaDocLegalHipRegistradas" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarDocLegalesHipRegProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_DOCLEGAL_HIP_REG(
+        #{codSoliCred},
+        #{codCanleg},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.docLegalHipRegMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+     </select>   
+     <select id="listaAnexosContratos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarAnexosContratosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_ANEXOS_CONTRATOS(
+        #{codSoliCred},
+        #{codOperRel},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.anexoContratosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+     </select>   
+       
+   <select id="registrarRutaAnexo" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.RegistrarRutaAnexoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_ACT_RUTA_ANEXO_CONTRATO(
+        #{codSoliCred},  
+       <!--I Req. 87567 E2.1 ID## avilca 16/10/2020 -->
+        #{url},
+        #{tipoDoc}, 
+       <!--F Req. 87567 E2.1 ID## avilca 16/10/2020 -->
+        #{codUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>  
+    
+    <select id="listaFacturasAnexos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarFacturasAnexosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_ANEXOS_FACTURAS(
+        #{codSoliCred},<!-- Req. 87567 E2.1 ID## avilca 01/12/2020 -->
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.facturaAnexoMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+     </select>
+        
+    <select id="listaAnexosPagos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarAnexosPagodProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_ANEXOS_PAGOS(
+        #{codSoliCred},
+        #{listaPagos, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.AnexoPagosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    
+    <select id="mostrarMontoTotalPago" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.MostrarMontoTotalPagoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_MOSTRAR_PAGOS_TOTAL(
+        #{codSoliCred},
+        #{listaPagosTotal, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.AnexoPagosTotalMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="mostrarListaGarantias" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.MostrarMontoTotalPagoProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_GARANTIAS(
+        #{codSoliCred},
+        #{indTipoGara},
+        #{listaGarantiaMobiliaria, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.AnexoGarantiasPagosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+  
+                      
+    <select id="listaDatosAnexos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarDatosAnexosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_LISTAR_DATOS_ANEXOS(
+        #{codSoliCred},
+        #{codOper},
+        #{listaNumFacturas, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.facturasMap},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.datosAnexosMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+     </select>  
+     
+     <select id="listaDatosCabeCron" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.legal.ListarDatosCabeCronProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_LEGAL.SP_OBTENER_DATOS_CAB_CRON(
+        #{codSoliCred},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.datosCabeCronMap},
+        #{listaCronograma, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.LegalMapper.datosDetaCronMap}, 
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+     </select>                      
+</mapper>

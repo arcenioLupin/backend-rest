@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoParamMapper">
+
+    <cache />
+    
+    <resultMap id="solicitudCreditoParamMap" type="pe.com.divemotor.solicitudcredito.dominio.SolicitudCreditoParam">
+        <result property="codSoliCred" column="COD_CRED_SOLI" />
+        <result property="codParamFC" column="COD_PARAM_FC" />
+        <result property="reunionPromIngDia" column="VAL_PROM_ING_DIA_REU"/>
+        <result property="reunionPonderado" column="VAL_POND_REU"/>
+        <result property="reunionTotalDiario" column="VAL_TOTA_DIAR_REU"/>
+        <result property="ruteoPromIngDia" column="VAL_PROM_ING_DIA_RUT"/>
+        <result property="ruteoPonderado" column="VAL_POND_RUT"/>
+        <result property="ruteoTotalDiario" column="VAL_TOTA_DIA_RUT"/>
+        <result property="encuestaPromIngDia" column="VAL_PROM_ING_DIA_ENC"/>
+        <result property="encuestaPonderado" column="VAL_POND_ENC"/>
+        <result property="encuestaTotalDiario" column="VAL_TOTA_DIAR_ENC"/>
+        <result property="promIngDiario" column="VAL_PROM_ING_DIA"/>
+        <result property="promIngMes" column="VAL_PROM_ING_MES"/>
+        <result property="promIngAnual" column="VAL_PROM_ING_ANUAL"/>
+        <result property="sensibilizacion" column="VAL_SENSIB"/>
+        <result property="ventas" column="VAL_VTAS_UNID"/>
+        <result property="variacionVtas" column="VAL_PORC_VARI_VTAS"/>
+        <result property="cambioAceiteCostoProm" column="VAL_COST_PROM_CAMB_ACEI"/>
+        <result property="llantasCostoProm" column="VAL_COST_PROM_LLANT"/>
+        <result property="frenosPastillasFajasCostoProm" column="VAL_COST_PROM_FREN"/>
+        <result property="pinturaCostoProm" column="VAL_COST_PROM_PINT"/>
+        <result property="reparacionesMotorCostoProm" column="VAL_COST_PROM_REP"/>
+        <result property="adicionalesCostoProm" column="VAL_COST_PROM_ADIC"/>
+        <result property="cambioAceiteFrecProm" column="VAL_FREC_PROM_CAMB_ACEI"/>
+        <result property="llantasFrecProm" column="VAL_FREC_PROM_LLANT"/>
+        <result property="frenosPastillasFajasFrecProm" column="VAL_FREC_PROM_FREN"/>
+        <result property="pinturaFrecProm" column="VAL_FREC_PROM_PINT"/>
+        <result property="reparacionesMotorFrecProm" column="VAL_FREC_PROM_REP"/>
+        <result property="adicionalesFrecProm" column="VAL_FREC_PROM_ADIC"/>
+        <result property="codTipoFrecCambAcei" column="COD_TIPO_FREC_CAMB_ACEI"/>
+        <result property="codTipoFrecLlant" column="COD_TIPO_FREC_LLANT"/>
+        <result property="codTipoFrecFren" column="COD_TIPO_FREC_FREN"/>
+        <result property="codTipoFrecPint" column="COD_TIPO_FREC_PINT"/>
+        <result property="codTipoFrecRep" column="COD_TIPO_FREC_REP"/>
+        <result property="codTipoFrecAdic" column="COD_TIPO_FREC_ADIC"/>
+        <result property="cambioAceiteCostoPromAnual" column="VAL_COST_PROM_ANUA_CACE"/>
+        <result property="llantasCostoPromAnual" column="VAL_COST_PROM_ANUA_LLANT"/>
+        <result property="frenosPastillasFajasCostoPromAnual" column="VAL_COST_PROM_ANUA_FREN"/>
+        <result property="pinturaCostoPromAnual" column="VAL_COST_PROM_ANUA_PINT"/>
+        <result property="reparacionesMotorCostoPromAnual" column="VAL_COST_PROM_ANUA_REP"/>
+        <result property="adicionalesCostoPromAnual" column="VAL_COST_PROM_ANUA_ADIC"/>
+        <result property="soatAfocatCostoProm" column="VAL_COST_PROM_SOAT"/>
+        <result property="revisionTecinaCostoProm" column="VAL_COST_PROM_REV_TEC"/>
+        <result property="tarjetaCirculacionCostoProm" column="VAL_COST_PROM_TARJ_CIRC"/>
+        <result property="soatAfocatFrecProm" column="VAL_FREC_PROM_SOAT"/>
+        <result property="revisionTecnicaFrecProm" column="VAL_FREC_PROM_REV_TEC"/>
+        <result property="tarjetaCirculacionFrecProm" column="VAL_FREC_PROM_TARJ_CIRC"/>
+        <result property="codTipoFrecSoat" column="COD_TIPO_FREC_SOAT"/>
+        <result property="codTipoFrecRevTec" column="COD_TIPO_FREC_REV_TEC"/>
+        <result property="codTipoFrecTarjCirc" column="COD_TIPO_FREC_TARJ_CIRC"/>
+        <result property="soatAfocatCostoPromAnual" column="VAL_COST_PROM_ANUA_SOAT"/>
+        <result property="revisionTecinaCostoPromAnual" column="VAL_COST_PROM_ANUA_REV_TEC"/>
+        <result property="tarjetaCirculacionCostoPromAnual" column="VAL_COST_PROM_ANUA_TARJ_CIRC"/>
+        <result property="remChofCostoVtaDiario" column="VAL_COST_VTA_DIA_RCHOF"/>
+        <result property="remCobrCostoVtaDiario" column="VAL_COST_VTA_DIA_RCOB_RASIST"/>
+        <result property="combustCostoVtaDiario" column="VAL_COST_VTA_DIA_COMB"/>
+        <result property="cochCostoVtaDiario" column="VAL_COST_VTA_DIA_COCH"/>
+        <result property="viaticCostoVtaDiario" column="VAL_COST_VTA_DIA_VIAT"/>
+        <result property="impstosCostoVtaDiario" column="VAL_COST_VTA_DIA_IMP"/>
+        <result property="remChofVtaAnual" column="VAL_COST_VTA_ANUA_RCHOF"/>
+        <result property="remCobrCostoVtaAnual" column="VAL_COST_VTA_ANUA_RCOB_RASIST"/>
+        <result property="combustCostoVtaAnual" column="VAL_COST_VTA_ANUA_COMB"/>
+        <result property="cochCostoVtaAnual" column="VAL_COST_VTA_ANUA_COCH"/>
+        <result property="viaticCostoVtaAnual" column="VAL_COST_VTA_ANUA_VIAT"/>
+        <result property="impstosCostoVtaAnual" column="VAL_COST_VTA_ANUA_IMP"/>
+        <result property="costoVenta" column="VAL_COST_VTAS_UNID"/>
+        <result property="gastosAdministrativos" column="VAL_GAST_ADM_UNID"/>
+        <result property="gastosVentas" column="VAL_GAST_VTAS_UNID"/>
+        <result property="kilometrosRecorridos" column="CAN_KMS_RECO_DIAR"/>
+        <result property="cantidadFiltroAceite" column="CAN_FILT_ACEI"/>
+        <result property="cantidadFiltroAire" column="CAN_FILT_AIRE"/>
+        <result property="cantidadFiltroPetroleo" column="CAN_FILT_PETR"/>
+        <result property="cantidadAceiteMotor" column="CAN_ACEI_MOT"/>
+        <result property="cantidadAceiteCaja" column="CAN_ACEI_CAJA"/>
+        <result property="cantidadAceiteCorona" column="CAN_ACEI_CORO"/>
+        <result property="cantidadFiltroSeparador" column="CAN_FILT_SEPA"/>
+        <result property="cantidadHidrolina" column="CAN_HIDR"/>
+        <result property="cantidadFiltroHidrolina" column="CAN_FILT_HIDR"/>
+        <result property="cantidadGrasaMP" column="CAN_GRAS_MP"/>
+        <result property="cantidadConjuntoCompleto" column="CAN_CONJ_COMP"/>
+        <result property="cantidadBombinBomba" column="CAN_BOMB"/>
+        <result property="cantidadDelantero" column="CAN_DELA"/>
+        <result property="cantidadPosterior" column="CAN_POST"/>
+        <result property="cantidadFajaVentilador" column="CAN_FAJA"/>
+        <result property="cantidadBombaAgua" column="CAN_BOMB_AGUA"/>
+        <result property="cantidadLlantasx6_1" column="CAN_LLANT_X6"/>
+        <result property="cantidadRodajesx8" column="CAN_RODA_X8"/>
+        <result property="cantidadBateria" column="CAN_BATE"/>
+        <result property="cantidadAmortiguadores" column="CAN_AMORT"/>
+        <result property="kilometrajeFiltroAceite" column="CAN_KM_FILT_ACEI"/>
+        <result property="kilometrajeFiltroAire" column="CAN_KM_FILT_AIRE"/>
+        <result property="kilometrajeFiltroPetroleo" column="CAN_KM_FILT_PETR"/>
+        <result property="kilometrajeAceiteMotor" column="CAN_KM_ACEI_MOT"/>
+        <result property="kilometrajeAceiteCaja" column="CAN_KM_ACEI_CAJA"/>
+        <result property="kilometrajeAceiteCorona" column="CAN_KM_ACEI_CORO"/>
+        <result property="kilometrajeFiltroSeparador" column="CAN_KM_FILT_SEPA"/>
+        <result property="kilometrajeHidrolina" column="CAN_KM_HIDR"/>
+        <result property="kilometrajeFiltroHidrolina" column="CAN_KM_FILT_HIDR"/>
+        <result property="kilometrajeGrasaMP" column="CAN_KM_GRAS_MP"/>
+        <result property="kilometrajeConjuntoCompleto" column="CAN_KM_CONJ_COMP"/>
+        <result property="kilometrajeBombinBomba" column="CAN_KM_BOMB"/>
+        <result property="kilometrajeDelantero" column="CAN_KM_DELA"/>
+        <result property="kilometrajePosterior" column="CAN_KM_POST"/>
+        <result property="kilometrajeFajaVentilador" column="CAN_KM_FAJA"/>
+        <result property="kilometrajeBombaAgua" column="CAN_KM_BOMB_AGUA"/>
+        <result property="kilometrajeLlantasx6_1" column="CAN_KM_LLANT_X6"/>
+        <result property="kilometrajeRodajesx8" column="CAN_KM_RODA_X8"/>
+        <result property="kilometrajeBateria" column="CAN_KM_BATE"/>
+        <result property="kilometrajeAmortiguadores" column="CAN_KM_AMORT"/>
+        <result property="costoUnitFiltroAceite" column="VAL_COST_UNIT_FILT_ACEI"/>
+        <result property="costoUnitFiltroAire" column="VAL_COST_UNIT_FILT_AIRE"/>
+        <result property="costoUnitFiltroPetroleo" column="VAL_COST_UNIT_FILT_PETR"/>
+        <result property="costoUnitAceiteMotor" column="VAL_COST_UNIT_ACEI_MOT"/>
+        <result property="costoUnitAceiteCaja" column="VAL_COST_UNIT_ACEI_CAJA"/>
+        <result property="costoUnitAceiteCorona" column="VAL_COST_UNIT_ACEI_CORO"/>
+        <result property="costoUnitFiltroSeparador" column="VAL_COST_UNIT_FILT_SEPA"/>
+        <result property="costoUnitHidrolina" column="VAL_COST_UNIT_HIDR"/>
+        <result property="costoUnitFiltroHidrolina" column="VAL_COST_UNIT_FILT_HIDR"/>
+        <result property="costoUnitGrasaMP" column="VAL_COST_UNIT_GRAS_MP"/>
+        <result property="costoUnitConjuntoCompleto" column="VAL_COST_UNIT_CONJ_COMP"/>
+        <result property="costoUnitBombinBomba" column="VAL_COST_UNIT_BOMB"/>
+        <result property="costoUnitDelantero" column="VAL_COST_UNIT_DELA"/>
+        <result property="costoUnitPosterior" column="VAL_COST_UNIT_POST"/>
+        <result property="costoUnitFajaVentilador" column="VAL_COST_UNIT_FAJA"/>
+        <result property="costoUnitBombaAgua" column="VAL_COST_UNIT_BOMB_AGUA"/>
+        <result property="costoUnitLlantasx6_1" column="VAL_COST_UNIT_LLANT_X6"/>
+        <result property="costoUnitRodajesx8" column="VAL_COST_UNIT_RODA_X8"/>
+        <result property="costoUnitBateria" column="VAL_COST_UNIT_BATE"/>
+        <result property="costoUnitAmortiguadores" column="VAL_COST_UNIT_AMORT"/>
+        <result property="costoKmFiltroAceite" column="VAL_COST_KM_FILT_ACEI"/>
+        <result property="costoKmFiltroAire" column="VAL_COST_KM_FILT_AIRE"/>
+        <result property="costoKmFiltroPetroleo" column="VAL_COST_KM_FILT_PETR"/>
+        <result property="costoKmAceiteMotor" column="VAL_COST_KM_ACEI_MOT"/>
+        <result property="costoKmAceiteCaja" column="VAL_COST_KM_ACEI_CAJA"/>
+        <result property="costoKmAceiteCorona" column="VAL_COST_KM_ACEI_CORO"/>
+        <result property="costoKmFiltroSeparador" column="VAL_COST_KM_FILT_SEPA"/>
+        <result property="costoKmHidrolina" column="VAL_COST_KM_HIDR"/>
+        <result property="costoKmFiltroHidrolina" column="VAL_COST_KM_FILT_HIDR"/>
+        <result property="costoKmGrasaMP" column="VAL_COST_KM_GRAS_MP"/>
+        <result property="costoKmConjuntoCompleto" column="VAL_COST_KM_CONJ_COMP"/>
+        <result property="costoKmBombinBomba" column="VAL_COST_KM_BOMB"/>
+        <result property="costoKmDelantero" column="VAL_COST_KM_DELA"/>
+        <result property="costoKmPosterior" column="VAL_COST_KM_POST"/>
+        <result property="costoKmFajaVentilador" column="VAL_COST_KM_FAJA"/>
+        <result property="costoKmBombaAgua" column="VAL_COST_KM_BOMB_AGUA"/>
+        <result property="costoKmLlantasx6_1" column="VAL_COST_KM_LLANT_X6"/>
+        <result property="costoKmRodajesx8" column="VAL_COST_KM_RODA_X8"/>
+        <result property="costoKmBateria" column="VAL_COST_KM_BATE"/>
+        <result property="costoKmAmortiguadores" column="VAL_COST_KM_AMORT"/>
+        <result property="costoSolesKm" column="VAL_COST_SOLE_KMS"/>
+        <result property="costoSolesUnidxDia" column="VAL_COST_SOLE_UNID_DIA"/>
+        <result property="costoSolesUnidMes" column="VAL_COST_SOLE_UNID_MES"/>
+        <result property="cargaReunion" column="VAL_INGR_MENS_REU_CARGA"/>
+        <result property="cargaContrato" column="VAL_INGR_MENS_CONT_CARGA"/>
+        <result property="cargaEncuesta" column="VAL_INGR_MENS_ENCU_CARGA"/>
+        <result property="nroViajesMesReunion" column="VAL_INGR_MENS_REU_NRO_VIAJ"/>
+        <result property="nroViajesMesContrato" column="VAL_INGR_MENS_CONT_NRO_VIAJ"/>
+        <result property="nroViajesMesEncuesta" column="VAL_INGR_MENS_ENCU_NRO_VIAJ"/>
+        <result property="tarifaReunion" column="VAL_INGR_MENS_REU_TARI"/>
+        <result property="tarifaContrato" column="VAL_INGR_MENS_CONT_TARI"/>
+        <result property="tarifaEncuesta" column="VAL_INGR_MENS_ENCU_TARI"/>
+        <result property="promMesReunion" column="VAL_INGR_MENS_REU_PROM"/>
+        <result property="promMesContrato" column="VAL_INGR_MENS_CONT_PROM"/>
+        <result property="promMesEncuesta" column="VAL_INGR_MENS_ENCU_PROM"/>
+        <result property="ponderacionReunion" column="VAL_INGR_MENS_REU_POND"/>
+        <result property="ponderacionContrato" column="VAL_INGR_MENS_CONT_POND"/>
+        <result property="ponderacionEncuesta" column="VAL_INGR_MENS_ENCU_POND"/> 
+        
+    </resultMap>
+    
+    <resultMap id="flujoCajaMap" type="pe.com.divemotor.solicitudcredito.dominio.FlujoCaja">
+        <result property="codCredSoli" column="COD_CRED_SOLI" />
+        <result property="codParamFc" column="COD_PARAM_FC" />
+        <result property="valPeriodo" column="VAL_PERIODO" />
+        <result property="valGfAno" column="VAL_GF_ANO" />
+        <result property="valGfInte" column="VAL_GF_INTE" />
+        <result property="valGfComiEstr" column="VAL_GF_COMI_ESTR" />
+        <result property="valGfOpciComp" column="VAL_GF_OPCI_COMP" />
+        <result property="valGfSubt" column="VAL_GF_SUBT" />
+        <result property="valEgypAno" column="VAL_EGYP_ANO" />
+        <result property="valEgypVtas" column="VAL_EGYP_VTAS" />
+        <result property="valEgypCostVtas" column="VAL_EGYP_COST_VTAS" />
+        <result property="valEgypUtilBrut" column="VAL_EGYP_UTIL_BRUT" />
+        <result property="valEgypOtroIngr" column="VAL_EGYP_OTRO_INGR" />
+        <result property="valEgypGastAdmi" column="VAL_EGYP_GAST_ADMI" />
+        <result property="valEgypGastVtas" column="VAL_EGYP_GAST_VTAS" />
+        <result property="valEgypDepr" column="VAL_EGYP_DEPR" />
+        <result property="valEgypUtilAnteEbit" column="VAL_EGYP_UTIL_ANTE_EBIT" />
+        <result property="valEgypGastFina" column="VAL_EGYP_GAST_FINA" />
+        <result property="valEgypUtilImpo" column="VAL_EGYP_UTIL_IMPO" />
+        <result property="valEgypIr" column="VAL_EGYP_IR" />
+        <result property="valEgypUtilNeta" column="VAL_EGYP_UTIL_NETA" />
+        <result property="valEgypEbitda" column="VAL_EGYP_EBITDA" />
+        <result property="valEgypPorcVari" column="VAL_EGYP_PORC_VARI" />
+        <result property="valFcAno" column="VAL_FC_ANO" />
+        <result property="valFcVtas" column="VAL_FC_VTAS" />
+        <result property="valFcCostVtas" column="VAL_FC_COST_VTAS" />
+        <result property="valFcUtilBrut" column="VAL_FC_UTIL_BRUT" />
+        <result property="valFcOtroIngr" column="VAL_FC_OTRO_INGR" />
+        <result property="valFcGastAdmi" column="VAL_FC_GAST_ADMI" />
+        <result property="valFcGastVtas" column="VAL_FC_GAST_VTAS" />
+        <result property="valFcDepr" column="VAL_FC_DEPR" />
+        <result property="valFcUtilAnteEbit" column="VAL_FC_UTIL_ANTE_EBIT" />
+        <result property="valFcIr" column="VAL_FC_IR" />
+        <result property="valFcNopat" column="VAL_FC_NOPAT" />
+        <result property="valFcDeprAmort" column="VAL_FC_DEPR_AMORT" />
+        <result property="valFcFlujCajaLibr" column="VAL_FC_FLUJ_CAJA_LIBR" />
+        <result property="valFcAmortDeudDive" column="VAL_FC_AMORT_DEUD_DIVE" />
+        <result property="valFcCobeDeud" column="VAL_FC_COBE_DEUD" />
+        <result property="valFcSaldoDeudDive" column="VAL_FC_SALDO_DEUD_DIVE" />
+        <result property="valFcCoberDeudFin" column="VAL_FC_COBER_DEUD_FIN" />
+       
+    </resultMap>
+    
+    <select id="listar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarSolicitudCreditoParamProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_LIST_CRED_SOLI_PARAM_FC(
+        #{codCredSoli},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoParamMapper.solicitudCreditoParamMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+        
+    </select> 
+    
+    <select id="listarFlujoCaja" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.ListarFlujoCajaProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_CALC_PROY_PARA_FC(
+        #{codCredSoli},
+        #{codParamFc},
+        #{codUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=pe.com.divemotor.solicitudcredito.mapper.SolicitudCreditoParamMapper.flujoCajaMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+        
+    </select> 
+    
+    <select id="registrar" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.RegistrarSolicitudCreditoParamProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI.SP_INSE_CRED_SOLI_PARAM_FC( 
+        #{codSoliCred},
+        #{reunionPromIngDia},
+        #{reunionPonderado},
+        #{reunionTotalDiario},
+        #{ruteoPromIngDia},
+        #{ruteoPonderado},
+        #{ruteoTotalDiario},
+        #{encuestaPromIngDia},
+        #{encuestaPonderado},
+        #{encuestaTotalDiario},
+        #{promIngDiario},
+        #{promIngMes},
+        #{promIngAnual},
+        #{sensibilizacion},
+        #{ventas},
+        #{variacionVtas},
+        #{cambioAceiteCostoProm},
+        #{llantasCostoProm},
+        #{frenosPastillasFajasCostoProm},
+        #{pinturaCostoProm},
+        #{reparacionesMotorCostoProm},
+        #{adicionalesCostoProm},
+        #{cambioAceiteFrecProm},
+        #{llantasFrecProm},
+        #{frenosPastillasFajasFrecProm},
+        #{pinturaFrecProm},
+        #{reparacionesMotorFrecProm},
+        #{adicionalesFrecProm},
+        #{codTipoFrecCambAcei},
+        #{codTipoFrecLlant},
+        #{codTipoFrecFren},
+        #{codTipoFrecPint},
+        #{codTipoFrecRep},
+        #{codTipoFrecAdic},
+        #{cambioAceiteCostoPromAnual},
+        #{llantasCostoPromAnual},
+        #{frenosPastillasFajasCostoPromAnual},
+        #{pinturaCostoPromAnual},
+        #{reparacionesMotorCostoPromAnual},
+        #{adicionalesCostoPromAnual},
+        #{soatAfocatCostoProm},
+        #{revisionTecinaCostoProm},
+        #{tarjetaCirculacionCostoProm},
+        #{soatAfocatFrecProm},
+        #{revisionTecnicaFrecProm},
+        #{tarjetaCirculacionFrecProm},
+        #{codTipoFrecSoat},
+        #{codTipoFrecRevTec},
+        #{codTipoFrecTarjCirc},
+        #{soatAfocatCostoPromAnual},
+        #{revisionTecinaCostoPromAnual},
+        #{tarjetaCirculacionCostoPromAnual},
+        #{remChofCostoVtaDiario},
+        #{remCobrCostoVtaDiario},
+        #{combustCostoVtaDiario},
+        #{cochCostoVtaDiario},
+        #{viaticCostoVtaDiario},
+        #{impstosCostoVtaDiario},
+        #{remChofVtaAnual},
+        #{remCobrCostoVtaAnual},
+        #{combustCostoVtaAnual},
+        #{cochCostoVtaAnual},
+        #{viaticCostoVtaAnual},
+        #{impstosCostoVtaAnual},
+        #{costoVenta},
+        #{gastosAdministrativos},
+        #{gastosVentas},
+        #{kilometrosRecorridos},
+        #{cantidadFiltroAceite},
+        #{cantidadFiltroAire},
+        #{cantidadFiltroPetroleo},
+        #{cantidadAceiteMotor},
+        #{cantidadAceiteCaja},
+        #{cantidadAceiteCorona},
+        #{cantidadFiltroSeparador},
+        #{cantidadHidrolina},
+        #{cantidadFiltroHidrolina},
+        #{cantidadGrasaMP},
+        #{cantidadConjuntoCompleto},
+        #{cantidadBombinBomba},
+        #{cantidadDelantero},
+        #{cantidadPosterior},
+        #{cantidadFajaVentilador},
+        #{cantidadBombaAgua},
+        #{cantidadLlantasx6_1},
+        #{cantidadRodajesx8},
+        #{cantidadBateria},
+        #{cantidadAmortiguadores},
+        #{kilometrajeFiltroAceite},
+        #{kilometrajeFiltroAire},
+        #{kilometrajeFiltroPetroleo},
+        #{kilometrajeAceiteMotor},
+        #{kilometrajeAceiteCaja},
+        #{kilometrajeAceiteCorona},
+        #{kilometrajeFiltroSeparador},
+        #{kilometrajeHidrolina},
+        #{kilometrajeFiltroHidrolina},
+        #{kilometrajeGrasaMP},
+        #{kilometrajeConjuntoCompleto},
+        #{kilometrajeBombinBomba},
+        #{kilometrajeDelantero},
+        #{kilometrajePosterior},
+        #{kilometrajeFajaVentilador},
+        #{kilometrajeBombaAgua},
+        #{kilometrajeLlantasx6_1},
+        #{kilometrajeRodajesx8},
+        #{kilometrajeBateria},
+        #{kilometrajeAmortiguadores},
+        #{costoUnitFiltroAceite},
+        #{costoUnitFiltroAire},
+        #{costoUnitFiltroPetroleo},
+        #{costoUnitAceiteMotor},
+        #{costoUnitAceiteCaja},
+        #{costoUnitAceiteCorona},
+        #{costoUnitFiltroSeparador},
+        #{costoUnitHidrolina},
+        #{costoUnitFiltroHidrolina},
+        #{costoUnitGrasaMP},
+        #{costoUnitConjuntoCompleto},
+        #{costoUnitBombinBomba},
+        #{costoUnitDelantero},
+        #{costoUnitPosterior},
+        #{costoUnitFajaVentilador},
+        #{costoUnitBombaAgua},
+        #{costoUnitLlantasx6_1},
+        #{costoUnitRodajesx8},
+        #{costoUnitBateria},
+        #{costoUnitAmortiguadores},
+        #{costoKmFiltroAceite},
+        #{costoKmFiltroAire},
+        #{costoKmFiltroPetroleo},
+        #{costoKmAceiteMotor},
+        #{costoKmAceiteCaja},
+        #{costoKmAceiteCorona},
+        #{costoKmFiltroSeparador},
+        #{costoKmHidrolina},
+        #{costoKmFiltroHidrolina},
+        #{costoKmGrasaMP},
+        #{costoKmConjuntoCompleto},
+        #{costoKmBombinBomba},
+        #{costoKmDelantero},
+        #{costoKmPosterior},
+        #{costoKmFajaVentilador},
+        #{costoKmBombaAgua},
+        #{costoKmLlantasx6_1},
+        #{costoKmRodajesx8},
+        #{costoKmBateria},
+        #{costoKmAmortiguadores},
+        #{costoSolesKm},
+        #{costoSolesUnidxDia},
+        #{costoSolesUnidMes},
+        #{cargaReunion},
+        #{cargaContrato},
+        #{cargaEncuesta},
+        #{nroViajesMesReunion},
+        #{nroViajesMesContrato},
+        #{nroViajesMesEncuesta},
+        #{tarifaReunion},
+        #{tarifaContrato},
+        #{tarifaEncuesta},
+        #{promMesReunion},
+        #{promMesContrato},
+        #{promMesEncuesta},
+        #{ponderacionReunion},
+        #{ponderacionContrato},
+        #{ponderacionEncuesta},
+        #{codUsuario},
+        #{codigo, mode=OUT, jdbcType=VARCHAR, javaType=String},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+    
+    
+</mapper>

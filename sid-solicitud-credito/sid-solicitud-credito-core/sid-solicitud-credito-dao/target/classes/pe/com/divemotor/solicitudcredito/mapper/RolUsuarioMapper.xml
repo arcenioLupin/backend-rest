@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pe.com.divemotor.solicitudcredito.mapper.RolUsuarioMapper">
+    
+    <cache />
+    
+    <resultMap id="RolUsuarioMap" type="pe.com.divemotor.solicitudcredito.dominio.RolUsuario">
+        <result property="value" column="value"/>
+         <result property="label" column="label"/>
+
+    </resultMap>
+    
+    <resultMap id="RolPorUsuarioMap" type="pe.com.divemotor.solicitudcredito.dominio.RolUsuario">
+        <result property="codTipo" column="codTipo"/>
+         <result property="descripcion" column="descripcion"/>
+    </resultMap>
+    
+    <resultMap id="RolDatosUsuarioMap" type="pe.com.divemotor.solicitudcredito.dominio.RolDatosUsuario">
+        <result property="nomPais" column="nom_pais"/>
+        <result property="codZona" column="cod_zona"/>
+        <result property="desZona" column="des_zona"/>
+        <result property="codAreaVta" column="cod_area_vta"/>
+        <result property="desAreaVta" column="des_area_vta"/>
+        <result property="codFilial" column="cod_filial"/>
+        <result property="nomFilial" column="nom_filial"/>
+        <result property="codSucursal" column="cod_sucursal"/>
+        <result property="nomSucursal" column="nom_sucursal"/>
+        <result property="coUsuario" column="co_usuario"/>
+    </resultMap>
+    
+    
+    <select id="listarRolUsuario" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.rolusuario.ListarRolUsuarioProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_ROLUSU.SP_LIST_USUARIO_AVTA_SUC_FIL(      
+        #{codAreaVta},
+        #{codFilial},
+        #{codSucursal},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=RolUsuarioMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarRolesPorUsuario" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.rolusuario.ListarRolesPorUsuarioProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_ROLUSU.SP_LIST_ROL_USUARIO(      
+        #{nomUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=RolPorUsuarioMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    
+    <select id="listarRolesJefes" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.rolusuario.ListarRolesJefesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_ROLUSU.SP_LIST_ROL_USU_JEFE(      
+        #{codRolUsuario},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=RolPorUsuarioMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select> 
+      
+    <select id="listarJefes" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.rolusuario.ListarJefesProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_ROLUSU.SP_LIST_JEFE(      
+        #{codRolJefe},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=RolUsuarioMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>
+    <select id="registrarRolUsuario" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.rolusuario.RegistrarRolesUsuariosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_ROLUSU.SP_REGI_ROL_USU(
+        #{nomUsuario},
+        #{codRolUsuario},  
+        #{nomUsuarioJefe},
+        #{nomUsuarioRemplazo},
+        #{codUsuario},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>   
+    
+    <select id="listarRolDatos" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.rolusuario.ListarRolDatosProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_ROLUSU.SP_LIST_ROL_DATOS(      
+        #{codUsuario},
+        #{codAreaVta}, 
+        #{codSucursal},
+        #{codFilial},
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=RolDatosUsuarioMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>    
+    
+    <select id="listarUsuariosPorRol" statementType="CALLABLE" parameterType="pe.com.divemotor.solicitudcredito.dto.procedure.rolusuario.ListarUsuariosPorRolProcedure" useCache="false">
+        {CALL PKG_SWEB_CRED_SOLI_MANT_ROLUSU.SP_LIST_ROL_USUARIOS(      
+        #{codRolUsuaJefe},
+        #{codRolUsuario}, 
+        #{busqueda, mode=OUT, jdbcType=CURSOR, javaType=java.sql.ResultSet, resultMap=RolUsuarioMap},
+        #{status, mode=OUT, jdbcType=INTEGER, javaType=int},
+        #{mensaje, mode=OUT, jdbcType=VARCHAR, javaType=String}
+        )}
+    </select>               
+    
+</mapper>

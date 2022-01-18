@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>pe.com.divemotor.solicitud-credito.dominio</groupId>
+    <artifactId>solicitud-credito-dominio</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <name>solicitud-credito-dominio</name>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.jackson.core>2.7.3</version.jackson.core>
+        <maven.compiler.source>1.6</maven.compiler.source>
+        <maven.compiler.target>1.6</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>pe.com.divemotor.generico.dominio</groupId>
+            <artifactId>generico-dominio</artifactId>
+            <version>1.0</version>
+        </dependency>        
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${version.jackson.core}</version>           
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.6</version>
+            <type>jar</type>
+        </dependency>
+    </dependencies>
+	
+    <distributionManagement> 
+        <repository>
+            <id>nexus</id>
+            <name>maven-releases</name>
+            <url>http://172.20.200.32:8081/repository/dev_releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <name>maven-snapshots</name>
+            <url>http://172.20.200.32:8081/repository/dev_snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
